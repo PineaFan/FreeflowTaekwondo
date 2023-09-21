@@ -1,0 +1,46 @@
+[
+    {
+        "day": "Monday",
+        "location_name": "Stone",
+        "building_name": "Hilderstone Village Hall",
+        "postcode": "ST15 8XQ",
+        "geo": "Hilderstone+Village+Hall+Sandon+Rd+Hilderstone+Stone+ST15+8XS",
+        "classes": [
+            { "name": "Little PUMAs (4-7)", "start": "18:30", "end": "19:00", "UUID": "MonLP" },
+            { "name": "All Grades", "start": "19:00", "end": "20:00", "UUID": "MonAll" }
+        ]
+    },
+    {
+        "day": "Tuesday",
+        "location_name": "Cheadle",
+        "building_name": "South Moorlands Leisure Centre",
+        "postcode": "ST10 1HJ",
+        "geo": "South+Moorlands+Leisure+Centre+Allen+St+Cheadle+ST10+1HJ",
+        "classes": [
+            { "name": "Little PUMAs (4-7)", "start": "19:00", "end": "19:30", "UUID": "TueLP" },
+            { "name": "All Grades", "start": "19:30", "end": "20:30", "UUID": "TueAll" }
+        ]
+    },
+    {
+        "day": "Wednesday",
+        "location_name": "Chell",
+        "building_name": "New Horizons Sport and Leisure Centre",
+        "postcode": "ST6 6JT",
+        "geo": "New+Horizons+Sport+and+Leisure+Centre+Uplands+Ave+Chell+ST6+6JT",
+        "classes": [
+            { "name": "Little PUMAs (4-7)", "start": "18:30", "end": "19:00", "UUID": "WedLP" },
+            { "name": "All Grades", "start": "19:00", "end": "20:00", "UUID": "WedAll" }
+        ]
+    },
+    {
+        "day": "Thursday",
+        "location_name": "Stone",
+        "building_name": "Hilderstone Village Hall",
+        "postcode": "ST15 8XQ",
+        "geo": "Hilderstone+Village+Hall+Sandon+Rd+Hilderstone+Stone+ST15+8XS",
+        "classes": [
+            { "name": "Junior Grades (Blue stripe and below)", "start": "19:00", "end": "20:00", "UUID": "ThuJnr" },
+            { "name": "Senior Grades (Blue belt and above)", "start": "20:00", "end": "21:00", "UUID": "ThuSnr" }
+        ]
+    }
+]

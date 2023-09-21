@@ -1,0 +1,17 @@
+.h1 {
+    font-size: 3rem;
+    font-weight: 200;
+    line-height: 1.5;
+    margin-top: 25px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.hr {
+    margin-inline: 2rem;
+    margin-top: 50px;
+    width: (100vw - 4rem);
+    height: 1px;
+    border-radius: 100vw;
+    background-color: #D4D4D4;
+}

@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    padding-inline: 2rem;
+    padding-block: 2vh;
+    background-color: #F0F0F0;
+}
+
+.close {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 5px;
+}
+
+.hr {
+    width: 100%;
+    height: 3px;
+    border-radius: 100vw;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.h1 {
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.h2 {
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.p {
+    font-weight: 300;
+    font-size: 1rem;
+    margin: 0;
+}

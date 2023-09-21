@@ -1,0 +1,166 @@
+{
+    "white-junior": {
+        "name": "White (Junior)",
+        "colour": "FFFFFF",
+        "stripe": "FFFFFF",
+        "requirements": {
+            "extra": []
+        }
+    },
+    "purple-junior": {
+        "name": "Purple Stripe (Junior)",
+        "colour": "FFFFFF",
+        "stripe": "B258A3",
+        "requirements": {
+            "patterns": [
+                "4 directional punch (1)",
+                "4 directional punch (2)"
+            ],
+            "extra": []
+        }
+    },
+    "orange-junior": {
+        "name": "Orange Stripe (Junior)",
+        "colour": "FFFFFF",
+        "stripe": "E5AB71",
+        "requirements": {
+            "patterns": ["4 directional block"],
+            "extra": []
+        }
+    },
+    "white-senior": {
+        "name": "White",
+        "colour": "FFFFFF",
+        "stripe": "FFFFFF",
+        "requirements": {
+            "patterns": [
+                "4 directional punch (1)",
+                "4 directional punch (2)",
+                "4 directional block"
+            ],
+            "extra": []
+        }
+    },
+    "yellow-stripe": {
+        "name": "Yellow Stripe",
+        "colour": "FFFFFF",
+        "stripe": "F2D478",
+        "requirements": {
+            "patterns": [
+                "Chon-Ji"
+            ],
+            "extra": []
+        }
+    },
+    "yellow": {
+        "name": "Yellow",
+        "colour": "F2D478",
+        "stripe": "F2D478",
+        "requirements": {
+            "patterns": [
+                "Dan-Gun",
+                "Chon-Ji"
+            ],
+            "prearrangedSparring": ["3 step 1", "3 step 2"],
+            "extra": []
+        }
+    },
+    "green-stripe": {
+        "name": "Green Stripe",
+        "colour": "F2D478",
+        "stripe": "60B258",
+        "requirements": {
+            "patterns": [
+                "Do-San",
+                "Dan-Gun",
+                "Chon-Ji"
+            ],
+            "prearrangedSparring": ["3 step 3", "3 step 4"],
+            "extra": []
+        }
+    },
+    "green": {
+        "name": "Green",
+        "colour": "60B258",
+        "stripe": "60B258",
+        "requirements": {
+            "patterns": [
+                "Won-Hyo",
+                "Do-San",
+                "Dan-Gun"
+            ],
+            "prearrangedSparring": ["3 step 5", "3 step 6"],
+            "extra": ["sparring", "belt tying"]
+        }
+    },
+    "blue-stripe": {
+        "name": "Blue Stripe",
+        "colour": "60B258",
+        "stripe": "6576CC",
+        "requirements": {
+            "patterns": [
+                "Yul-Gok",
+                "Won-Hyo",
+                "Do-San"
+            ],
+            "prearrangedSparring": ["2 step 1", "2 step 2"],
+            "extra": ["sparring"]
+        }
+    },
+    "blue": {
+        "name": "Blue",
+        "colour": "6576CC",
+        "stripe": "6576CC",
+        "requirements": {
+            "patterns": [
+                "Joong-Gun",
+                "Yul-Gok",
+                "Won-Hyo"
+            ],
+            "prearrangedSparring": ["2 step 3", "2 step 4"],
+            "extra": ["sparring", "power test"]
+        }
+    },
+    "red-stripe": {
+        "name": "Red Stripe",
+        "colour": "6576CC",
+        "stripe": "F27878",
+        "requirements": {
+            "patterns": [
+                "Toi-Gye",
+                "Joong-Gun",
+                "Yul-Gok"
+            ],
+            "prearrangedSparring": ["1 step standard"],
+            "extra": ["sparring", "power test"]
+        }
+    },
+    "red": {
+        "name": "Red",
+        "colour": "F27878",
+        "stripe": "F27878",
+        "requirements": {
+            "patterns": [
+                "Hwa-Rang",
+                "Toi-Gye",
+                "Joong-Gun"
+            ],
+            "prearrangedSparring": ["1 step traditional"],
+            "extra": ["sparring", "power test"]
+        }
+    },
+    "black-stripe": {
+        "name": "Black Stripe",
+        "colour": "F27878",
+        "stripe": "424242",
+        "requirements": {
+            "patterns": [
+                "Choong-Moo",
+                "Hwa-Rang",
+                "Toi-Gye"
+            ],
+            "prearrangedSparring": ["1 step freestyle"],
+            "extra": ["sparring", "power test"]
+        }
+    }
+}

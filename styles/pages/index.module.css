@@ -1,0 +1,23 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    gap: 45px;
+    max-width: 100%;
+
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - 4rem);
+    padding-inline: 2rem;
+}
+
+.vertical {
+    flex-direction: row;
+    gap: 10px;
+}

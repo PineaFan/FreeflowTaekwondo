@@ -1,0 +1,107 @@
+{
+    "white-junior": {
+        "images": ["white-junior"],
+        "name": "Junior White belt",
+        "kup": "10th",
+        "questions": [
+            { "prompt": "Taekwondo is...", "answer": "the Korean art of self defence.", "responseType": "typo" },
+            { "prompt": "The founder of Taekwondo is...", "answer": "General Choi Hong Hi, 9th Degree Grandmaster", "responseType": "typo" },
+            { "prompt": "Tae means...", "answer": "To jump, kick or smash with the foot", "responseType": "GPT" },
+            { "prompt": "Kwon means...", "answer": "A fist to punch or destroy with the hand", "responseType": "GPT" },
+            { "prompt": "Do means...", "answer": "Art, way or method", "responseType": "GPT" },
+            { "prompt": "Uniform", "answer": "Dobok", "responseType": "translate" },
+            { "prompt": "Belt", "answer": "Ti", "responseType": "translate" },
+            { "prompt": "Training Hall", "answer": "Dojang", "responseType": "translate" },
+            { "prompt": "What does white signify?", "answer": "Innocence, beginner, no previous knowledge of Taekwondo", "responseType": "GPT" },
+            { "prompt": "Why have you started Taekwondo?", "responseType": "opinion" }
+        ]
+    },
+    "purple-junior": {
+        "images": ["purple-junior"],
+        "name": "Junior Purple belt",
+        "kup": "10th",
+        "questions": [
+            { "prompt": "What are the tenets of Taekwondo?", "answer": "Courtesy, integrity, perseverance, self control, indomitable spirit", "responseType": "typo" },
+            { "prompt": "Low section", "answer": "Najunde", "responseType": "translate" },
+            { "prompt": "Middle section", "answer": "Kaunde", "responseType": "translate" },
+            { "prompt": "High section", "answer": "Nopunde", "responseType": "translate" },
+            { "prompt": "Where should a low section technique be performed?", "answer": "Below the belt", "responseType": "typo" },
+            { "prompt": "Where should a middle section technique be performed?", "answer": "Belt to shoulder level", "responseType": "typo" },
+            { "prompt": "Where should a high section technique be performed?", "answer": "Above shoulder level", "responseType": "typo" },
+            { "prompt": "Block", "answer": "Makgi", "responseType": "translate" },
+            { "prompt": "Punch", "answer": "Jirugi", "responseType": "translate" },
+            { "prompt": "Fore Fist", "answer": "Ap Joomuk", "responseType": "translate" },
+            { "prompt": "Inner Forearm", "answer": "An Palmok", "responseType": "translate" },
+            { "prompt": "Outer Forearm", "answer": "Bakat Palmok", "responseType": "translate" },
+            { "prompt": "Front Rising Kick", "answer": "Ap Cha Olligi", "responseType": "translate" },
+            { "prompt": "Front Snap Kick", "answer": "Ap Cha Busigi", "responseType": "translate" },
+            { "prompt": "Four Directional Punch", "answer": "Saju Jirugi", "responseType": "translate"}
+        ]
+    },
+    "orange-junior": {
+        "images": ["orange-junior-grading", "orange-junior-extra"],
+        "name": "Junior Orange belt",
+        "kup": "10th",
+        "questions": []
+    },
+    "white-senior": {
+        "images": ["white-senior-grading-1", "white-senior-grading-2"],
+        "name": "Senior White belt",
+        "kup": "10th",
+        "questions": []
+    },
+    "yellow-stripe": {
+        "images": ["yellow-stripe-grading", "yellow-stripe-extra"],
+        "name": "Senior Purple belt",
+        "kup": "9th",
+        "questions": []
+    },
+    "yellow": {
+        "images": ["yellow-grading", "yellow-extra"],
+        "name": "Senior Yellow belt",
+        "kup": "8th",
+        "questions": []
+    },
+    "green-stripe": {
+        "images": ["green-stripe-grading", "green-stripe-extra"],
+        "name": "Senior Green belt",
+        "kup": "7th",
+        "questions": []
+    },
+    "green": {
+        "images": ["green-grading", "green-extra"],
+        "name": "Senior Green belt",
+        "kup": "6th",
+        "questions": []
+    },
+    "blue-stripe": {
+        "images": ["blue-stripe-grading", "blue-stripe-extra"],
+        "name": "Senior Blue belt",
+        "kup": "5th",
+        "questions": []
+    },
+    "blue": {
+        "images": ["blue-grading", "blue-extra"],
+        "name": "Senior Blue belt",
+        "kup": "4th",
+        "questions": []
+    },
+    "red-stripe": {
+        "images": ["red-stripe-grading", "red-stripe-extra"],
+        "name": "Senior Red belt",
+        "kup": "3rd",
+        "questions": []
+    },
+    "red": {
+        "images": ["red-grading", "red-extra"],
+        "name": "Senior Red belt",
+        "kup": "2nd",
+        "questions": []
+    },
+    "black-stripe": {
+        "images": ["black-stripe"],
+        "name": "Senior Black belt",
+        "kup": "1st",
+        "questions": []
+    }
+}

@@ -1,0 +1,51 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.day {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin: 0;
+}
+.town {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0;
+    color: #696969;
+}
+.location {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin: 0;
+    color: #6576CC;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    max-width: 100%;
+}
+
+
+.class {
+    display: flex;
+    flex-direction: row;
+}
+.classes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 5px;
+}
+.name {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+}
