@@ -13,48 +13,27 @@ import untypedPadwork from '../public/data/padwork.json';
 import { SectionHeading } from '../components/title';
 import { Card, CardRow } from '../components/cards';
 
-interface belt {
-    name: string;
-    colour: string;
-    stripe: string;
-    requirements: {
-        patterns?: string[];
-        sparring?: string[];
-        extra: string[];
-    };
-};
-interface pattern {
-    name: string;
-    about: string[];
-    video?: string;
-    ready: string;
-    diagram: string;
-    facing: string;
-    moves: string[];
-    end: string;
-};
-interface linework {
-    direction: string;
-    english: string;
-    korean: string;
-};
-interface prearrangedSparring {
-    name: string;
-    measure?: string;
-    attack: string;
-    defence: string;
-    counter?: string;
-};
-interface theory {
-    name: string;
-    images: string[];
-    kup: string;
-    questions: {
-        prompt: string;
-        answer?: string;
-        responseType: string; // "exact" | "translate" | "GPT" | "typo" | "opinion";
-    }[];
-};
+import BeltTyingModule from '../components/checklistModules/beltTying';
+import LineworkModule from '../components/checklistModules/linework';
+import PadworkModule from '../components/checklistModules/padwork';
+import PatternsModule from '../components/checklistModules/patterns';
+import PowerTestModule from '../components/checklistModules/powerTest';
+import PrearrangedSparringModule from '../components/checklistModules/prearrangedSparring';
+import TheoryModule from '../components/checklistModules/theory';
+
+import { belt, linework, pattern, prearrangedSparring, theory } from '../types';
+
+
+const ExaminedModules = {
+    "beltTying": BeltTyingModule,
+    "linework": LineworkModule,
+    "padwork": PadworkModule,
+    "patterns": PatternsModule,
+    "powerTest": PowerTestModule,
+    "prearrangedSparring": PrearrangedSparringModule,
+    "theory": TheoryModule
+}
+
 
 const belts: Record<string, belt> = untypedBelts;
 const linework: Record<string, linework[]> = untypedLinework;
@@ -109,7 +88,7 @@ const gradingCards: Record<string, {
         button: {text: "Check moves", link: "#sparring"},
         image: "images/prearrangedSparring.png"  // TODO
     },
-    "power test": {
+    "powerTest": {
         title: "Power Test",
         subtitle: `You will be expected to perform a power test to demonstrate both the proper execution of a technique, and a high amount of power.`,
         button: {text: "What's this?", link: "#power"},
@@ -118,7 +97,6 @@ const gradingCards: Record<string, {
     "sparring": {
         title: "Sparring",
         subtitle: `You will be expected to spar against others at a similar belt to you. You are not expected to hurt your opponent, but instead should demonstrate as many different moves as possible.`,
-        button: {text: "How it works", link: "#sparring"},
         image: "images/sparring.png"
     },
     "theory": {
@@ -127,17 +105,17 @@ const gradingCards: Record<string, {
         button: {text: "Revise", link: "#theory"},
         _image: (name: string) => `theory/${theory[name].images[0]}.png`
     },
-    "belt tying": {
+    "beltTying": {
         title: "Belt Tying",
         subtitle: `You will be expected to demonstrate how to correctly tie your belt. This is the only grading you will be asked to do this, but it is important to know.`,
         button: {text: "Check how", link: "#belt"},
-        image: "images/belts.svg"  // TODO
+        image: "images/belts.svg"
     },
     "padwork": {
         title: "Padwork",
         subtitle: "You will be asked to demonstrate sequence of moves against a pad.",
         button: {text: "Check moves", link: "#padwork"},
-        image: "images/padwork.png"
+        image: "images/padwork.png"  // TODO
     }
 }
 
@@ -168,6 +146,31 @@ export default function Checklist() {
     if (Object.keys(padwork).includes(belt)) cardTitles.push("padwork")
     cardTitles = cardTitles.concat(belts[belt].requirements.extra.filter((x) => x in gradingCards) || []);
     cardTitles.push("theory");
+
+    const modules = cardTitles.filter((x) => Object.keys(ExaminedModules).includes(x)).map((key, index) => {
+        // Input data for the module
+        let cardData = {}
+        switch (key) {
+            case "linework": { cardData = linework[belt]; break; }
+            case "padwork": { cardData = padwork[belt]; break; }
+            case "patterns": { cardData = belts[belt].requirements.patterns!.map(p => patterns[p]); break; }
+            case "prearrangedSparring": { cardData = prearrangedSparring[belt]; break; }
+            case "theory": { cardData = theory[belt]; break; }
+        }
+        // @ts-expect-error
+        const Component = ExaminedModules[key];
+        return <div key={index}>
+            <SectionHeading
+                id={key}
+                showLine={true}
+            >{gradingCards[key].title}</SectionHeading>
+            <Component
+                belt={belt}
+                beltObject={belts[belt]}
+                data={cardData}
+            />
+        </div>
+    });
 
     return <>
         <Header
@@ -204,5 +207,6 @@ export default function Checklist() {
                 }
             </CardRow>
         </div>
+        { modules }
     </>;
 }

@@ -4,6 +4,7 @@ import Header from '../components/header';
 import { Card, CardRow } from '../components/cards';
 import { SectionHeading } from '../components/title';
 import { Lesson } from '../components/lesson';
+import { SocialPost } from '../components/socialPost';
 
 import Styles from '../styles/pages/index.module.css';
 
@@ -45,9 +46,15 @@ export default function Index(props: React.PropsWithChildren<{}>) {
                 image="images/stacey.png"
             />
         </CardRow>
-        {/* TODO: Student of the year*/}
+        <SocialPost>Huge congratulations to these young men winning Stone&apos;s student of the year 2022. Keep up the hard work all of you!</SocialPost>
+        <CardRow>
+            <Card image="images/SOTY/2.jpeg"/>
+            <Card image="images/SOTY/1.jpeg"/>
+            <Card image="images/SOTY/3.jpeg"/>
+            <Card image="images/SOTY/4.jpeg"/>
+        </CardRow>
         <SectionHeading id="classes" showLine={true}>Classes</SectionHeading>
-        <p className={Styles.center + " " + Styles.vertical}><Image className={Styles.ico} src="/icons/calendar.svg" height={24} width={24} alt=""/>Tap a time to add it to your calendar</p>
+        <p className={Styles.centerIcon + " " + Styles.vertical}><Image className={Styles.ico} src="/icons/calendar.svg" height={24} width={24} alt=""/>Tap a time to add it to your calendar</p>
         <div className={Styles.center}>
             <div className={Styles.list}>
                 {
@@ -79,6 +86,31 @@ export default function Index(props: React.PropsWithChildren<{}>) {
             />
         </CardRow>
         {/* Events */}
-        {/* Policies */}
+        <SectionHeading id="policies" showLine={true}>Policies</SectionHeading>
+        <div className={Styles.center}>
+            <div className={Styles.linkList}>
+                <a href="/policies/CodeOfConduct.pdf">Parent, Carer and Child Code of Conduct</a>
+                <a href="/policies/InstructorCodeOfConduct.pdf">Instructor Code of Ethics</a>
+                <a href="/policies/ChildProtectionPolicy.pdf">Child Protection Policy</a>
+                <a href="https://puma-uk.com/about#safeguarding">PUMA Safeguarding</a>
+                <a href="/policies/SafeguardingTeam">PUMA Safeguarding Team</a>
+                <a href="/policies/ComplaintsProcedure.pdf">Complaints Procedure</a>
+            </div>
+            <br /><br />
+            <CardRow>
+                <Card
+                    title="Safeguarding"
+                    image="policies/safeguarding.jpg"
+                    subtitle="We have demonstrated an ongoing commitment to safer sport in Martial Arts."
+                    button={{text: "View Certificate", link: "/policies/safeguarding.jpg"}}
+                />
+                <Card
+                    title="ChildLine"
+                    image="policies/childline.jpeg"
+                    subtitle="ChildLine is a private and confidential service for children and young people up to the age of nineteen."
+                    button={{text: "Visit Website", link: "https://www.childline.org.uk/"}}
+                />
+            </CardRow>
+        </div>
     </>;
 }

@@ -4,7 +4,7 @@
         "name": "Junior White belt",
         "kup": "10th",
         "questions": [
-            { "prompt": "Taekwondo is...", "answer": "the Korean art of self defence.", "responseType": "typo" },
+            { "prompt": "Taekwondo is...", "answer": "the Korean art of self defence", "responseType": "typo" },
             { "prompt": "The founder of Taekwondo is...", "answer": "General Choi Hong Hi, 9th Degree Grandmaster", "responseType": "typo" },
             { "prompt": "Tae means...", "answer": "To jump, kick or smash with the foot", "responseType": "GPT" },
             { "prompt": "Kwon means...", "answer": "A fist to punch or destroy with the hand", "responseType": "GPT" },
@@ -21,6 +21,69 @@
         "name": "Junior Purple belt",
         "kup": "10th",
         "questions": [
+            { "prompt": "What are the tenets of Taekwondo?", "answer": ["Courtesy", "Integrity", "Perseverance", "Self control", "Indomitable spirit"], "responseType": "list" },
+            { "prompt": "Low section", "answer": "Najunde", "responseType": "translate" },
+            { "prompt": "Middle section", "answer": "Kaunde", "responseType": "translate" },
+            { "prompt": "High section", "answer": "Nopunde", "responseType": "translate" },
+            { "prompt": "Where should a low section technique be performed?", "answer": "Below the belt", "responseType": "typo" },
+            { "prompt": "Where should a middle section technique be performed?", "answer": "Belt to shoulder level", "responseType": "typo" },
+            { "prompt": "Where should a high section technique be performed?", "answer": "Above shoulder level", "responseType": "typo" },
+            { "prompt": "Block", "answer": "Makgi", "responseType": "translate" },
+            { "prompt": "Punch", "answer": "Jirugi", "responseType": "translate" },
+            { "prompt": "Fore fist", "answer": "Ap Joomuk", "responseType": "translate" },
+            { "prompt": "Inner forearm", "answer": "An Palmok", "responseType": "translate" },
+            { "prompt": "Outer forearm", "answer": "Bakat Palmok", "responseType": "translate" },
+            { "prompt": "Front rising kick", "answer": "Ap Cha Olligi", "responseType": "translate" },
+            { "prompt": "Front snap kick", "answer": "Ap Cha Busigi", "responseType": "translate" },
+            { "prompt": "Four Directional Punch", "answer": "Saju Jirugi", "responseType": "translate"}
+        ]
+    },
+    "orange-junior": {
+        "images": ["orange-junior-grading", "orange-junior-extra"],
+        "name": "Junior Orange belt",
+        "kup": "10th",
+        "questions": [
+            { "prompt": "Attention stance", "answer": "Charyot Sogi", "responseType": "translate" },
+            { "prompt": "Parallel ready stance", "answer": "Narani Junbi Sogi", "responseType": "translate" },
+            { "prompt": "Sitting stance", "answer": "Annun Sogi", "responseType": "translate" },
+            { "prompt": "Walking stance", "answer": "Gunnun Sogi", "responseType": "translate" },
+            { "prompt": "L stance", "answer": "Niunja Sogi", "responseType": "translate" },
+            { "prompt": "Obverse", "answer": "Baro", "responseType": "translate" },
+            { "prompt": "Reverse", "answer": "Bandae", "responseType": "translate" },
+            { "prompt": "Instructor", "answer": "Sabum", "responseType": "translate" },
+            { "prompt": "Student", "answer": "Jeja", "responseType": "translate" },
+            { "prompt": "Four Directional Block", "answer": "Saju Makgi", "responseType": "translate" },
+            { "prompt": "What is the Taekwondo Oath?", "answer": [
+                "I shall observe the tenets of Taekwondo",
+                "I shall respect the instructor and seniors",
+                "I shall never misuse Taekwondo",
+                "I shall be a champion of freedom and justice",
+                "I shall build a more peaceful world"
+            ], "responseType": "list" }
+        ],
+        "extra": [
+            { "prompt": "How should your feet be positioned in an Attention Stance (Charyot Sogi)", "answer": "Heels touching to form a 45 degree angle", "responseType": "GPT" },
+            { "prompt": "How big should a parallel stance (Narani Sogi) be, and how should the weight be distributed?", "answer": "A shoulder width between outside of feet, weight 50/50", "responseType": "GPT" },
+            { "prompt": "How big should a sitting stance (Annun Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths between big toes, weight 50/50", "responseType": "GPT" },
+            { "prompt": "How big should a walking stance (Gunnun Sogi) be, and how should the weight be distributed?", "answer": "One shoulder width wide (sideways), one and a half shoulder widths long between the big toes, weight 50/50", "responseType": "GPT" },
+            { "prompt": "How big should an L stance (Niunja Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths long in total, gap of 2.5cm, weight 70/30", "responseType": "GPT" }
+        ]
+    },
+    "white-senior": {
+        "images": ["white-senior-grading-1", "white-senior-grading-2"],
+        "name": "Senior White belt",
+        "kup": "10th",
+        "questions": [
+            { "prompt": "Taekwondo is...", "answer": "the Korean art of self defence", "responseType": "typo" },
+            { "prompt": "The founder of Taekwondo is...", "answer": "General Choi Hong Hi, 9th Degree Grandmaster", "responseType": "typo" },
+            { "prompt": "Tae means...", "answer": "To jump, kick or smash with the foot", "responseType": "GPT" },
+            { "prompt": "Kwon means...", "answer": "A fist to punch or destroy with the hand", "responseType": "GPT" },
+            { "prompt": "Do means...", "answer": "Art, way or method", "responseType": "GPT" },
+            { "prompt": "Uniform", "answer": "Dobok", "responseType": "translate" },
+            { "prompt": "Belt", "answer": "Ti", "responseType": "translate" },
+            { "prompt": "Training Hall", "answer": "Dojang", "responseType": "translate" },
+            { "prompt": "What does white signify?", "answer": "Innocence, beginner, no previous knowledge of Taekwondo", "responseType": "GPT" },
+            { "prompt": "Why have you started Taekwondo?", "responseType": "opinion" },
             { "prompt": "What are the tenets of Taekwondo?", "answer": "Courtesy, integrity, perseverance, self control, indomitable spirit", "responseType": "typo" },
             { "prompt": "Low section", "answer": "Najunde", "responseType": "translate" },
             { "prompt": "Middle section", "answer": "Kaunde", "responseType": "translate" },
@@ -30,55 +93,164 @@
             { "prompt": "Where should a high section technique be performed?", "answer": "Above shoulder level", "responseType": "typo" },
             { "prompt": "Block", "answer": "Makgi", "responseType": "translate" },
             { "prompt": "Punch", "answer": "Jirugi", "responseType": "translate" },
-            { "prompt": "Fore Fist", "answer": "Ap Joomuk", "responseType": "translate" },
-            { "prompt": "Inner Forearm", "answer": "An Palmok", "responseType": "translate" },
-            { "prompt": "Outer Forearm", "answer": "Bakat Palmok", "responseType": "translate" },
-            { "prompt": "Front Rising Kick", "answer": "Ap Cha Olligi", "responseType": "translate" },
-            { "prompt": "Front Snap Kick", "answer": "Ap Cha Busigi", "responseType": "translate" },
-            { "prompt": "Four Directional Punch", "answer": "Saju Jirugi", "responseType": "translate"}
+            { "prompt": "Fore fist", "answer": "Ap Joomuk", "responseType": "translate" },
+            { "prompt": "Inner forearm", "answer": "An Palmok", "responseType": "translate" },
+            { "prompt": "Outer forearm", "answer": "Bakat Palmok", "responseType": "translate" },
+
+            { "prompt": "Front rising kick", "answer": "Ap Cha Olligi", "responseType": "translate" },
+            { "prompt": "Front snap kick", "answer": "Ap Cha Busigi", "responseType": "translate" },
+            { "prompt": "Four Directional Punch", "answer": "Saju Jirugi", "responseType": "translate"},
+            { "prompt": "Four Directional Block", "answer": "Saju Makgi", "responseType": "translate" },
+            { "prompt": "Attention stance", "answer": "Charyot Sogi", "responseType": "translate" },
+            { "prompt": "Parallel ready stance", "answer": "Narani Junbi Sogi", "responseType": "translate" },
+            { "prompt": "Sitting stance", "answer": "Annun Sogi", "responseType": "translate" },
+            { "prompt": "Walking stance", "answer": "Gunnun Sogi", "responseType": "translate" },
+            { "prompt": "L stance", "answer": "Niunja Sogi", "responseType": "translate" },
+            { "prompt": "How should your feet be positioned in an Attention Stance (Charyot Sogi)", "answer": "Heels touching to form a 45 degree angle", "responseType": "GPT" },
+            { "prompt": "How big should a parallel stance (Narani Sogi) be, and how should the weight be distributed?", "answer": "A shoulder width between outside of feet, weight 50/50", "responseType": "GPT" },
+            { "prompt": "How big should a sitting stance (Annun Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths between big toes, weight 50/50", "responseType": "GPT" },
+            { "prompt": "How big should a walking stance (Gunnun Sogi) be, and how should the weight be distributed?", "answer": "One shoulder width wide (sideways), one and a half shoulder widths long between the big toes, weight 50/50", "responseType": "GPT" },
+            { "prompt": "How big should an L stance (Niunja Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths long in total, gap of 2.5cm, weight 70/30", "responseType": "GPT" },
+            { "prompt": "Obverse", "answer": "Baro", "responseType": "translate" },
+            { "prompt": "Reverse", "answer": "Bandae", "responseType": "translate" },
+            { "prompt": "Instructor", "answer": "Sabum", "responseType": "translate" },
+            { "prompt": "Student", "answer": "Jeja", "responseType": "translate" },
+            { "prompt": "Four Directional Block", "answer": "Saju Makgi", "responseType": "translate" },
+            { "prompt": "What is the Taekwondo Oath?", "answer": [
+                "I shall observe the tenets of Taekwondo",
+                "I shall respect the instructor and seniors",
+                "I shall never misuse Taekwondo",
+                "I shall be a champion of freedom and justice",
+                "I shall build a more peaceful world"
+            ], "responseType": "list" }
         ]
-    },
-    "orange-junior": {
-        "images": ["orange-junior-grading", "orange-junior-extra"],
-        "name": "Junior Orange belt",
-        "kup": "10th",
-        "questions": []
-    },
-    "white-senior": {
-        "images": ["white-senior-grading-1", "white-senior-grading-2"],
-        "name": "Senior White belt",
-        "kup": "10th",
-        "questions": []
     },
     "yellow-stripe": {
         "images": ["yellow-stripe-grading", "yellow-stripe-extra"],
         "name": "Senior Purple belt",
         "kup": "9th",
-        "questions": []
+        "questions": [
+            { "prompt": "Taekwondo was introduced into the UK in...", "answer": "1967", "responseType": "exact" },
+            { "prompt": "PUMA is...", "answer": "The Professional Unification of Martial Arts, founded on 01-09-2000", "responseType": "GPT" },
+            { "prompt": "Chon-Ji means...", "answer": "Chon-Ji literally means 'heaven and earth', in the Orient it is interpreted as the creation of the world or the beginning of human history, therefore, it is the initial pattern played by the beginner. This pattern consists of two parts, one to represent heaven and the other, the earth", "responseType": "GPT" },
+            { "prompt": "How many movements does Chon-Ji have?", "answer": "19", "responseType": "exact" },
+            { "prompt": "Pattern", "answer": "Tul", "responseType": "translate" },
+            { "prompt": "Rising block", "answer": "Chookyo Makgi", "responseType": "translate" },
+            { "prompt": "Knifehand", "answer": "Sonkal", "responseType": "translate"},
+            { "prompt": "Knifehand side strike", "answer": "Sonkal Yop Taerigi", "responseType": "translate" },
+            { "prompt": "Knifehand guarding block", "answer": "Sonkal Daebi Makgi", "responseType": "translate" },
+            { "prompt": "Outer forearm inward block", "answer": "Bakat Palmok Anuro Makgi", "responseType": "translate" },
+            { "prompt": "Twin forearm block", "answer": "Sang Palmok Makgi", "responseType": "translate" },
+            { "prompt": "Back fist downward strike", "answer": "Dung Joomuk Naeryo Taerigi", "responseType": "translate" },
+            { "prompt": "What does yellow signify?", "answer": "Yellow signifies the earth from which the plant sprouts and takes root as the Taekwondo foundation is being laid", "responseType": "GPT" }
+        ],
+        "extra": [
+            { "prompt": "What does a pattern consist of?", "answer": "A pattern consists of a combination of full power Taekwondo techniques against an imaginary opponent, designed to practice and perfect techniques, some of which might not otherwise be used", "responseType": "GPT" },
+            { "prompt": "The name of a pattern, the number of movements, or its diagram symbolises...", "answer": "Either historical figures in Korean history, or instances relating to historical events", "responseType": "GPT" },
+            { "prompt": "What do the pattern meanings also demonstrate?", "answer": "Pattern meanings demonstrate the use of one or more of the tenets, to give us inspiration to follow", "responseType": "GPT" },
+            { "prompt": "Why are Saju Jirugi and Saju Makgi not patterns?", "answer": "They do not have meanings", "responseType": "GPT" },
+            { "prompt": "What two stances are in Chon-Ji? (In Korean)", "answer": ["Gunnun Sogi", "Niunja Sogi"], "responseType": "translate" },
+            { "prompt": "What two blocks are in Chon-Ji? (In Korean)", "answer": ["Bakat Palmok Najunde Makgi", "An Palmok Kaunde Makgi"], "responseType": "translate" },
+            { "prompt": "Step turning", "answer": "Omgyo Didimyo Dolgi", "responseType": "translate" }
+        ]
     },
     "yellow": {
         "images": ["yellow-grading", "yellow-extra"],
         "name": "Senior Yellow belt",
         "kup": "8th",
-        "questions": []
+        "questions": [
+            { "prompt": "What is Dan-Gun named after?", "answer": "Dan-Gun is named after the Holy Dan-Gun, the legendary founder of Korea in the year 2333 BCE", "responseType": "GPT" },
+            { "prompt": "How many movements does Dan-Gun have?", "answer": "21", "responseType": "exact" },
+            { "prompt": "Three step sparring", "answer": "Sambo Matoski", "responseType": "translate" },
+            { "prompt": "What does three step sparring improve?", "answer": ["Focus", "Distance", "Timing"], "responseType": "list" },
+            { "prompt": "Outer forearm middle block", "answer": "Bakat Palmok Kaunde Makgi", "responseType": "translate" },
+            { "prompt": "Outer forearm high block", "answer": "Bakat Palmok Nopunde Makgi", "responseType": "translate" },
+            { "prompt": "Straight fingertip thrust", "answer": "Sun Sonkut Tulgi", "responseType": "translate" },
+            { "prompt": "Backfist high side strike", "answer": "Dung Joomuk Nopunde Yop Taerigi", "responseType": "translate" },
+            { "prompt": "Outer forearm high wedging block", "answer": "Bakat Palmok Nopunde Hechyo Makgi", "responseType": "translate" },
+            { "prompt": "Double punch", "answer": "Doo Jirugi", "responseType": "translate" },
+            { "prompt": "Twin forearm block", "answer": "Sang Palmok Makgi", "responseType": "translate" },
+            { "prompt": "Free sparring", "answer": "Jayoo Matoski", "responseType": "translate" },
+            { "prompt": "What does green signify?", "answer": "The plants growth as Taekwondo skills begin to develop", "responseType": "GPT" }
+        ],
+        "extra": [
+            { "prompt": "What is free sparring?", "answer": "The aim in free sparring is to score points and are using Taekwondo as a sport. The objective is to only touch your partner without causing any pain or injury. No techniques are allowed below the belt or to the back. As well as developing focus, distance and timing, free sparring improves awareness and encourages agility along with spontaneous reaction. The scoring system awards 1 point for a hand technique to the middle or high sections, 2 points for a middle section kick and 3 points for a high kick to the head", "responseType": "GPT" },
+            { "prompt": "Counting in Koran", "answer": "As in English, the word for the double figure is placed in front of the single figure word, e.g. Twenty One = Sumul Hana, Twenty Two = Sumul Dool. Unlike our own decimal system, Korean counting is based on the number 9", "responseType": "DNA" },
+            { "prompt": "Count from 1 to 10 in Korean", "answer": ["Hana", "Dool", "Set", "Net", "Dasot", "Yasot", "Ilgup", "Yudul", "Ahop", "Yul"], "responseType": "translate" },
+            { "prompt": "Count from 10 to 50 in Korean, in multiples of 10", "answer": ["Yul", "Sumul", "Surhun", "Mahun", "Swin"], "responseType": "translate" },
+            { "prompt": "When can punches and strikes be used?", "answer": "Punches and strikes can be used against hard or soft targets. The aim is to smash, pierce, or penetrate. This is achieved by focusing the breathing and the other elements of power to the end of the technique. Both techniques accelerate in a relaxed manner throughout the execution, ending with a dynamic twist with tension", "responseType": "GPT" },
+            { "prompt": "When can thrusts be used?", "answer": "Thrusts are only used against soft targets. This technique reaches the target under tension and at a constant speed after its initial acceleration, exhaling throughout. This means they are effective anywhere on the line of attack", "responseType": "GPT" }
+        ]
     },
     "green-stripe": {
         "images": ["green-stripe-grading", "green-stripe-extra"],
         "name": "Senior Green belt",
         "kup": "7th",
-        "questions": []
+        "questions": [
+            { "prompt": "What was Do-San?", "answer": "Do-San is the pseudonym of the patriot Ahn Chang-Ho, who devoted his entire life to furthering the education of Korea and its independence movement.", "responseType": "GPT" },
+            { "prompt": "How many movements does Do-San have?", "answer": "24", "responseType": "exact" },
+            { "prompt": "Fixed stance", "answer": "Gojong Sogi", "responseType": "translate" },
+            { "prompt": "Bending ready stance A", "answer": "Goburyo Junbi Sogi A", "responseType": "translate" },
+            { "prompt": "Side punch", "answer": "Yop Jirugi", "responseType": "translate" },
+            { "prompt": "Inner forearm circular block", "answer": "Am Palmok Dollimyo Makgi", "responseType": "translate" },
+            { "prompt": "Side Kick", "answer": "Yop Chagi", "responseType": "translate" },
+            { "prompt": "Side piercing kick", "answer": "Yop Cha Jirugi", "responseType": "translate" },
+            { "prompt": "Turning kick", "answer": "Dollyo Chagi", "responseType": "translate" },
+            { "prompt": "How is normal motion performed?", "answer": "Normal motion is performed at normal speed with a pause long enough to show when one move has completely finished and the next is about to begin. It has one sine wave movement and one breath for each technique.", "responseType": "GPT" }
+        ],
+        "extra": [
+            { "prompt": "Release from grab", "answer": "Jappyosul Tae", "responseType": "translate" },
+            { "prompt": "Spot turning", "answer": "Gujari Dolgi", "responseType": "translate" },
+            { "prompt": "What is continuous motion?", "answer": "When two or more moves are linked by one continuous breath", "responseType": "GPT" },
+            { "prompt": "In a right stance, a right technique is...", "answer": "Obverse", "responseType": "typo" },
+            { "prompt": "In a right stance, a left technique is...", "answer": "Reverse", "responseType": "typo" },
+            { "prompt": "All stances to the side are...", "answer": "Neither left or right, therefore are neither obverse or reverse", "responseType": "GPT" },
+            { "prompt": "If the right leg is forwards in a 50/50 weight ratio stance, is it a left or right stance?", "answer": "Right", "responseType": "typo" },
+            { "prompt": "If the left leg is forwards in a 50/50 weight ratio stance, is it a left or right stance?", "answer": "Left", "responseType": "typo" },
+            { "prompt": "If the right has more weight in an unequal weight ratio stance, is it a left or right stance?", "answer": "Right", "responseType": "typo" },
+            { "prompt": "If the left leg has more weight in an unequal weight ratio stance, is it a left or right stance?", "answer": "Left", "responseType": "typo" }
+        ]
     },
     "green": {
         "images": ["green-grading", "green-extra"],
         "name": "Senior Green belt",
         "kup": "6th",
-        "questions": []
+        "questions": [
+            { "prompt": "Who was Won-Hyo?", "answer": "Won-Hyo was the noted monk who introduced Buddhism into the Silla Dynasty in the year 686 CE", "responseType": "GPT" },
+            { "prompt": "How many movements does Won-Hyo have?", "answer": "28", "responseType": "exact" },
+            { "prompt": "Close ready stance A", "answer": "Moa Junbi Sogi A", "responseType": "translate" },
+            { "prompt": "Foot shifting", "answer": "Jajun Bal", "responseType": "translate" },
+            { "prompt": "Palm high hooking block", "answer": "Sonbadak Nopunde Golcho Makgi", "responseType": "translate" },
+            { "prompt": "Palm upward block", "answer": "Sonbadak Ollyo Makgi", "responseType": "translate" },
+            { "prompt": "X fist pressing block", "answer": "Kyocha Joomuk Noollo Makgi", "responseType": "translate" },
+            { "prompt": "Twin vertical punch", "answer": "Sang Sewo Jirugi", "responseType": "translate" },
+            { "prompt": "Double forearm high block", "answer": "Doo Palmok Nopunde Makgi", "responseType": "translate" },
+            { "prompt": "Flat fingertip thrust", "answer": "Opun Sonkut Tulgi", "responseType": "translate" },
+            { "prompt": "Twin upset punch", "answer": "Sang Dwijibo Jirugi", "responseType": "translate" },
+            { "prompt": "Side elbow thrust", "answer": "Yop Palkup Tulgi", "responseType": "translate" },
+            { "prompt": "What does blue signify?", "answer": "Blue signifies the heaven towards which the plant matures into a towering tree as training in Taekwondo progresses", "responseType": "GPT" },
+            { "prompt": "What are the components of the theory of power", "answer": ["Reaction force", "Concentration", "Equilibrium", "Breath control", "Mass", "Speed"], "responseType": "list" }
+        ],
+        "extra": [
+            { "prompt": "What is Reaction Force?", "answer": "Using their force, striking when your opponent moves in", "responseType": "GPT" },
+            { "prompt": "What is Concentration?", "answer": "Directing power to a small target area, tension for a split second", "responseType": "GPT" },
+            { "prompt": "What is Equilibrium?", "answer": "Balance and stability, using your reaction arm for dynamic stability", "responseType": "GPT" },
+            { "prompt": "What is Breath Control?", "answer": "Utilising the breath, tense abdomen to breathe out on impact", "responseType": "GPT" },
+            { "prompt": "What is Mass?", "answer": "Using the knee spring and hip twist to increase body weight on impact", "responseType": "GPT" },
+            { "prompt": "What is Speed?", "answer": "Maximise speed, the most essential factor for power", "responseType": "GPT" },
+            { "prompt": "What is Fast Motion?", "answer": "Two or more moves performed in 'double-time' due to the second sine wave only being half of the normal sine wave, as you have less time to utilise the full range of movement", "responseType": "GPT" },
+            { "prompt": "What is Connecting Motion?", "answer": "Two or more moves performed within the same sine wave that are linked by breath. The first move sets up the opening for the second, therefore the first is always a block and the second move is an attack. However, there are some exceptions", "responseType": "GPT" },
+            { "prompt": "What is Slow Motion?", "answer": "Used to show the practitioners movement, technique, breath control and timing. It demonstrates the synchronisation of hands, feet, eyes and breath, and is performed to the count of 4 seconds", "responseType": "GPT" },
+            { "prompt": "What is Pushing Motion?", "answer": "A movement performed with no impact. This is because one does not intend to cause severe damage or trauma to the opponent when defending their attacks", "responseType": "" }
+        ]
     },
     "blue-stripe": {
         "images": ["blue-stripe-grading", "blue-stripe-extra"],
         "name": "Senior Blue belt",
         "kup": "5th",
-        "questions": []
+        "questions": [
+            { "prompt": "What does Yul-Gok mean?", "answer": "It is the pseudonym of a great philosopher and scholar Yi I (1536 - 1584 CE) nicknamed the 'Confucious of Korea'. The 38 movements refer to his birthplace on 38 degrees latitude and the diagram represents a scholar", "responseType": "GPT" }
+        ]
     },
     "blue": {
         "images": ["blue-grading", "blue-extra"],

@@ -11,3 +11,13 @@ export function SectionHeading(props: React.PropsWithChildren<{
         <h1 className={Styles.h1} id={props.id}>{props.children}</h1>
     </>
 }
+
+export function SectionSubheading(props: React.PropsWithChildren<{
+    id: string,
+    showLine?: boolean
+}>) {
+    return <>
+        {props.showLine && <div className={Styles.hr} />}
+        <h2 className={Styles.h2} id={props.id}>{props.children}</h2>
+    </>
+}

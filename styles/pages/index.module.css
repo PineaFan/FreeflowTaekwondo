@@ -8,7 +8,7 @@
 
 }
 
-.center {
+.centerIcon {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,4 +20,31 @@
 .vertical {
     flex-direction: row;
     gap: 10px;
+}
+
+.linkList a {
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin: 0;
+    color: #6576CC;
+    text-align: center;
+}
+.linkList {
+    width: 75%;
+    max-width: 750px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - 4rem);
+    padding-inline: 2rem;
 }

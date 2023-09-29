@@ -20,6 +20,9 @@ dependencies:
   eslint-config-next:
     specifier: 13.4.19
     version: 13.4.19(eslint@8.49.0)(typescript@5.2.2)
+  ical-toolkit:
+    specifier: ^1.0.9
+    version: 1.0.9
   next:
     specifier: 13.4.19
     version: 13.4.19(react-dom@18.2.0)(react@18.2.0)
@@ -537,6 +540,11 @@ packages:
 
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    dev: false
+
+  /commander@2.6.0:
+    resolution: {integrity: sha512-PhbTMT+ilDXZKqH8xbvuUY2ZEQNef0Q7DKxgoEKb4ccytsdvVVJmYqR0sGbi96nxU6oGrwEIQnclpK2NBZuQlg==}
+    engines: {node: '>= 0.6.x'}
     dev: false
 
   /concat-map@0.0.1:
@@ -1242,6 +1250,19 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+    dev: false
+
+  /ical-toolkit@1.0.9:
+    resolution: {integrity: sha512-cF4gpLBnSkkgbdnzKk+npAcNyu6vxf5QghvBneoha2Q3ZKE2wikdLsthLkxYaH4YwanwQzM3SI7O93gNve1dcQ==}
+    dependencies:
+      ical2json: 0.2.0
+    dev: false
+
+  /ical2json@0.2.0:
+    resolution: {integrity: sha512-oqC0QikXP+qpRBsGnh8A9VcoO7w+RalQOEz8GTo1LkTR79x/pW96b/RwJ1q0LWEz7c4D5pfwAGe0bmnJwcvPtw==}
+    hasBin: true
+    dependencies:
+      commander: 2.6.0
     dev: false
 
   /ignore@5.2.4:

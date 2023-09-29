@@ -50,8 +50,13 @@ export function Card(props: React.PropsWithChildren<{
         </div>;
     } else if (!has_image && has_text) {
         return <div className={Styles.card}> {textObject} </div>;
+    } else if (has_image && !has_text) {
+        return <div className={Styles.card} style={props.accent ? {boxShadow: `0 0 1rem #${props.accent}80`} : {}}>
+            <div className={Styles.image}>
+                <img src={"/" + props.image!} className={Styles.image} alt="" />
+            </div>
+        </div>;
     }
-
 
 }
 

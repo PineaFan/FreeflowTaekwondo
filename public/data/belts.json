@@ -1,6 +1,7 @@
 {
     "white-junior": {
         "name": "White (Junior)",
+        "displayName": "Junior White Belt",
         "colour": "FFFFFF",
         "stripe": "FFFFFF",
         "requirements": {
@@ -9,6 +10,7 @@
     },
     "purple-junior": {
         "name": "Purple Stripe (Junior)",
+        "displayName": "Junior Purple Stripe",
         "colour": "FFFFFF",
         "stripe": "B258A3",
         "requirements": {
@@ -21,6 +23,7 @@
     },
     "orange-junior": {
         "name": "Orange Stripe (Junior)",
+        "displayName": "Junior Orange Stripe",
         "colour": "FFFFFF",
         "stripe": "E5AB71",
         "requirements": {
@@ -30,6 +33,7 @@
     },
     "white-senior": {
         "name": "White",
+        "displayName": "Senior White Belt",
         "colour": "FFFFFF",
         "stripe": "FFFFFF",
         "requirements": {
@@ -43,6 +47,7 @@
     },
     "yellow-stripe": {
         "name": "Yellow Stripe",
+        "displayName": "Yellow Stripe",
         "colour": "FFFFFF",
         "stripe": "F2D478",
         "requirements": {
@@ -54,6 +59,7 @@
     },
     "yellow": {
         "name": "Yellow",
+        "displayName": "Yellow Belt",
         "colour": "F2D478",
         "stripe": "F2D478",
         "requirements": {
@@ -61,12 +67,16 @@
                 "Dan-Gun",
                 "Chon-Ji"
             ],
-            "prearrangedSparring": ["3 step 1", "3 step 2"],
+            "prearrangedSparring": {
+                "name": "3 Step 1 & 2",
+                "moves": ["3 step 1", "3 step 2"]
+            },
             "extra": []
         }
     },
     "green-stripe": {
         "name": "Green Stripe",
+        "displayName": "Green Stripe",
         "colour": "F2D478",
         "stripe": "60B258",
         "requirements": {
@@ -75,12 +85,16 @@
                 "Dan-Gun",
                 "Chon-Ji"
             ],
-            "prearrangedSparring": ["3 step 3", "3 step 4"],
+            "prearrangedSparring": {
+                "name": "3 Step 3 & 4",
+                "moves": ["3 step 3", "3 step 4"]
+            },
             "extra": []
         }
     },
     "green": {
         "name": "Green",
+        "displayName": "Green Belt",
         "colour": "60B258",
         "stripe": "60B258",
         "requirements": {
@@ -89,12 +103,16 @@
                 "Do-San",
                 "Dan-Gun"
             ],
-            "prearrangedSparring": ["3 step 5", "3 step 6"],
-            "extra": ["sparring", "belt tying"]
+            "prearrangedSparring": {
+                "name": "3 Step 5 & 6",
+                "moves": ["3 step 5", "3 step 6"]
+            },
+            "extra": ["sparring", "beltTying"]
         }
     },
     "blue-stripe": {
         "name": "Blue Stripe",
+        "displayName": "Blue Stripe",
         "colour": "60B258",
         "stripe": "6576CC",
         "requirements": {
@@ -103,12 +121,16 @@
                 "Won-Hyo",
                 "Do-San"
             ],
-            "prearrangedSparring": ["2 step 1", "2 step 2"],
+            "prearrangedSparring": {
+                "name": "2 Step 1 & 2",
+                "moves": ["2 step 1", "2 step 2"]
+            },
             "extra": ["sparring"]
         }
     },
     "blue": {
         "name": "Blue",
+        "displayName": "Blue Belt",
         "colour": "6576CC",
         "stripe": "6576CC",
         "requirements": {
@@ -117,12 +139,16 @@
                 "Yul-Gok",
                 "Won-Hyo"
             ],
-            "prearrangedSparring": ["2 step 3", "2 step 4"],
-            "extra": ["sparring", "power test"]
+            "prearrangedSparring": {
+                "name": "2 Step 3 & 4",
+                "moves": ["2 step 3", "2 step 4"]
+            },
+            "extra": ["sparring", "powerTest"]
         }
     },
     "red-stripe": {
         "name": "Red Stripe",
+        "displayName": "Red Stripe",
         "colour": "6576CC",
         "stripe": "F27878",
         "requirements": {
@@ -131,12 +157,16 @@
                 "Joong-Gun",
                 "Yul-Gok"
             ],
-            "prearrangedSparring": ["1 step standard"],
-            "extra": ["sparring", "power test"]
+            "prearrangedSparring": {
+                "name": "1 Step standard attacks and defence",
+                "moves": ["1 step standard"]
+            },
+            "extra": ["sparring", "powerTest"]
         }
     },
     "red": {
         "name": "Red",
+        "displayName": "Red Belt",
         "colour": "F27878",
         "stripe": "F27878",
         "requirements": {
@@ -145,12 +175,16 @@
                 "Toi-Gye",
                 "Joong-Gun"
             ],
-            "prearrangedSparring": ["1 step traditional"],
-            "extra": ["sparring", "power test"]
+            "prearrangedSparring": {
+                "name": "1 Step standard attacks and traditional defences",
+                "moves": ["1 step traditional"]
+            },
+            "extra": ["sparring", "powerTest"]
         }
     },
     "black-stripe": {
         "name": "Black Stripe",
+        "displayName": "Black Stripe",
         "colour": "F27878",
         "stripe": "424242",
         "requirements": {
@@ -159,8 +193,11 @@
                 "Hwa-Rang",
                 "Toi-Gye"
             ],
-            "prearrangedSparring": ["1 step freestyle"],
-            "extra": ["sparring", "power test"]
+            "prearrangedSparring": {
+                "name": "1 Step traditional attacks and traditional defences",
+                "moves": ["1 step freestyle"]
+            },
+            "extra": ["sparring", "powerTest"]
         }
     }
 }

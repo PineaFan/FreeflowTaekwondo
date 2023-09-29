@@ -1,0 +1,30 @@
+.container {
+    margin-bottom: 25px;
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.post {
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.image {
+    height: 64px;
+}
+
+.top {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.bottom {
+    font-size: 20px;
+    font-weight: 300;
+}

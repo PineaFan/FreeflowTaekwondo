@@ -1,4 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
+// @ts-expect-error
+import { createIcsFileBuilder } from "ical-toolkit";
 import classes from "../../public/data/classes.json";
 
 const typedClasses: {
@@ -15,13 +17,20 @@ const typedClasses: {
     }[];
 }[] = (classes as any);
 
-function formatDate(time: string) {
-    const d = new Date();
-    return `${d.getFullYear()}${(d.getMonth() + 1).toString().padStart(2, "0")}${d.getDate().toString().padStart(2, "0")}T${time.replace(":", "")}00`;
+function formatDate(time: string, day_of_week: string) {
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    // Create a date object at the next occurrence of the day of the week
+    const date = new Date();
+    date.setDate(date.getDate() + (7 + days.indexOf(day_of_week) - date.getDay()) % 7);
+    // Parse the time
+    const timeParts = time.split(":");
+    date.setHours(parseInt(timeParts[0]));
+    date.setMinutes(parseInt(timeParts[1]));
+    date.setSeconds(0);
+    return date;
 }
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-    res.setHeader('Content-Type', 'text/calendar');
     const id = req.query.id;
     // For each day, find the class with the matching id
     // Both the day and class details are needed
@@ -43,18 +52,27 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         res.status(404).send("Not found");
         return;
     }
+    res.setHeader('Content-Type', 'text/calendar');
 
-    let output = `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-URL:https://freeflowtaekwondo.com
-DTSTART:${formatDate(lesson.start)}
-DTEND:${formatDate(lesson.end)}
-SUMMARY:Taekwondo Lesson
-DESCRIPTION:${lesson.name}
-LOCATION:${day.geo.replaceAll("+", " ")}
-RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=${day.day}
-END:VEVENT
-END:VCALENDAR`;
-    res.send(output);
+    const builder = createIcsFileBuilder();
+    builder.calname = "Freeflow Taekwondo";
+    builder.timezone = "Europe/London";
+    builder.tzid = "Europe/London";
+    builder.method = "REQUEST";
+    console.log(lesson.start, formatDate(lesson.start, day.day))
+    builder.events.push({
+        start: formatDate(lesson.start, day.day),
+        end: formatDate(lesson.end, day.day),
+        summary: lesson.name,
+        description: lesson.name,
+        location: day.geo.replaceAll("+", " "),
+        repeating: {
+            freq: "WEEKLY",
+            interval: 1
+        }
+    });
+
+    const output = builder.toString();
+
+    res.status(200).send(output);
 }

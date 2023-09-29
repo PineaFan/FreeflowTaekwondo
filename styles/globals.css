@@ -5,10 +5,12 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    size: A4;
 }
 
+
 body {
-    padding-bottom: 25px;
+    padding-bottom: 50px;
 }
 
 * {

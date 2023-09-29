@@ -1,6 +1,49 @@
 {
-    "white-junior": [],
-    "purple-junior": [],
-    "orange-junior": [],
-    "white-senior": []
+    "white-junior": [
+        "Starting from TODO, perform a standing double punch",
+        "Perform 5 on each side"
+    ],
+    "purple-junior": [
+        "Starting from TODO, perform a standing double punch, followed by a back leg 45 kick",
+        "Perform 5 on each side",
+        "This technique is freestyle, so you and the pad holder will be moving around"
+    ],
+    "orange-junior": [
+        "Starting from TODO, perform a front leg side piercing kick",
+        "Perform 5 on each side",
+        "This technique is freestyle, so you and the pad holder will be moving around"
+    ],
+    "white-senior": [
+        "Starting from TODO, perform a standing double punch",
+        "Perform 5 on each side"
+    ],
+    "yellow-stripe": [
+        "Starting from TODO, perform a sliding double punch, followed immediately by a sliding double punch backwards"
+    ],
+    "yellow": [
+        "Starting from TODO, perform a sliding double side piercing kick"
+    ],
+    "green-stripe": [
+        "Starting from TODO, Perform a double side piercing kick, followed by a double punch, a single side piercing kick, and a double punch moving backwards"
+    ],
+    "green": [
+        "Starting from TODO, perform a backfist, followed by a reverse knifehand, then a 45 kick",
+        "This can be performed going forwards or backwards - The pad holder will decide by moving that direction"
+    ],
+    "blue-stripe": [
+        "Starting from TODO, perform a 45 kick off the back leg, followed by a reverse punch, and stepping back at 90° to the left"
+    ],
+    "blue": [
+        "Starting from TODO, perform a double step 45 kick, followed by a back kick, and a jumping double punch",
+        "This technique is freestyle, so it will be performed while moving around"
+    ],
+    "red-stripe": [
+        "Starting from TODO, perform a double punch, followed by a 45 kick, landing with the same foot behind to perform a reverse turning kick",
+        "This technique is freestyle, so it will be performed while moving around"
+    ],
+    "red": [
+        "Starting from TODO, perform a front or back leg 45 kick, depending on which side is open. If the pad holder steps forwards on their right foot, attack their left side",
+        "Following this technique, the pad holder will hold up the pad for a reverse turning kick. Adjust stance if necessary to perform this kick",
+        "This technique is freestyle, so it will be performed while moving around"
+    ]
 }
