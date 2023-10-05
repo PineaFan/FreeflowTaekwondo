@@ -8,7 +8,8 @@ import untypedBelts from '../public/data/belts.json';
 import untypedLinework from '../public/data/linework.json';
 import untypedPatterns from '../public/data/patterns.json';
 import untypedPrearrangedSparring from '../public/data/prearrangedSparring.json';
-import untypedTheory from '../public/data/theory.json';
+//import untypedTheory from '../public/data/theory.json';
+const untypedTheory ={}
 import untypedPadwork from '../public/data/padwork.json';
 import { SectionHeading } from '../components/title';
 import { Card, CardRow } from '../components/cards';

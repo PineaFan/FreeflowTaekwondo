@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from '../components/header';
 import { Card, CardRow } from '../components/cards';
-import { SectionHeading } from '../components/title';
+import { SectionHeading, SectionSubheading } from '../components/title';
 import { Lesson } from '../components/lesson';
 import { SocialPost } from '../components/socialPost';
 
@@ -64,6 +64,9 @@ export default function Index(props: React.PropsWithChildren<{}>) {
                 }
             </div>
         </div>
+        <br />
+        <SectionSubheading id="new">New to Taekwondo?</SectionSubheading>
+        <p style={{width: "100vw", textAlign: "center"}}>Get your first 2 lessons free with no commitments - Just let Stacey know before you come!</p>
         <SectionHeading id="contact" showLine={true}>Contact</SectionHeading>
         <CardRow>
             <Card
