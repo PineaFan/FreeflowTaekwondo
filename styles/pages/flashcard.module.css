@@ -1,0 +1,49 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    padding: 2em;
+    width: min(1000px, 80vw);
+    min-height: 25vh;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cardFront {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+.cardFlip {
+    transform: rotate3d(0, 1, 0, 90deg);
+}
+
+.shake {
+    animation: shake 0.3s;
+}
+@keyframes shake {
+    0% {
+        transform: rotate3d(0, 0, 0, 0deg);
+    }
+    20% {
+        transform: rotate3d(0, 0, 0, 10deg);
+    }
+    40% {
+        transform: rotate3d(0, 0, 0, -10deg);
+    }
+    60% {
+        transform: rotate3d(0, 0, 0, 10deg);
+    }
+    80% {
+        transform: rotate3d(0, 0, 0, -10deg);
+    }
+    100% {
+        transform: rotate3d(0, 0, 0, 0deg);
+    }
+}
+
+/* Path: styles/pages/review.module.css */
+.card {
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    padding: 2em;
+    width: min(1000px, 80vw);
+    min-height: 25vh;
+    transition: transform 0.3s ease-in-out;
+}
