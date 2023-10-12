@@ -20,8 +20,29 @@ export function Card(props: React.PropsWithChildren<{
     },
     image?: string,
     icon?: string,
-    accent?: string
+    accent?: string,
+    fitMethod?: "showAll" | "fill"
 }>) {
+    let image = null;
+    if (props.image && props.image.startsWith("youtube/")) {
+        // Set image to a YouTube embed
+        const videoId = props.image.split("v=")[1];
+        image = <iframe
+            className={Styles.image}
+            src={`https://www.youtube.com/embed/${videoId}`}
+            allow="clipboard-write; encrypted-media; picture-in-picture"
+            allowFullScreen={true}
+        />;
+    } else if (props.image) {
+        image = <img
+            className={Styles.image}
+            src={`/` + props.image}
+            alt=""
+            width={300}
+            height={300}
+            style={props.fitMethod === "showAll" ? {objectFit: "contain"} : {}}
+        />;
+    }
     const has_text = props.title || props.subtitle || props.description || props.button;
     const has_image = props.image;
 
@@ -44,7 +65,7 @@ export function Card(props: React.PropsWithChildren<{
     if (has_image && has_text) {
         return <div className={Styles.card} style={props.accent ? {boxShadow: `0 0 1rem #${props.accent}80`} : {}}>
             <div className={Styles.image}>
-                <img src={"/" + props.image!} className={Styles.image} alt="" />
+                {image}
             </div>
             {textObject}
         </div>;
@@ -53,7 +74,7 @@ export function Card(props: React.PropsWithChildren<{
     } else if (has_image && !has_text) {
         return <div className={Styles.card} style={props.accent ? {boxShadow: `0 0 1rem #${props.accent}80`} : {}}>
             <div className={Styles.image}>
-                <img src={"/" + props.image!} className={Styles.image} alt="" />
+                {image}
             </div>
         </div>;
     }

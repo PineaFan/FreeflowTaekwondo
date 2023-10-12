@@ -106,12 +106,14 @@ export default function Index(props: React.PropsWithChildren<{}>) {
                     image="policies/safeguarding.jpg"
                     subtitle="We have demonstrated an ongoing commitment to safer sport in Martial Arts."
                     button={{text: "View Certificate", link: "/policies/safeguarding.jpg"}}
+                    fitMethod='showAll'
                 />
                 <Card
                     title="ChildLine"
                     image="policies/childline.jpeg"
                     subtitle="ChildLine is a private and confidential service for children and young people up to the age of nineteen."
                     button={{text: "Visit Website", link: "https://www.childline.org.uk/"}}
+                    fitMethod='showAll'
                 />
             </CardRow>
         </div>

@@ -6,7 +6,8 @@ export default function Header(props: React.PropsWithChildren<{
     title: string,
     subtitle?: string,
     description: string,
-    colour?: string
+    colour?: string,
+    showHomeButton?: string  // TODO: Show this better
 }>) {
     return <div className={Styles.container}>
         <div className={Styles.close}>
@@ -15,5 +16,6 @@ export default function Header(props: React.PropsWithChildren<{
         </div>
         <div className={Styles.hr} style={{backgroundColor: `#${props.colour || '6576CC'}`}} />
         <p className={Styles.p}>{props.description}</p>
+        { props.showHomeButton ? <a href={props.showHomeButton} className={Styles.button}>Home</a> : null }
     </div>
 }

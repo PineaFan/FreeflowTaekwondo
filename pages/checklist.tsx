@@ -8,8 +8,7 @@ import untypedBelts from '../public/data/belts.json';
 import untypedLinework from '../public/data/linework.json';
 import untypedPatterns from '../public/data/patterns.json';
 import untypedPrearrangedSparring from '../public/data/prearrangedSparring.json';
-//import untypedTheory from '../public/data/theory.json';
-const untypedTheory ={}
+import untypedTheory from '../public/data/theory.json';
 import untypedPadwork from '../public/data/padwork.json';
 import { SectionHeading } from '../components/title';
 import { Card, CardRow } from '../components/cards';
@@ -18,7 +17,6 @@ import BeltTyingModule from '../components/checklistModules/beltTying';
 import LineworkModule from '../components/checklistModules/linework';
 import PadworkModule from '../components/checklistModules/padwork';
 import PatternsModule from '../components/checklistModules/patterns';
-import PowerTestModule from '../components/checklistModules/powerTest';
 import PrearrangedSparringModule from '../components/checklistModules/prearrangedSparring';
 import TheoryModule from '../components/checklistModules/theory';
 
@@ -30,7 +28,6 @@ const ExaminedModules = {
     "linework": LineworkModule,
     "padwork": PadworkModule,
     "patterns": PatternsModule,
-    "powerTest": PowerTestModule,
     "prearrangedSparring": PrearrangedSparringModule,
     "theory": TheoryModule
 }
@@ -60,6 +57,19 @@ const patternDescription = (currentBelt: belt) => {
     return ""
 }
 
+const beltDetails = (currentBelt: belt) => {
+    let out = `You will need to have attended at least ${currentBelt.requirements.minimum.lessons} lessons, and have been training for at least ${currentBelt.requirements.minimum.months} months`;
+    if (currentBelt.requirements.minimum.squads) {
+        out += `. You will also need to have attended at least ${currentBelt.requirements.minimum.squads} squad${currentBelt.requirements.minimum.squads > 1 ? 's' : ''}`;
+    }
+    if (currentBelt.requirements.minimum.seniorGradeTrainings) {
+        out += ` and ${currentBelt.requirements.minimum.seniorGradeTrainings} senior grade training${currentBelt.requirements.minimum.seniorGradeTrainings > 1 ? 's' : ''}`;
+    }
+    out += ".";
+    return out;
+
+}
+
 const gradingCards: Record<string, {
     title: string;
     subtitle?: string;
@@ -70,12 +80,19 @@ const gradingCards: Record<string, {
     };
     image?: string;
     _image?: Function;
+    fillMethod?: "showAll" | "fill";
 }> = {
+    "minimum": {
+        title: "Minimum Requirements",
+        _subtitle: (currentBelt: belt) => beltDetails(currentBelt),
+        image: "images/minimum.png" // TODO
+    },
     "patterns": {
         title: "Patterns",
         _subtitle: (currentBelt: belt, _name: string) => patternDescription(currentBelt),
         button: {text: "Check moves", link: "#patterns"},
-        image: "patterns/Plus.svg"  // TODO
+        image: "patterns/Plus.svg",
+        fillMethod: "showAll"
     },
     "linework": {
         title: "Linework",
@@ -92,7 +109,6 @@ const gradingCards: Record<string, {
     "powerTest": {
         title: "Power Test",
         subtitle: `You will be expected to perform a power test to demonstrate both the proper execution of a technique, and a high amount of power.`,
-        button: {text: "What's this?", link: "#power"},
         image: "images/power.png"  // TODO
     },
     "sparring": {
@@ -121,7 +137,6 @@ const gradingCards: Record<string, {
 }
 
 
-
 export default function Checklist() {
     const [belt, _setBelt] = useState("white-senior");
 
@@ -139,8 +154,10 @@ export default function Checklist() {
     }, []);
 
     const accent = belts[belt].stripe === "FFFFFF" ? "C4C4C4" : belts[belt].stripe;
+
     gradingCards.linework.subtitle = gradingCards.linework._subtitle!(belts[belt], belt);
     gradingCards.theory.image = gradingCards.theory._image!(belt);
+    gradingCards.minimum.subtitle = gradingCards.minimum._subtitle!(belts[belt]);
 
     let cardTitles = Object.keys(belts[belt].requirements).filter((x) => x in gradingCards);
     cardTitles.push("linework");
@@ -179,6 +196,7 @@ export default function Checklist() {
             // subtitle="Check all the requirements for your next grading."
             description="Select your grade below to see what the requirements are for your next belt."
             colour={belts[belt].stripe}
+            showHomeButton={"/"}
         />
         <div className={Styles.container}>
             <SectionHeading id="top" showLine={false}>What&apos;s on this grading?</SectionHeading>
@@ -203,6 +221,7 @@ export default function Checklist() {
                             key={index}
                             accent={accent}
                             {...card}
+                            fitMethod={card.fillMethod}
                         />
                     })
                 }

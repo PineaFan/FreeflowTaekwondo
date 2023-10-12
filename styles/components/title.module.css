@@ -12,6 +12,16 @@
     line-height: 1.5;
     margin-top: 25px;
     margin-bottom: 25px;
+    padding-inline: 0.5em;
+    text-align: center;
+}
+.h3 {
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 1.5;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-inline: 0.5em;
     text-align: center;
 }
 

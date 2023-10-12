@@ -10,6 +10,12 @@ export interface belt {
             moves: string[];
         };
         extra: string[];
+        minimum: {
+            lessons: number;
+            months: number;
+            squads: number;
+            seniorGradeTrainings: number;
+        }
     };
 };
 export interface pattern {

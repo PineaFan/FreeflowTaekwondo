@@ -54,6 +54,7 @@
     height: 1.5rem;
     width: auto;
     margin-right: 1rem;
+    vertical-align: middle;
 }
 
 .description {
