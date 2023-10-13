@@ -1,0 +1,9 @@
+.inlineText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    gap: 0.25em;
+    margin-inline: 0.5rem;
+}
