@@ -3,10 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc(100% - 4rem);
-    margin: 2rem;
+    width: stretch;
     overflow: hidden;
-    height: fix-content;
 }
 
 .collapse {
@@ -14,14 +12,18 @@
     width: fit-content;
     border-radius: 1rem;
     padding: 1rem;
-    height: fit-content;
+    padding-top: 0;
+    margin-bottom: 1.5rem;
 }
+@media print { .collapse {
+    height: max-content !important;
+} }
 
 .footer {
     width: 100%;
-    margin-top: -2rem;
-    padding-top: 2rem;
-    background: linear-gradient(180deg, #f00fff00, #FFFFFFFF, #FFFFFFFF 100%);
+    margin-top: -3rem;
+    padding-top: 3rem;
+    background: linear-gradient(transparent 0%, white 3rem, white 100%);
 
     display: flex;
     flex-direction: row;
@@ -29,6 +31,7 @@
     align-items: center;
     gap: 1rem;
 }
+@media print { .footer { display: none } }
 .fillWidth {
     width: stretch;
     height: 3px;

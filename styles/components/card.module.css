@@ -24,6 +24,7 @@
     object-fit: cover;
     padding: 0;
 }
+@media print { .image { display: none; } }
 
 .row {
     display: flex;
@@ -72,3 +73,5 @@
     border-radius: 100vw;
     transition: border 0.3s ease-in-out;
 }
+
+@media print { .button { display: none } }

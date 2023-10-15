@@ -5,16 +5,17 @@ import { Footer } from '../components/footer';
 
 
 export default function App({ Component, pageProps }: AppProps) {
-    return <>
+    return <div className='main'>
         <Head>
             <title>Freeflow Taekwondo</title>
             <meta name="description" content="A safe, family-friendly place for all ages to learn the Korean art of Self Defence." />
             <meta httpEquiv="Content-Language" content="en" />
         </Head>
-        {/* <Navbar /> */}
-        <Component
-            {...pageProps}
-        />
-        <Footer />
-    </>
+        <div className='content'>
+            <Component
+                {...pageProps}
+            />
+            <Footer />
+        </div>
+    </div>
 }

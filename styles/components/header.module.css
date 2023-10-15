@@ -5,8 +5,11 @@
     gap: 25px;
     padding-inline: 2rem;
     padding-block: 2vh;
+    margin: -2rem;
+    margin-bottom: 0;
     background-color: #F0F0F0;
 }
+@media print { .container { display: none } }
 
 .close {
     display: flex;

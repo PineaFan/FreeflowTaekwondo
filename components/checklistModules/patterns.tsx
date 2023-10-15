@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 
 function constructPattern(patternData: pattern, index: number, accent: string) {
-    return <div key={index}>
+    return <div className={Styles.list} key={index}>
         <SectionSubheading id={`patterns.${index}`} showLine={false}>{patternData.name}</SectionSubheading>
         <CardRow>
             <Card
@@ -33,9 +33,8 @@ function constructPattern(patternData: pattern, index: number, accent: string) {
                 accent={accent}
             />
         </CardRow>
-        <SectionSmallSubheading>Movements</SectionSmallSubheading>
-        { /* TODO: Make this collapsible with a --- show more --- effect */}
-        <CollapsibleContent accent={accent}>
+        <SectionSmallSubheading id={`patterns.${index}.movements`}>Movements</SectionSmallSubheading>
+        <CollapsibleContent accent={accent} scrollOnCollapse={`patterns.${index}.movements`}>
             <p>Ready position: {patternData.ready}</p>
             {
                 patternData.moves.map((move, index) => {
@@ -55,13 +54,13 @@ export default function Patterns(props: React.PropsWithChildren<{
 }>) {
     return <>
         <div className={Styles.inlineText}>
-            <p>For your {props.beltObject.displayName} grading you will have to perform </p>
+            <p>For your {props.beltObject.displayName} grading you will have to perform:</p>
             {
                 props.data.map((pattern, index) => {
-                    return <>
-                        <Link href={`#patterns.${index}`} key={index}>{pattern.name}{index === props.data.length - 1 ? "" : ", "}</Link>
+                    return <div key={index}>
+                        <Link href={`#patterns.${index}`}>{pattern.name}{index === props.data.length - 1 ? "" : ", "}</Link>
                         {index === props.data.length - 2 ? " and " : ""}
-                    </>
+                    </div>
                 })
             }
         </div>

@@ -13,8 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: calc(100vw - 4rem);
-    padding-inline: 2rem;
+    width: 100%;
 }
 
 .vertical {
@@ -45,6 +44,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: calc(100vw - 4rem);
-    padding-inline: 2rem;
+    width: 100%;
 }

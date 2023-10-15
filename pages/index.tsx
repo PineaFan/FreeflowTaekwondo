@@ -66,7 +66,7 @@ export default function Index(props: React.PropsWithChildren<{}>) {
         </div>
         <br />
         <SectionSubheading id="new">New to Taekwondo?</SectionSubheading>
-        <p style={{width: "100vw", textAlign: "center"}}>Get your first 2 lessons free with no commitments - Just let Stacey know before you come!</p>
+        <p style={{width: "100%", textAlign: "center"}}>Get your first 2 lessons free with no commitments - Just let Stacey know before you come!</p>
         <SectionHeading id="contact" showLine={true}>Contact</SectionHeading>
         <CardRow>
             <Card
@@ -103,7 +103,7 @@ export default function Index(props: React.PropsWithChildren<{}>) {
             <CardRow>
                 <Card
                     title="Safeguarding"
-                    image="policies/safeguarding.jpg"
+                    image="policies/safeguardingLogo.jpg"
                     subtitle="We have demonstrated an ongoing commitment to safer sport in Martial Arts."
                     button={{text: "View Certificate", link: "/policies/safeguarding.jpg"}}
                     fitMethod='showAll'

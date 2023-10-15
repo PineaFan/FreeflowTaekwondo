@@ -19,3 +19,8 @@ body {
     color: #424242;
     scroll-behavior: smooth;
 }
+
+
+.content {
+    padding: 2rem;
+}

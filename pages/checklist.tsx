@@ -21,6 +21,7 @@ import PrearrangedSparringModule from '../components/checklistModules/prearrange
 import TheoryModule from '../components/checklistModules/theory';
 
 import { belt, linework, pattern, prearrangedSparring, theory } from '../types';
+import { BeltSelect, NoBelt } from '../components/beltUtils';
 
 
 const ExaminedModules = {
@@ -30,7 +31,7 @@ const ExaminedModules = {
     "patterns": PatternsModule,
     "prearrangedSparring": PrearrangedSparringModule,
     "theory": TheoryModule
-}
+};
 
 
 const belts: Record<string, belt> = untypedBelts;
@@ -42,17 +43,17 @@ const padwork: Record<string, string[]> = untypedPadwork;
 
 
 const patternDescription = (currentBelt: belt) => {
-    const toLearn = currentBelt.requirements.patterns;
-    if (toLearn) {
-        return `You will be expected to perform ${toLearn.length} pattern${toLearn.length > 1 ? 's' : ''}: ` + toLearn.map((pattern, index) => {
-            if (index === toLearn.length - 1 && toLearn.length > 1) {
+    const displayNames = currentBelt.requirements.patterns!.map(p => patterns[p].name);
+    if (displayNames.length > 0) {
+        return `You will be expected to perform ${displayNames.length} pattern${displayNames.length > 1 ? 's' : ''}: ` + displayNames.map((pattern, index) => {
+            if (index === displayNames.length - 1 && displayNames.length > 1) {
                 return `and ${pattern}.`;
-            } else if (toLearn.length === 1) {
+            } else if (displayNames.length === 1) {
                 return `${pattern}.`;
             } else {
                 return `${pattern}, `;
             }
-        }).join("") + ` You will usually be asked to perform your pattern for grade (${currentBelt.requirements.patterns![0]}) twice.`;
+        }).join("") + ` You will usually be asked to perform your pattern for grade (${displayNames[0]}) twice.`;
     }
     return ""
 }
@@ -103,7 +104,7 @@ const gradingCards: Record<string, {
     "prearrangedSparring": {
         title: "Prearranged Sparring",
         subtitle: `You will be expected to perform prearranged sparring against another person of the same belt. This helps to improve your focus, distance, and timing.`,
-        button: {text: "Check moves", link: "#sparring"},
+        button: {text: "Check moves", link: "#prearrangedSparring"},
         image: "images/prearrangedSparring.png"  // TODO
     },
     "powerTest": {
@@ -138,20 +139,38 @@ const gradingCards: Record<string, {
 
 
 export default function Checklist() {
-    const [belt, _setBelt] = useState("white-senior");
+    const [belt, _setBelt] = useState("undefined");
+    const [beltChose, setBeltChosen] = useState(false);
 
     function setBelt(value: number) {
         const belt = Object.keys(belts)[value];
         _setBelt(belt);
         localStorage.setItem("belt", belt);
+        setBeltChosen(true);
     }
 
     useEffect(() => {
         const storedBelt = localStorage.getItem("belt");
         if (storedBelt && storedBelt in belts) {
             setBelt(Object.keys(belts).indexOf(storedBelt));
+            setBeltChosen(true);
         }
-    }, []);
+    }, [belt]);
+
+    const header = <Header
+        title="Grading Checklist"
+        // subtitle="Check all the requirements for your next grading."
+        description="Select your grade below to see what the requirements are for your next belt."
+        colour={beltChose ? belts[belt].stripe : "FFFFFF"}
+        showHomeButton={"/"}
+    />;
+
+    if (!beltChose) {
+        return <>
+            { header }
+            <NoBelt title={"What's on this grading?"} backLink={'checklist'} setBelt={setBelt} />
+        </>;
+    }
 
     const accent = belts[belt].stripe === "FFFFFF" ? "C4C4C4" : belts[belt].stripe;
 
@@ -191,27 +210,10 @@ export default function Checklist() {
     });
 
     return <>
-        <Header
-            title="Grading Checklist"
-            // subtitle="Check all the requirements for your next grading."
-            description="Select your grade below to see what the requirements are for your next belt."
-            colour={belts[belt].stripe}
-            showHomeButton={"/"}
-        />
+        { header }
         <div className={Styles.container}>
             <SectionHeading id="top" showLine={false}>What&apos;s on this grading?</SectionHeading>
-            <p className={Styles.text}>Grading checklist for <select
-                value={Object.keys(belts).indexOf(belt)}
-                className={Styles.select}
-                style={{borderColor: `#${belts[belt].stripe}`}}
-                onChange={e => setBelt(parseInt(e.target.value))}>{
-                    Object.values(belts).map((belt, index) => <option
-                        key={index}
-                        value={index}
-                    >{belt.name}</option>
-                )}
-            </select>
-            </p>
+            <div className={Styles.text}>Grading checklist for <BeltSelect currentBelt={belt} setBelt={setBelt} /></div>
             <CardRow>
                 {
                     cardTitles.map((key, index) => {

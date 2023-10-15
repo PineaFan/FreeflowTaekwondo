@@ -22,6 +22,8 @@ export function SectionSubheading(props: React.PropsWithChildren<{
     </>
 }
 
-export function SectionSmallSubheading(props: React.PropsWithChildren) {
-    return <h3 className={Styles.h3}>{props.children}</h3>
+export function SectionSmallSubheading(props: React.PropsWithChildren<{
+    id?: string
+}>) {
+    return <h3 className={Styles.h3} id={props.id ? props.id : undefined}>{props.children}</h3>
 }

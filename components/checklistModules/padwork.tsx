@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Styles from '../styles/components/title.module.css';
+import Styles from '../../styles/components/checklistModule/padwork.module.css';
 import { belt } from '../../types';
 
 export default function Padwork(props: React.PropsWithChildren<{
@@ -8,7 +8,11 @@ export default function Padwork(props: React.PropsWithChildren<{
     beltObject: belt;
     data: string[];
 }>) {
-    return <>
-        Some info about the theory cards
-    </>
+    return <div className={Styles.container}>
+        <div className={Styles.center}>
+            {
+                props.data.map((padwork, index) => <p key={index} className={Styles.text}>{padwork}.</p>)
+            }
+        </div>
+    </div>
 }
