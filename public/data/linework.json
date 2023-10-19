@@ -1,112 +1,112 @@
 {
     "white-junior": [
-        {"direction": "Forwards", "english": "Right W.S. obverse punch", "korean": "Gunnon sogi-baro jirugi"},
-        {"direction": "Backwards", "english": "W.S. obverse punch", "korean": "Gunnon sogi-baro jirugi"},
-        {"direction": "Forwards", "english": "Left W.S. low outer forearm block", "korean": "Gunnon sogi-najunde bakat palmok makgi"},
-        {"direction": "Backwards", "english": "W.S. low outer forearm block", "korean": "Gunnon sogi-najunde bakat palmok makgi"},
-        {"direction": "Forwards", "english": "Left W.S. middle inner forearm block", "korean": "Gunnon sogi-kaunde an palmok makgi"},
-        {"direction": "Backwards", "english": "W.S. middle inner forearm block", "korean": "Gunnon sogi-kaunde an palmok makgi"}
+        {"direction": "Forwards", "english": "Right walking stance obverse punch", "korean": "Gunnon sogi-baro jirugi"},
+        {"direction": "Backwards", "english": "Walking stance obverse punch", "korean": "Gunnon sogi-baro jirugi"},
+        {"direction": "Forwards", "english": "Left walking stance low outer forearm block", "korean": "Gunnon sogi-najunde bakat palmok makgi"},
+        {"direction": "Backwards", "english": "Walking stance low outer forearm block", "korean": "Gunnon sogi-najunde bakat palmok makgi"},
+        {"direction": "Forwards", "english": "Left walking stance middle inner forearm block", "korean": "Gunnon sogi-kaunde an palmok makgi"},
+        {"direction": "Backwards", "english": "Walking stance middle inner forearm block", "korean": "Gunnon sogi-kaunde an palmok makgi"}
     ],
     "purple-junior": [
-        {"direction": "Forwards", "english": "Left W.S. Low Knifehand block", "korean": "Gunnon sogi-najunde sonkal makgi"},
-        {"direction": "Backwards", "english": "W.S. Low Knifehand block", "korean": "Gunnon sogi-najunde sonkal makgi"},
-        {"direction": "Forwards", "english": "W.S. Rising Block", "korean": "Gunnon sogi-chookyo makgi"},
-        {"direction": "Backwards", "english": "W.S. Rising Block", "korean": "Gunnon sogi-chookyo makgi"}
+        {"direction": "Forwards", "english": "Left walking stance low knifehand block", "korean": "Gunnon sogi-najunde sonkal makgi"},
+        {"direction": "Backwards", "english": "Walking stance low knifehand block", "korean": "Gunnon sogi-najunde sonkal makgi"},
+        {"direction": "Forwards", "english": "Walking stance rising block", "korean": "Gunnon sogi-chookyo makgi"},
+        {"direction": "Backwards", "english": "Walking stance rising block", "korean": "Gunnon sogi-chookyo makgi"}
     ],
     "orange-junior": [
-        {"direction": "Forwards", "english": "Left W.S. rising block, reverse punch", "korean": "Gunnon sogi-chookyo makgi"},
-        {"direction": "Backwards", "english": "Left W.S. rising block, reverse punch", "korean": "Gunnon sogi-chookyo makgi"},
-        {"direction": "Forwards", "english": "W.S. Open Fist reverse punch", "korean": "Gunnon sogi-pyun joomuk bandae jirugi"},
-        {"direction": "Backwards", "english": "W.S. Open Fist reverse punch", "korean": "Gunnon sogi-pyun joomuk bandae jirugi"}
+        {"direction": "Forwards", "english": "Left walking stance rising block, reverse punch", "korean": "Gunnon sogi-chookyo makgi"},
+        {"direction": "Backwards", "english": "Left walking stance rising block, reverse punch", "korean": "Gunnon sogi-chookyo makgi"},
+        {"direction": "Forwards", "english": "Walking stance open fist, reverse punch", "korean": "Gunnon sogi-pyun joomuk bandae jirugi"},
+        {"direction": "Backwards", "english": "Walking stance open fist, reverse punch", "korean": "Gunnon sogi-pyun joomuk bandae jirugi"}
     ],
     "white-senior": [
-        {"direction": "Forwards", "english": "Right W.S. obverse punch", "korean": "Gunnon sogi-baro jirugi"},
-        {"direction": "Backwards", "english": "W.S. obverse punch", "korean": "Gunnon sogi-baro jirugi"},
-        {"direction": "Forwards", "english": "Left W.S. low outer forearm block", "korean": "Gunnon sogi-najunde bakat palmok makgi"},
-        {"direction": "Backwards", "english": "W.S. low outer forearm block", "korean": "Gunnon sogi-najunde bakat palmok makgi"},
-        {"direction": "Forwards", "english": "Left W.S. middle inner forearm block", "korean": "Gunnon sogi-kaunde an palmok makgi"},
-        {"direction": "Backwards", "english": "W.S. middle inner forearm block", "korean": "Gunnon sogi-kaunde an palmok makgi"}
+        {"direction": "Forwards", "english": "Right walking stance obverse punch", "korean": "Gunnon sogi-baro jirugi"},
+        {"direction": "Backwards", "english": "Walking stance obverse punch", "korean": "Gunnon sogi-baro jirugi"},
+        {"direction": "Forwards", "english": "Left walking stance low outer forearm block", "korean": "Gunnon sogi-najunde bakat palmok makgi"},
+        {"direction": "Backwards", "english": "Walking stance low outer forearm block", "korean": "Gunnon sogi-najunde bakat palmok makgi"},
+        {"direction": "Forwards", "english": "Left walking stance middle inner forearm block", "korean": "Gunnon sogi-kaunde an palmok makgi"},
+        {"direction": "Backwards", "english": "Walking stance middle inner forearm block", "korean": "Gunnon sogi-kaunde an palmok makgi"}
     ],
     "yellow-stripe": [
-        {"direction": "Forwards", "english": "Left L.S. Knife-hand Strike", "korean": "Niunja sogi-sonkal taerigi"},
-        {"direction": "Backwards", "english": "L.S. Knifehand guarding block", "korean": "Niunja sogi-sonkal daebi makgi"},
-        {"direction": "Forwards", "english": "W.S. middle inner forearm block, reverse punch", "korean": "Gunnon sogi-kaunde an palmok, makgi, bandae jirugi"},
-        {"direction": "Backwards", "english": "W.S. Low block, rising block", "korean": "Gunnon sogi-najunde makgi, chookyo makgi"},
-        {"direction": "Forwards", "english": "L.S. Twin forearm block", "korean": "Niunja sogi-sang palmok makgi"},
-        {"direction": "Backward", "english": "W.S. outer forearm low block, reverse punch", "korean": "Najunde baket palmok makgi, bandae jirugi"}
+        {"direction": "Forwards", "english": "Left L-stance knifehand strike", "korean": "Niunja sogi-sonkal taerigi"},
+        {"direction": "Backwards", "english": "L-stance knifehand guarding block", "korean": "Niunja sogi-sonkal daebi makgi"},
+        {"direction": "Forwards", "english": "Walking stance middle inner forearm block, reverse punch", "korean": "Gunnon sogi-kaunde an palmok, makgi, bandae jirugi"},
+        {"direction": "Backwards", "english": "Walking stance low block, rising block", "korean": "Gunnon sogi-najunde makgi, chookyo makgi"},
+        {"direction": "Forwards", "english": "L-stance twin forearm block", "korean": "Niunja sogi-sang palmok makgi"},
+        {"direction": "Backward", "english": "Walking stance outer forearm low block, reverse punch", "korean": "Najunde baket palmok makgi, bandae jirugi"}
     ],
     "yellow": [
-        {"direction": "Forwards", "english": "Right W.S. Straight fingertip thrust", "korean": "Gunnon sogi-Sun sonkut tuligi"},
-        {"direction": "Backwards", "english": "W.S. Middle side backfist", "korean": "Gunnon sogi-kaunde yop dung joomuk"},
-        {"direction": "Forwards", "english": "W.S. outer forearm wedging block", "korean": "Gunnon sogi-bakat palmok hechyo makgi."},
+        {"direction": "Forwards", "english": "Right walking stance straight fingertip thrust", "korean": "Gunnon sogi-Sun sonkut tuligi"},
+        {"direction": "Backwards", "english": "Walking stance middle side backfist", "korean": "Gunnon sogi-kaunde yop dung joomuk"},
+        {"direction": "Forwards", "english": "Walking stance outer forearm wedging block", "korean": "Gunnon sogi-bakat palmok hechyo makgi."},
         {"direction": "Forwards", "english": "Front snap kick, double punch", "korean": "Ap cha busigi, doo jirugi"},
         {"direction": "Forwards", "english": "Side piercing kick", "korean": "Yop cha jirugi"},
-        {"direction": "Backwards", "english": "W.S. outer forearm high block, reverse middle punch", "korean": "Gunnon sogi-bakat palmok nopunde makgi, bandae jirugi"},
-        {"direction": "Forwards", "english": "L.S. Middle reverse punch", "korean": "Niunja sogi-kounde bandae jirgi"},
-        {"direction": "Backwards", "english": "L.S. outer forearm inward block", "korean": "Niunja sogi-bakat polmock anaero makgi"}
+        {"direction": "Backwards", "english": "Walking stance outer forearm high block, reverse middle punch", "korean": "Gunnon sogi-bakat palmok nopunde makgi, bandae jirugi"},
+        {"direction": "Forwards", "english": "L-stance middle reverse punch", "korean": "Niunja sogi-kounde bandae jirgi"},
+        {"direction": "Backwards", "english": "L-stance outer forearm inward block", "korean": "Niunja sogi-bakat polmock anaero makgi"}
     ],
     "green-stripe": [
-        {"direction": "Forwards", "english": "Right Turning kick, L.S. guarding block", "korean": "Dollyo chagi, niunja sogi-polmok daebi makgi"},
+        {"direction": "Forwards", "english": "Right turning kick, L-stance guarding block", "korean": "Dollyo chagi, niunja sogi-polmok daebi makgi"},
         {"direction": "Backwards", "english": "Fixed stance side punch", "korean": "Gojong sogi-yop jirugi"},
-        {"direction": "Forwards", "english": "W.S. Circular block", "korean": "Gunnon sogi-dollimyo makgi"},
-        {"direction": "Backwards", "english": "Back Piercing kick, L.S. guarding block", "korean": "Dwit cha jirugi, niunja sogi-palmok daebi makgi"},
-        {"direction": "Forwards", "english": "Bending stance, side kick, L.S. guarding block", "korean": "Guburyo junbi sogi A-yop chagi, niunja sogi-palmok daebi makgi"},
-        {"direction": "Backward", "english": "L.S Twin Knifehand block", "korean": "Niunja sogi-sang sonkal makgi"}
+        {"direction": "Forwards", "english": "Walking stance circular block", "korean": "Gunnon sogi-dollimyo makgi"},
+        {"direction": "Backwards", "english": "Back piercing kick, L-stance guarding block", "korean": "Dwit cha jirugi, niunja sogi-palmok daebi makgi"},
+        {"direction": "Forwards", "english": "Bending stance, side kick, L-stance guarding block", "korean": "Guburyo junbi sogi A-yop chagi, niunja sogi-palmok daebi makgi"},
+        {"direction": "Backward", "english": "L-stance twin knifehand block", "korean": "Niunja sogi-sang sonkal makgi"}
     ],
     "green": [
-        {"direction": "Forwards", "english": "Left W.S. Palm high hooking block, hooking block, obverse punch", "korean": "Gunnon sogi, Sonbadak nopunde golcho makgi, golcho makgi, baro jirugi"},
-        {"direction": "Backwards", "english": "L.S. Palm upward block", "korean": "Niunja sogi-Sonbadak ollyo makgi"},
-        {"direction": "Forwards", "english": "W.S. X fist pressing block, twin vertical punch", "korean": "Gunnon sogi-kyocha joomuk noollo makgi, Sang sewo jirugi"},
-        {"direction": "Backwards", "english": "W.S. Double forearm high block", "korean": "Gunnon sogi-doo palmok nopunde makgi"},
-        {"direction": "Forwards", "english": "W.S. Flat fingertip thrust", "korean": "Gunnon sogi-opun sonkut tulgi"},
-        {"direction": "Backward", "english": "W.S. Double punch", "korean": "Gunnon sogi-doo jirugi"},
-        {"direction": "Forwards", "english": "W.S. Twin upset punch", "korean": "Gunnnon sogi-sang dwijibo jirugi"},
-        {"direction": "Backwards", "english": "L.S. Side elbow thrust", "korean": "Niunja sogi-yop palkup tulgi"}
+        {"direction": "Forwards", "english": "Left walking stance palm high hooking block, hooking block, obverse punch", "korean": "Gunnon sogi, Sonbadak nopunde golcho makgi, golcho makgi, baro jirugi"},
+        {"direction": "Backwards", "english": "L-stance palm upward block", "korean": "Niunja sogi-Sonbadak ollyo makgi"},
+        {"direction": "Forwards", "english": "Walking stance X-fist pressing block, twin vertical punch", "korean": "Gunnon sogi-kyocha joomuk noollo makgi, Sang sewo jirugi"},
+        {"direction": "Backwards", "english": "Walking stance double forearm high block", "korean": "Gunnon sogi-doo palmok nopunde makgi"},
+        {"direction": "Forwards", "english": "Walking stance flat fingertip thrust", "korean": "Gunnon sogi-opun sonkut tulgi"},
+        {"direction": "Backward", "english": "Walking stance double punch", "korean": "Gunnon sogi-doo jirugi"},
+        {"direction": "Forwards", "english": "Walking stance twin upset punch", "korean": "Gunnnon sogi-sang dwijibo jirugi"},
+        {"direction": "Backwards", "english": "L-stance side elbow thrust", "korean": "Niunja sogi-yop palkup tulgi"}
     ],
     "blue-stripe": [
-        { "direction": "Forwards", "english": "Left Low stance. Palm pressing block", "korean": "Nachuo sogi-sonbadak noollo makgi"},
-        { "direction": "Backwards", "english": "L.S. Sidefist side strike", "korean": "Niunja sogi-yop joomuk yop taerigi"},
-        { "direction": "Forwards", "english": "Fixed stance. U shaped block", "korean": "Gojong sogi-digutcha makgi"},
-        { "direction": "Backwards", "english": "W.S. X fist rising block", "korean": "Gunnon sogi-kyocha joomuk chookyo makgi"},
-        { "direction": "Forwards", "english": "W.S. Reverse Angle Punch", "korean": "Gunnon sogi-bandae giokja jirugi"},
-        { "direction": "Backwards", "english": "L.S. Reverse knifehand middle block", "korean": "Niunja sogi-sonkal dung kaunde makgi"},
-        { "direction": "Forwards", "english": "L.S. Knifehand guarding block, footshift to W.S. upper elbow strike", "korean": "Niunja sogi-sonkal daebi makgi, jajun bal, gunnon sogi-wi palkup taerigi"},
-        { "direction": "Backwards", "english": "L.S. Double step, knifehand guarding block. (Change stance)", "korean": "Ibo omgyo didigi Niunja sogi-sonkal daebi makgi"},
-        { "direction": "Forwards", "english": "Reverse turning kick then perform a L.S. forearm guarding block", "korean": "Bandae dollyo chagi, niunja sogi-palmok daebi makgi"},
-        { "direction": "Backwards", "english": "W.S. Archand high strike", "korean": "Gunnon sogi-bandalson nopunde taerigi"}
+        { "direction": "Forwards", "english": "Left low stance palm pressing block", "korean": "Nachuo sogi-sonbadak noollo makgi"},
+        { "direction": "Backwards", "english": "L-stance sidefist side strike", "korean": "Niunja sogi-yop joomuk yop taerigi"},
+        { "direction": "Forwards", "english": "Fixed stance U-shaped block", "korean": "Gojong sogi-digutcha makgi"},
+        { "direction": "Backwards", "english": "Walking stance X-fist rising block", "korean": "Gunnon sogi-kyocha joomuk chookyo makgi"},
+        { "direction": "Forwards", "english": "Walking stance reverse angle punch", "korean": "Gunnon sogi-bandae giokja jirugi"},
+        { "direction": "Backwards", "english": "L-stance reverse knifehand middle block", "korean": "Niunja sogi-sonkal dung kaunde makgi"},
+        { "direction": "Forwards", "english": "L-stance knifehand guarding block, footshift to Walking stance upper elbow strike", "korean": "Niunja sogi-sonkal daebi makgi, jajun bal, gunnon sogi-wi palkup taerigi"},
+        { "direction": "Backwards", "english": "L-stance double step, knifehand guarding block. (Change stance)", "korean": "Ibo omgyo didigi Niunja sogi-sonkal daebi makgi"},
+        { "direction": "Forwards", "english": "Reverse turning kick, then perform an L-stance forearm guarding block", "korean": "Bandae dollyo chagi, niunja sogi-palmok daebi makgi"},
+        { "direction": "Backwards", "english": "Walking stance arc hand high strike", "korean": "Gunnon sogi-bandalson nopunde taerigi"}
     ],
     "blue": [
-        {"direction": "Forwards", "english": "Moving on left leg, Sitting stance W shape block", "korean": "Annun sogi-san makgi"},
-        {"direction": "Backwards", "english": "L.S. Double forearm pushing block", "korean": "Niunja sogi-doo palmok miro makgi"},
-        {"direction": "Forwards", "english": "Downward kick then perform a L.S. guarding block", "korean": "Naeryo chagi, niunja sogi-palmok daebi makgi"},
-        {"direction": "Backwards", "english": "L.S. Low knifehand block, footshift, W.S. circular block", "korean": "Niunja sogi-najunde sonkal makgi, jajun bal, gunnon sogi-dollimyo makgi"},
-        {"direction": "Forwards", "english": "Sidekick, Back kick, W.S. reverse punch, footshift, guarding block", "korean": "Yop cha Jirugi, Dwitcha Jirugi, gunnon sogi-bandae jirugi, jajun bal, palmok daebi makgi"},
-        {"direction": "Backwards", "english": "W.S. Upset fingertip thrust", "korean": "Gunnon sogi-dwijibun sonkut tulgi"},
-        {"direction": "Forwards", "english": "Turningkick, reverse turningkick, W.S. rev knifehand high rev strike", "korean": "Guard Dollyo chagi, bandae dollyo chagi, gunnon sogi-sonkal dung nopunde taerigi, jajun bal, palmok daebi makgi"},
-        {"direction": "Backwards", "english": "L.S. Side backfist and a low outer forearm block", "korean": "Niunja sogi-yop dung joomuk, najunde bakat palmok makgi"}
+        {"direction": "Forwards", "english": "Moving on left leg, sitting stance W-shape block", "korean": "Annun sogi-san makgi"},
+        {"direction": "Backwards", "english": "L-stance double forearm pushing block", "korean": "Niunja sogi-doo palmok miro makgi"},
+        {"direction": "Forwards", "english": "Downward kick then perform an L-stance guarding block", "korean": "Naeryo chagi, niunja sogi-palmok daebi makgi"},
+        {"direction": "Backwards", "english": "L-stance low knifehand block, footshift, walking stance circular block", "korean": "Niunja sogi-najunde sonkal makgi, jajun bal, gunnon sogi-dollimyo makgi"},
+        {"direction": "Forwards", "english": "Side kick, back kick, walking stance reverse punch, footshift, guarding block", "korean": "Yop cha Jirugi, Dwitcha Jirugi, gunnon sogi-bandae jirugi, jajun bal, palmok daebi makgi"},
+        {"direction": "Backwards", "english": "Walking stance upset fingertip thrust", "korean": "Gunnon sogi-dwijibun sonkut tulgi"},
+        {"direction": "Forwards", "english": "Turning kick, reverse turning kick, walking stance reverse knifehand high reverse strike", "korean": "Guard Dollyo chagi, bandae dollyo chagi, gunnon sogi-sonkal dung nopunde taerigi, jajun bal, palmok daebi makgi"},
+        {"direction": "Backwards", "english": "L-stance side backfist and a low outer forearm block", "korean": "Niunja sogi-yop dung joomuk, najunde bakat palmok makgi"}
     ],
     "red-stripe": [
-        {"direction": "Forwards", "english": "From Rt. L.S. Guarding block. Frontkick off front leg, turningkick off the rear leg", "korean": "Ap cha busigi, dollyo chagi"},
-        {"direction": "Backwards", "english": "L.S. Upward punch", "korean": "Niunja sogi-ollyo jirugi"},
-        {"direction": "Forwards", "english": "Frontkick-sidekick with the same leg", "korean": "Ap cha busigi, yop chagi"},
-        {"direction": "Forwards", "english": "Sliding into- Fixed stance side punch, then pull back into Vertical stance downward knifehand strike", "korean": "Mikulgi-gojong sogi-yop jirugi, soojik sogi-naeryo sonkal taerigi"},
-        {"direction": "Forwards", "english": "W.S. punch, grab hand, release with sidekick, perform L.S. knifehand strike", "korean": "Gunnon sogi-baro jirugi, jappyolsol tae, yop chagi, niunja sogi-sonkal taerigi"},
-        {"direction": "Backwards", "english": "L.S. Obverse punch", "korean": "Niunja sogi-baro jirugi"},
-        {"direction": "Forwards", "english": "Front leg, hookingkick - sidekick, then using back leg, cresentkick-sidekick, L.S. guarding block", "korean": "Golcho chagi, yop chagi, bandal chagi, yop chagi, niunja sogi-palmok daebi makgi"},
-        {"direction": "Forwards", "english": "Double step sidekick. To change stance perform a single step", "korean": "Ibo omgyo didigi yop chagi"},
-        {"direction": "Forwards", "english": "Double step turningkick. To change stance perform a single step", "korean": "Ibo omgyo didigi dollyo chagi"}
+        {"direction": "Forwards", "english": "From right L-stance guarding block, front kick off front leg, turning kick off the back leg", "korean": "Ap cha busigi, dollyo chagi"},
+        {"direction": "Backwards", "english": "L-stance upward punch", "korean": "Niunja sogi-ollyo jirugi"},
+        {"direction": "Forwards", "english": "Front kick, side kick with the same leg", "korean": "Ap cha busigi, yop chagi"},
+        {"direction": "Forwards", "english": "Sliding into fixed stance side punch, then pull back into vertical stance downward knifehand strike", "korean": "Mikulgi-gojong sogi-yop jirugi, soojik sogi-naeryo sonkal taerigi"},
+        {"direction": "Forwards", "english": "Walking stance punch, grab hand, release with side kick, perform an L-stance knifehand strike", "korean": "Gunnon sogi-baro jirugi, jappyolsol tae, yop chagi, niunja sogi-sonkal taerigi"},
+        {"direction": "Backwards", "english": "L-stance obverse punch", "korean": "Niunja sogi-baro jirugi"},
+        {"direction": "Forwards", "english": "Front leg, hooking kick, side kick, then using back leg, crescent kick, side kick, L-stance guarding block", "korean": "Golcho chagi, yop chagi, bandal chagi, yop chagi, niunja sogi-palmok daebi makgi"},
+        {"direction": "Forwards", "english": "Double step side kick. To change stance perform a single step", "korean": "Ibo omgyo didigi yop chagi"},
+        {"direction": "Forwards", "english": "Double step turning kick. To change stance perform a single step", "korean": "Ibo omgyo didigi dollyo chagi"}
     ],
     "red": [
-        {"direction": "Forwards", "english": "Rt.LS. Guarding block, hookingkick-sidekick off the front leg, reverse turning hooking, kick off the back", "korean": "Golcho chagi, yop chagi, bandae dollyo goro chagi"},
-        {"direction": "Backwards", "english": "WS. Knifehand high front strike bringing backhand in front of head", "korean": "Gunnon sogi-sonkal nopunde ap taerigi"},
-        {"direction": "Forwards", "english": "Flying sidekick in a double stepping motion, execute a knife hand guarding block", "korean": "Twimyo yop chagi, niunja sogi-sonkal daebi makgi"},
-        {"direction": "Backwards", "english": "LS. X knifehand middle checking block", "korean": "Niunja sogi-kyocha sonkal momchau makgi"},
-        {"direction": "Forwards", "english": "Turningkick, then reverse turningkick - turningkick on the same leg", "korean": "Dollyo chagi, bandae dollyo chagi, dollyo chagi"},
-        {"direction": "Backwards", "english": "WS. Twin palm upward block", "korean": "Gunnon sogi-sang sonbadak ollyo makgi"},
-        {"direction": "Forwards", "english": "LS. Guarding block, double step hookingkick off the front leg. To change stance perform, a single step", "korean": "Ibo omgyo didigi, bandae dollyo goro chagi"},
-        {"direction": "Backwards", "english": "SS. Middle front outer forearm block and then a high side backfist", "korean": "Annun sogi-kaunde ap bakat palmok makgi, nopunde yop dung joomuk"},
-        {"direction": "Forwards", "english": "Frontkick - downwardkick on the same leg", "korean": "Ap cha busigi, naeryo chagi"},
-        {"direction": "Forwards", "english": "Flying frontkick off the back leg", "korean": "Twimyo ap chagi"}
+        {"direction": "Forwards", "english": "Right L-stance guarding block, hooking kick, side kick off the front leg, reverse turning hooking, kick off the back leg", "korean": "Golcho chagi, yop chagi, bandae dollyo goro chagi"},
+        {"direction": "Backwards", "english": "Walking stance knifehand high front strike bringing back hand in front of the head", "korean": "Gunnon sogi-sonkal nopunde ap taerigi"},
+        {"direction": "Forwards", "english": "Flying side kick in a double stepping motion, knife hand guarding block", "korean": "Twimyo yop chagi, niunja sogi-sonkal daebi makgi"},
+        {"direction": "Backwards", "english": "L-stance X-knifehand middle checking block", "korean": "Niunja sogi-kyocha sonkal momchau makgi"},
+        {"direction": "Forwards", "english": "Turning kick, reverse turning kick, turning kick on the same leg", "korean": "Dollyo chagi, bandae dollyo chagi, dollyo chagi"},
+        {"direction": "Backwards", "english": "Walking stance twin palm upward block", "korean": "Gunnon sogi-sang sonbadak ollyo makgi"},
+        {"direction": "Forwards", "english": "L-stance guarding block, double step hooking kick off the front leg. To change stance perform, a single step", "korean": "Ibo omgyo didigi, bandae dollyo goro chagi"},
+        {"direction": "Backwards", "english": "Sitting stance middle front outer forearm block and then a high side backfist", "korean": "Annun sogi-kaunde ap bakat palmok makgi, nopunde yop dung joomuk"},
+        {"direction": "Forwards", "english": "Front kick, downward kick on the same leg", "korean": "Ap cha busigi, naeryo chagi"},
+        {"direction": "Forwards", "english": "Flying front kick off the back leg", "korean": "Twimyo ap chagi"}
     ],
     "black-stripe": []
 }

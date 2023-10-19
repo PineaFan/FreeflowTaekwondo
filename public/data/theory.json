@@ -11,7 +11,7 @@
             { "prompt": "Do means...", "answer": "Art, way or method", "responseType": "GPT" },
             { "prompt": "Uniform", "answer": "Dobok", "responseType": "translate" },
             { "prompt": "Belt", "answer": "Ti", "responseType": "translate" },
-            { "prompt": "Training Hall", "answer": "Dojang", "responseType": "translate" },
+            { "prompt": "Training hall", "answer": "Dojang", "responseType": "translate" },
             { "prompt": "What does white signify?", "answer": "Innocence, beginner, no previous knowledge of Taekwondo", "responseType": "GPT" },
             { "prompt": "Why have you started Taekwondo?", "responseType": "opinion" }
         ]
@@ -47,7 +47,7 @@
             { "prompt": "Parallel ready stance", "answer": "Narani Junbi Sogi", "responseType": "translate" },
             { "prompt": "Sitting stance", "answer": "Annun Sogi", "responseType": "translate" },
             { "prompt": "Walking stance", "answer": "Gunnun Sogi", "responseType": "translate" },
-            { "prompt": "L stance", "answer": "Niunja Sogi", "responseType": "translate" },
+            { "prompt": "L-stance", "answer": "Niunja Sogi", "responseType": "translate" },
             { "prompt": "Obverse", "answer": "Baro", "responseType": "translate" },
             { "prompt": "Reverse", "answer": "Bandae", "responseType": "translate" },
             { "prompt": "Instructor", "answer": "Sabum", "responseType": "translate" },
@@ -63,10 +63,10 @@
         ],
         "extra": [
             { "prompt": "How should your feet be positioned in an Attention Stance (Charyot Sogi)", "answer": "Heels touching to form a 45 degree angle", "responseType": "GPT" },
-            { "prompt": "How big should a parallel stance (Narani Sogi) be, and how should the weight be distributed?", "answer": "A shoulder width between outside of feet, weight 50/50", "responseType": "GPT" },
+            { "prompt": "How big should a paralleL-stance (Narani Sogi) be, and how should the weight be distributed?", "answer": "A shoulder width between outside of feet, weight 50/50", "responseType": "GPT" },
             { "prompt": "How big should a sitting stance (Annun Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths between big toes, weight 50/50", "responseType": "GPT" },
             { "prompt": "How big should a walking stance (Gunnun Sogi) be, and how should the weight be distributed?", "answer": "One shoulder width wide (sideways), one and a half shoulder widths long between the big toes, weight 50/50", "responseType": "GPT" },
-            { "prompt": "How big should an L stance (Niunja Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths long in total, gap of 2.5cm, weight 70/30", "responseType": "GPT" }
+            { "prompt": "How big should an L-stance (Niunja Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths long in total, gap of 2.5cm, weight 70/30", "responseType": "GPT" }
         ]
     },
     "white-senior": {
@@ -105,12 +105,12 @@
             { "prompt": "Parallel ready stance", "answer": "Narani Junbi Sogi", "responseType": "translate" },
             { "prompt": "Sitting stance", "answer": "Annun Sogi", "responseType": "translate" },
             { "prompt": "Walking stance", "answer": "Gunnun Sogi", "responseType": "translate" },
-            { "prompt": "L stance", "answer": "Niunja Sogi", "responseType": "translate" },
+            { "prompt": "L-stance", "answer": "Niunja Sogi", "responseType": "translate" },
             { "prompt": "How should your feet be positioned in an Attention Stance (Charyot Sogi)", "answer": "Heels touching to form a 45 degree angle", "responseType": "GPT" },
-            { "prompt": "How big should a parallel stance (Narani Sogi) be, and how should the weight be distributed?", "answer": "A shoulder width between outside of feet, weight 50/50", "responseType": "GPT" },
+            { "prompt": "How big should a paralleL-stance (Narani Sogi) be, and how should the weight be distributed?", "answer": "A shoulder width between outside of feet, weight 50/50", "responseType": "GPT" },
             { "prompt": "How big should a sitting stance (Annun Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths between big toes, weight 50/50", "responseType": "GPT" },
             { "prompt": "How big should a walking stance (Gunnun Sogi) be, and how should the weight be distributed?", "answer": "One shoulder width wide (sideways), one and a half shoulder widths long between the big toes, weight 50/50", "responseType": "GPT" },
-            { "prompt": "How big should an L stance (Niunja Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths long in total, gap of 2.5cm, weight 70/30", "responseType": "GPT" },
+            { "prompt": "How big should an L-stance (Niunja Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths long in total, gap of 2.5cm, weight 70/30", "responseType": "GPT" },
             { "prompt": "Obverse", "answer": "Baro", "responseType": "translate" },
             { "prompt": "Reverse", "answer": "Bandae", "responseType": "translate" },
             { "prompt": "Instructor", "answer": "Sabum", "responseType": "translate" },
@@ -204,7 +204,7 @@
             { "prompt": "What is continuous motion?", "answer": "When two or more moves are linked by one continuous breath", "responseType": "GPT" },
             { "prompt": "In a right stance, a right technique is...", "answer": "Obverse", "responseType": "typo" },
             { "prompt": "In a right stance, a left technique is...", "answer": "Reverse", "responseType": "typo" },
-            { "prompt": "All stances to the side are...", "answer": "Neither left or right, therefore are neither obverse or reverse", "responseType": "GPT" },
+            { "prompt": "AlL-stances to the side are...", "answer": "Neither left or right, therefore are neither obverse or reverse", "responseType": "GPT" },
             { "prompt": "If the right leg is forwards in a 50/50 weight ratio stance, is it a left or right stance?", "answer": "Right", "responseType": "typo" },
             { "prompt": "If the left leg is forwards in a 50/50 weight ratio stance, is it a left or right stance?", "answer": "Left", "responseType": "typo" },
             { "prompt": "If the right has more weight in an unequal weight ratio stance, is it a left or right stance?", "answer": "Right", "responseType": "typo" },
@@ -222,7 +222,7 @@
             { "prompt": "Foot shifting", "answer": "Jajun Bal", "responseType": "translate" },
             { "prompt": "Palm high hooking block", "answer": "Sonbadak Nopunde Golcho Makgi", "responseType": "translate" },
             { "prompt": "Palm upward block", "answer": "Sonbadak Ollyo Makgi", "responseType": "translate" },
-            { "prompt": "X fist pressing block", "answer": "Kyocha Joomuk Noollo Makgi", "responseType": "translate" },
+            { "prompt": "X-fist pressing block", "answer": "Kyocha Joomuk Noollo Makgi", "responseType": "translate" },
             { "prompt": "Twin vertical punch", "answer": "Sang Sewo Jirugi", "responseType": "translate" },
             { "prompt": "Double forearm high block", "answer": "Doo Palmok Nopunde Makgi", "responseType": "translate" },
             { "prompt": "Flat fingertip thrust", "answer": "Opun Sonkut Tulgi", "responseType": "translate" },
@@ -253,7 +253,7 @@
             { "prompt": "How many movements does Yul-Kok have?", "answer": "38", "responseType": "GPT" },
             { "prompt": "X stance", "answer": "Kyocha Sogi", "responseType": "translate" },
             { "prompt": "Low stance", "answer": "Nachuo Sogi", "responseType": "translate" },
-            { "prompt": "X fist rising block", "answer": "Kyocha Joomuk Chookyo Makgi", "responseType": "translate" },
+            { "prompt": "X-fist rising block", "answer": "Kyocha Joomuk Chookyo Makgi", "responseType": "translate" },
             { "prompt": "Palm pressing block", "answer": "Sonbadak Noollo Makgi", "responseType": "translate" },
             { "prompt": "Upper elbow strike", "answer": "Wi Palkup Taerigi", "responseType": "translate" },
             { "prompt": "Open fist high punch", "answer": "Pyon Joomuk Nopunde Jirugi", "responseType": "translate" },
@@ -351,7 +351,7 @@
         "questions": [
             { "prompt": "What does Toi-Gye mean?", "answer": "Toi-Gye is the penname of the noted scholar Yi Hwang (16th CE) and authority on neo-confucianism. The 37 movements of the pattern refer to his birthplace on 37 degrees latitude and the diagram represents a scholar", "responseType": "GPT" },
             { "prompt": "How many movements does Toi-Gye have?", "answer": "37", "responseType": "exact" },
-            { "prompt": "Vertical stance", "answer": "Soo Jik Sogi", "responseType": "translate" },
+            { "prompt": "VerticaL-stance", "answer": "Soo Jik Sogi", "responseType": "translate" },
             { "prompt": "Upward punch", "answer": "Ollyo Jirugi", "responseType": "translate" },
             { "prompt": "Knifehand downward strike", "answer": "Sonkal Naeryo Taerigi", "responseType": "translate" },
             { "prompt": "Double forearm pushing block", "answer": "Doo Palmok Miro Makgi", "responseType": "translate" },
@@ -375,7 +375,7 @@
             { "prompt": "What does step turning allow for?", "answer": "Allows any change in direction from, can be executed with either foot, moving forward, backward, clockwise or anti-clockwise and can be combined with double stepping, shifting and or sliding", "responseType": "GPT" },
             { "prompt": "Spot turn", "answer": "Gujari Dolgi", "responseType": "translate" },
             { "prompt": "What do spot turns allow for?", "answer": "Only turn 180 degrees to face opponent behind, with this method both feet move to complete the turn. Generally the front foot will move first but on occasion the back foot can be moved first. The turn is executed after moving one foot onto the centre line of the stance and can be taken clockwise or anti-clockwise, depending which leg is forward. On completion the front leg will be opposite to the one before the turn", "responseType": "GPT" },
-            { "prompt": "When are pivot turns used?", "answer": "Pivot turns are used mostly in walking, sitting or diagonal stance and is executed when pivoting on both feet at the same time", "responseType": "GPT" }
+            { "prompt": "When are pivot turns used?", "answer": "Pivot turns are used mostly in walking, sitting or diagonaL-stance and is executed when pivoting on both feet at the same time", "responseType": "GPT" }
         ]
     },
     "red": {

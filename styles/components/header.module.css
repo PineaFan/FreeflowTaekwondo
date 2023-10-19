@@ -30,16 +30,55 @@
     font-weight: 400;
     font-size: 2rem;
     margin: 0;
+    line-height: 2rem;
+    height: 2rem;
 }
 
 .h2 {
     font-weight: 300;
     font-size: 1.5rem;
     margin: 0;
+    text-align: center;
+    width: 100%;
 }
 
 .p {
     font-weight: 300;
     font-size: 1rem;
     margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* Create an animation which turns a div into a loading bar by making it all white, then wiping to yellow, then green, then blue, then red, then black, then back to white */
+
+/* Define the animation
+The transition between each colour should smoothly wipe rather than fade
+*/
+
+@keyframes loading {
+    0% {
+        background-position-x: 0%;
+    }
+    100% {
+        background-position-x: 1200%;
+    }
+}
+
+
+.loading {
+    background: linear-gradient(90deg, #FFFFFF, #FFFFFF, #F2D478, #F2D478, #60B258, #60B258, #6576CC, #6576CC, #F27878, #F27878, #424242, #424242, #FFFFFF);
+    background-repeat: repeat-x;
+    background-size: 1200%;
+    animation: loading 48s linear infinite;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 2rem;
+    width: 100%;
 }

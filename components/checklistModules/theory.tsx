@@ -40,7 +40,7 @@ export default function Theory(props: React.PropsWithChildren<{
                     />
                 })
             }
-            <Card
+            {/* <Card
                 title={"Flashcards"}
                 subtitle={`Flashcards of the ${props.beltObject.displayName} theory card questions can be completed online, or printed out`}
                 image="flashcard.png"
@@ -53,34 +53,34 @@ export default function Theory(props: React.PropsWithChildren<{
                 image="quiz.png"
                 button={{"text": "Quiz", "link": `/quiz`}}
                 accent={props.beltObject.stripe}
-            />
+            /> */}
         </CardRow>
         <SectionSubheading id="theoryQuestions">Questions</SectionSubheading>
         <CollapsibleContent accent={props.beltObject.stripe} scrollOnCollapse={`theory.questions`}>
             <p id="theory.questions">There are {props.data.questions.length} questions on the theory card. You will be asked 5 questions at your grading.</p>
-            <table className={Styles.table}>
-                <thead>
-                    <tr>
-                        <th>Question</th>
-                        <th>Answer</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        props.data.questions.map((question, index) => {
-                            return <tr key={index}>
-                                <td>{question.prompt}</td>
-                                <td>{formatAnswer(question.answer)}</td>
-                            </tr>
-                        })
-                    }
-                </tbody>
-            </table>
+            <div className={Styles.list}>{
+                props.data.questions.map((question, index) => {
+                    return <div className={Styles.question} key={index}>
+                        <p className={Styles.prompt}>{question.prompt}</p>
+                        <p className={Styles.answer} style={{borderLeftColor: `#${props.beltObject.stripe}`}}>{formatAnswer(question.answer)}</p>
+                    </div>
+                })
+            }</div>
         </CollapsibleContent>
         {
             props.data.extra ? <>
                 <SectionSubheading id="theoryExtra">Extra Information</SectionSubheading>
-                <p id="extra">There are {props.data.extra.length} pieces of extra information on your theory card.</p>
+                <CollapsibleContent accent={props.beltObject.stripe} scrollOnCollapse={`theory.extra`}>
+                    <p id="extra">There are {props.data.extra.length} pieces of extra information on your theory card.</p>
+                    <div className={Styles.list} id={"theory.extra"}>{
+                        props.data.extra.map((question, index) => {
+                            return <div className={Styles.question} key={index}>
+                                <p className={Styles.prompt}>{question.prompt}</p>
+                                <p className={Styles.answer} style={{borderLeftColor: `#${props.beltObject.stripe}`}}>{formatAnswer(question.answer)}</p>
+                            </div>
+                        })
+                    }</div>
+                </CollapsibleContent>
             </> : null
         }
     </>

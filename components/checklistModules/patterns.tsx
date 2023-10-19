@@ -8,7 +8,18 @@ import { Card, CardRow } from '../cards'
 import Link from 'next/link';
 
 
-function constructPattern(patternData: pattern, index: number, accent: string) {
+function constructPattern(patternData: pattern, index: number, accent: string, fullPage: boolean) {
+    const moves = <div className={Styles.inlineText}>
+        <div>
+            <p className={Styles.leftText}>Ready position: {patternData.ready}</p>
+                {
+                    patternData.moves.map((move, index) => {
+                        return <p key={index} className={Styles.leftText}>{index + 1}: {move}</p>
+                    })
+                }
+            <p className={Styles.leftText}>To finish: {patternData.end}</p>
+        </div>
+    </div>
     return <div className={Styles.list} key={index}>
         <SectionSubheading id={`patterns.${index}`} showLine={false}>{patternData.name}</SectionSubheading>
         <CardRow>
@@ -34,15 +45,7 @@ function constructPattern(patternData: pattern, index: number, accent: string) {
             />
         </CardRow>
         <SectionSmallSubheading id={`patterns.${index}.movements`}>Movements</SectionSmallSubheading>
-        <CollapsibleContent accent={accent} scrollOnCollapse={`patterns.${index}.movements`}>
-            <p>Ready position: {patternData.ready}</p>
-            {
-                patternData.moves.map((move, index) => {
-                    return <p key={index}>{index + 1}: {move}</p>
-                })
-            }
-            <p>To finish: {patternData.end}</p>
-        </CollapsibleContent>
+        {fullPage ? moves : <CollapsibleContent accent={accent} scrollOnCollapse={`patterns.${index}.movements`}>{moves}</CollapsibleContent>}
     </div>
 }
 
@@ -51,9 +54,10 @@ export default function Patterns(props: React.PropsWithChildren<{
     belt: string;
     beltObject: belt;
     data: pattern[];
+    fullPage?: boolean;
 }>) {
     return <>
-        <div className={Styles.inlineText}>
+        { props.fullPage ? null : <div className={Styles.inlineText}>
             <p>For your {props.beltObject.displayName} grading you will have to perform:</p>
             {
                 props.data.map((pattern, index) => {
@@ -63,10 +67,10 @@ export default function Patterns(props: React.PropsWithChildren<{
                     </div>
                 })
             }
-        </div>
+        </div> }
         {
             props.data.map((pattern, index) => {
-                return constructPattern(pattern, index, props.beltObject.stripe)
+                return constructPattern(pattern, index, props.beltObject.stripe, props.fullPage || false)
             })
         }
     </>

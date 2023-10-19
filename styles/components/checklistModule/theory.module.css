@@ -1,6 +1,32 @@
 .table {
-    width: 100%;
+    width: auto;
+    overflow-x: scroll;
     border-collapse: collapse;
     border-spacing: 0;
     border: 1px solid #ddd;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    gap: 1rem;
+}
+
+.prompt, .answer {
+    margin: 0;
+}
+
+.answer {
+    border-left: 3px black solid;
+    padding-left: calc(1rem - 3px);
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    gap: 0.25rem;
 }

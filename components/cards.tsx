@@ -29,7 +29,7 @@ export function Card(props: React.PropsWithChildren<{
         const videoId = props.image.split("v=")[1];
         image = <iframe
             className={Styles.image}
-            src={`https://www.youtube.com/embed/${videoId}`}
+            src={`https://youtube.com/embed/${videoId}`}
             allow="clipboard-write; encrypted-media; picture-in-picture"
             allowFullScreen={true}
         />;

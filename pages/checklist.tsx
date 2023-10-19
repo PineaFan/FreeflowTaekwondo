@@ -163,6 +163,7 @@ export default function Checklist() {
         description="Select your grade below to see what the requirements are for your next belt."
         colour={beltChose ? belts[belt].stripe : "FFFFFF"}
         showHomeButton={"/"}
+        loading={!beltChose}
     />;
 
     if (!beltChose) {
@@ -186,12 +187,16 @@ export default function Checklist() {
 
     const modules = cardTitles.filter((x) => Object.keys(ExaminedModules).includes(x)).map((key, index) => {
         // Input data for the module
-        let cardData = {}
+        let cardData: any = {}
         switch (key) {
             case "linework": { cardData = linework[belt]; break; }
             case "padwork": { cardData = padwork[belt]; break; }
             case "patterns": { cardData = belts[belt].requirements.patterns!.map(p => patterns[p]); break; }
-            case "prearrangedSparring": { cardData = prearrangedSparring[belt]; break; }
+            case "prearrangedSparring": {
+                cardData = belts[belt].requirements.prearrangedSparring!;
+                cardData.objects = cardData.moves.map((x: string) => prearrangedSparring[x]);
+                break;
+            }
             case "theory": { cardData = theory[belt]; break; }
         }
         // @ts-expect-error

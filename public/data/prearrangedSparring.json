@@ -3,87 +3,87 @@
         "name": "3 Step number 1",
         "measure": "Right foot outside opponent's left foot, overlapping half way.",
         "start": "Attacker steps back into a Walking Stance Low Block",
-        "attack": "Walking stance, middle section punch x3",
-        "defence": "Right leg back, Walking stance, inner forearm block to the inside x3",
+        "attack": "Walking stance, middle section punch",
+        "defence": "Right leg back, Walking stance, inner forearm block to the inside",
         "counter": "Left Walking stance, middle reverse punch"
     },
     "3 step 2": {
         "name": "3 Step number 2",
         "measure": "Right foot outside opponent's left foot, heels overlapping.",
         "start": "Attacker steps back into a Walking Stance Low Block",
-        "attack": "Walking stance, high section punch x3",
-        "defence": "Right leg back, Walking stance, front rising block x3",
+        "attack": "Walking stance, high section punch",
+        "defence": "Right leg back, Walking stance, front rising block",
         "counter": "Left Walking stance, high reverse open fist strike"
     },
     "3 step 3": {
         "name": "3 Step number 3",
         "measure": "Right foot between opponent's feet, overlapping half way.",
         "start": "Attacker steps back into a Walking Stance Low Block",
-        "attack": "L stance, middle section reverse punch x3",
-        "defence": "Left leg back, L stance, twin forearm block to the outside x3",
-        "counter": "Left L stance, middle reverse punch to the ribs"
+        "attack": "L-stance, middle section reverse punch",
+        "defence": "Left leg back, L-stance, twin forearm block to the outside",
+        "counter": "Left L-stance, middle reverse punch to the ribs"
     },
     "3 step 4": {
         "name": "3 Step number 4",
         "measure": "Right foot inside opponent's feet, close to the opponent's left foot.",
         "start": "Attacker steps back into a Walking Stance Low Block",
-        "attack": "L stance, middle knifehand strike x3",
-        "defence": "Right leg back, L stance, middle inward outer forearm block x3",
+        "attack": "L-stance, middle knifehand strike",
+        "defence": "Right leg back, L-stance, middle inward outer forearm block",
         "counter": "Front leg, middle side front snap kick, stepping back into guarding block"
     },
     "3 step 5": {
         "name": "3 Step number 5",
         "measure": "Right foot outside opponent's left foot, heels overlapping.",
         "start": "Attacker steps back into a Walking Stance Low Block",
-        "attack": "Walking stance, high section punch x3",
-        "defence": "Right leg back, Walking stance, inner forearm block to the inside x3",
+        "attack": "Walking stance, high section punch",
+        "defence": "Right leg back, Walking stance, inner forearm block to the inside",
         "counter": "Left Walking stance middle reverse punch, stepping back into a Guarding Block"
     },
     "3 step 6": {
         "name": "3 Step number 6",
         "measure": "Right foot outside opponent's left foot, heel to toe.",
         "start": "Attacker steps back into a Walking Stance Low Block",
-        "attack": "L stance, middle section reverse punch x3",
-        "defence": "Right leg back, L stance, middle knifehand guarding block to the inside x3",
+        "attack": "L-stance, middle section reverse punch",
+        "defence": "Right leg back, L-stance, middle knifehand guarding block to the inside",
         "counter": "Front leg middle side kick stepping back into guarding block"
     },
     "2 step 1": {
         "name": "2 Step number 1",
-        "start": "Attacker steps back into an L Stance Guarding Block",
+        "start": "Attacker steps back into an L-stance Guarding Block",
         "attack": "Step into Right Walking stance, high obverse punch, left low front snap kick",
         "defence": "Left leg back, Walking stance, rising block, right leg back walking stance x-fist pressing block",
         "counter": "Left Walking stance high twin vertical punch"
     },
     "2 step 2": {
         "name": "2 Step number 2",
-        "start": "Attacker steps back into an L Stance Guarding Block",
+        "start": "Attacker steps back into an L-stance Guarding Block",
         "attack": "Right Fixed stance, right middle side punch, left middle turning kick",
-        "defence": "Right leg back, L stance, upward palm block, left leg back L stance, middle waist block",
-        "counter": "Sliding forward, right L stance, right side elbow strike"
+        "defence": "Right leg back, L-stance, upward palm block, left leg back L-stance, middle waist block",
+        "counter": "Sliding forward, right L-stance, right side elbow strike"
     },
     "2 step 3": {
         "name": "2 Step number 3",
-        "start": "Attacker steps back into an L Stance Guarding Block",
+        "start": "Attacker steps back into an L-stance Guarding Block",
         "attack": "Right low front snap kick, left walking stance high twin vertical punch",
         "defence": "Right leg back, Walking stance, x-fist pressing block, left leg back walking stance wedging block",
         "counter": "Left upward knee strike"
     },
     "2 step 4": {
         "name": "2 Step number 4",
-        "start": "Attacker steps back into an L Stance Guarding Block",
+        "start": "Attacker steps back into an L-stance Guarding Block",
         "attack": "Right walking stance, right high flat fingertip thrust, left middle side kick",
-        "defence": "Right leg back, Walking stance, left knife-hand rising block, left leg back L-stance, right inward palm block",
+        "defence": "Right leg back, Walking stance, left knifehand rising block, left leg back L-stance, right inward palm block",
         "counter": "Any leg, depending on distance, front snap kick to coccyx, same leg forward walking stance twin upset punch to kidneys"
     },
     "1 step standard": {
         "name": "1 Step - 3 step attacks and defences",
         "attack": "All 1-6 attacks from 3 step sparring",
-        "defence": "All 1-6 defences from 3 step sparring"
+        "defence": "All 1-6 defences and counters from 3 step sparring"
     },
     "1 step traditional": {
         "name": "1 Step - 3 step attacks, traditional defences",
         "attack": "All 1-6 attacks from 3 step sparring",
-        "defence": "Any traditional Taekwondo defence and counter. You cannot use the standard 3 step techniques"
+        "defence": "Any traditional Taekwondo defence and counter. You cannot use the standard 3 step techniques for a given attack"
     },
     "1 step freestyle": {
         "name": "1 Step - Any traditional attack and defence",

@@ -1,21 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 // @ts-expect-error
 import { createIcsFileBuilder } from "ical-toolkit";
-import classes from "../../public/data/classes.json";
+import { lesson } from "../../types";
+import untypedClasses from "../../public/data/classes.json";
 
-const typedClasses: {
-    day: string;
-    location_name: string;
-    building_name: string;
-    postcode: string;
-    geo: string;
-    classes: {
-        UUID: string;
-        name: string;
-        start: string;
-        end: string;
-    }[];
-}[] = (classes as any);
+
+const typedClasses: lesson[] = untypedClasses;
 
 function formatDate(time: string, day_of_week: string) {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]

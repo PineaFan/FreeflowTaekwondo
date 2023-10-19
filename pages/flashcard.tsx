@@ -63,11 +63,12 @@ export default function Flashcards() {
         colour={belts[belt].stripe}
         description="Test your knowledge of the theory for your next grading."
         showHomeButton={"/checklist#theory"}
+        loading={!beltChose}
     />;
     if (!beltChose) {
         return <>
             { header }
-            <NoBelt title="Flashcards" backLink={'flashcard'} setBelt={setBelt} />
+            <NoBelt title="Flashcards" backLink={'flashcard'} setBelt={setBelt} prompt="Flashcards for" />
         </>;
     }
 

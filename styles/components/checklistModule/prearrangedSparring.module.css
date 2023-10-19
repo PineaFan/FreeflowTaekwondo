@@ -1,0 +1,37 @@
+.inlineText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 0.25em;
+    flex-wrap: wrap;
+}
+
+.center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.sparringTable {
+    /*
+    The left and right columns should always be 1rem wide.
+    The middle column should fit the content, using multiple lines if necessary.
+    If the middle column doesn't need the whole width, the other columns should be close to it
+    */
+    display: grid;
+    grid-template-columns: fit-content auto fit-content;
+    grid-template-rows: auto;
+    grid-template-areas: "left middle right";
+    width: fit-content;
+    max-width: 100%;
+    text-align: center;
+}
+
+
+/* .sparringTable > * > * > * {
+    border: 1px solid black;
+} */
