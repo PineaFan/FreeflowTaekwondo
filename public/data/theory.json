@@ -21,7 +21,7 @@
         "name": "Junior Purple belt",
         "kup": "10th",
         "questions": [
-            { "prompt": "What are the tenets of Taekwondo?", "answer": ["Courtesy", "Integrity", "Perseverance", "Self control", "Indomitable spirit"], "responseType": "list" },
+            { "prompt": "What are the tenets of Taekwondo?", "answer": ["Courtesy", "Integrity", "Perseverance", "Self control", "Indomitable spirit"], "responseType": "typo" },
             { "prompt": "Low section", "answer": "Najunde", "responseType": "translate" },
             { "prompt": "Middle section", "answer": "Kaunde", "responseType": "translate" },
             { "prompt": "High section", "answer": "Nopunde", "responseType": "translate" },
@@ -59,11 +59,11 @@
                 "I shall never misuse Taekwondo",
                 "I shall be a champion of freedom and justice",
                 "I shall build a more peaceful world"
-            ], "responseType": "list" }
+            ], "responseType": "GPT" }
         ],
         "extra": [
             { "prompt": "How should your feet be positioned in an Attention Stance (Charyot Sogi)", "answer": "Heels touching to form a 45 degree angle", "responseType": "GPT" },
-            { "prompt": "How big should a paralleL-stance (Narani Sogi) be, and how should the weight be distributed?", "answer": "A shoulder width between outside of feet, weight 50/50", "responseType": "GPT" },
+            { "prompt": "How big should a parallel stance (Narani Sogi) be, and how should the weight be distributed?", "answer": "A shoulder width between outside of feet, weight 50/50", "responseType": "GPT" },
             { "prompt": "How big should a sitting stance (Annun Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths between big toes, weight 50/50", "responseType": "GPT" },
             { "prompt": "How big should a walking stance (Gunnun Sogi) be, and how should the weight be distributed?", "answer": "One shoulder width wide (sideways), one and a half shoulder widths long between the big toes, weight 50/50", "responseType": "GPT" },
             { "prompt": "How big should an L-stance (Niunja Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths long in total, gap of 2.5cm, weight 70/30", "responseType": "GPT" }
@@ -107,7 +107,7 @@
             { "prompt": "Walking stance", "answer": "Gunnun Sogi", "responseType": "translate" },
             { "prompt": "L-stance", "answer": "Niunja Sogi", "responseType": "translate" },
             { "prompt": "How should your feet be positioned in an Attention Stance (Charyot Sogi)", "answer": "Heels touching to form a 45 degree angle", "responseType": "GPT" },
-            { "prompt": "How big should a paralleL-stance (Narani Sogi) be, and how should the weight be distributed?", "answer": "A shoulder width between outside of feet, weight 50/50", "responseType": "GPT" },
+            { "prompt": "How big should a parallel stance (Narani Sogi) be, and how should the weight be distributed?", "answer": "A shoulder width between outside of feet, weight 50/50", "responseType": "GPT" },
             { "prompt": "How big should a sitting stance (Annun Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths between big toes, weight 50/50", "responseType": "GPT" },
             { "prompt": "How big should a walking stance (Gunnun Sogi) be, and how should the weight be distributed?", "answer": "One shoulder width wide (sideways), one and a half shoulder widths long between the big toes, weight 50/50", "responseType": "GPT" },
             { "prompt": "How big should an L-stance (Niunja Sogi) be, and how should the weight be distributed?", "answer": "One and a half shoulder widths long in total, gap of 2.5cm, weight 70/30", "responseType": "GPT" },
@@ -204,7 +204,7 @@
             { "prompt": "What is continuous motion?", "answer": "When two or more moves are linked by one continuous breath", "responseType": "GPT" },
             { "prompt": "In a right stance, a right technique is...", "answer": "Obverse", "responseType": "typo" },
             { "prompt": "In a right stance, a left technique is...", "answer": "Reverse", "responseType": "typo" },
-            { "prompt": "AlL-stances to the side are...", "answer": "Neither left or right, therefore are neither obverse or reverse", "responseType": "GPT" },
+            { "prompt": "All stances to the side are...", "answer": "Neither left or right, therefore are neither obverse or reverse", "responseType": "GPT" },
             { "prompt": "If the right leg is forwards in a 50/50 weight ratio stance, is it a left or right stance?", "answer": "Right", "responseType": "typo" },
             { "prompt": "If the left leg is forwards in a 50/50 weight ratio stance, is it a left or right stance?", "answer": "Left", "responseType": "typo" },
             { "prompt": "If the right has more weight in an unequal weight ratio stance, is it a left or right stance?", "answer": "Right", "responseType": "typo" },
@@ -232,16 +232,16 @@
             { "prompt": "What are the components of the theory of power", "answer": ["Reaction force", "Concentration", "Equilibrium", "Breath control", "Mass", "Speed"], "responseType": "list" }
         ],
         "extra": [
-            { "prompt": "What is Reaction Force?", "answer": "Using their force, striking when your opponent moves in", "responseType": "GPT" },
-            { "prompt": "What is Concentration?", "answer": "Directing power to a small target area, tension for a split second", "responseType": "GPT" },
-            { "prompt": "What is Equilibrium?", "answer": "Balance and stability, using your reaction arm for dynamic stability", "responseType": "GPT" },
-            { "prompt": "What is Breath Control?", "answer": "Utilising the breath, tense abdomen to breathe out on impact", "responseType": "GPT" },
-            { "prompt": "What is Mass?", "answer": "Using the knee spring and hip twist to increase body weight on impact", "responseType": "GPT" },
-            { "prompt": "What is Speed?", "answer": "Maximise speed, the most essential factor for power", "responseType": "GPT" },
-            { "prompt": "What is Fast Motion?", "answer": "Two or more moves performed in 'double-time' due to the second sine wave only being half of the normal sine wave, as you have less time to utilise the full range of movement", "responseType": "GPT" },
-            { "prompt": "What is Connecting Motion?", "answer": "Two or more moves performed within the same sine wave that are linked by breath. The first move sets up the opening for the second, therefore the first is always a block and the second move is an attack. However, there are some exceptions", "responseType": "GPT" },
-            { "prompt": "What is Slow Motion?", "answer": "Used to show the practitioners movement, technique, breath control and timing. It demonstrates the synchronisation of hands, feet, eyes and breath, and is performed to the count of 4 seconds", "responseType": "GPT" },
-            { "prompt": "What is Pushing Motion?", "answer": "A movement performed with no impact. This is because one does not intend to cause severe damage or trauma to the opponent when defending their attacks", "responseType": "" }
+            { "prompt": "What is reaction force?", "answer": "Using their force, striking when your opponent moves in", "responseType": "GPT" },
+            { "prompt": "What is concentration?", "answer": "Directing power to a small target area, tension for a split second", "responseType": "GPT" },
+            { "prompt": "What is equilibrium?", "answer": "Balance and stability, using your reaction arm for dynamic stability", "responseType": "GPT" },
+            { "prompt": "What is breath control?", "answer": "Utilising the breath, tense abdomen to breathe out on impact", "responseType": "GPT" },
+            { "prompt": "What is mass?", "answer": "Using the knee spring and hip twist to increase body weight on impact", "responseType": "GPT" },
+            { "prompt": "What is speed?", "answer": "Maximise speed, the most essential factor for power", "responseType": "GPT" },
+            { "prompt": "What is fast motion?", "answer": "Two or more moves performed in 'double-time' due to the second sine wave only being half of the normal sine wave, as you have less time to utilise the full range of movement", "responseType": "GPT" },
+            { "prompt": "What is connecting motion?", "answer": "Two or more moves performed within the same sine wave that are linked by breath. The first move sets up the opening for the second, therefore the first is always a block and the second move is an attack. However, there are some exceptions", "responseType": "GPT" },
+            { "prompt": "What is slow motion?", "answer": "Used to show the practitioners movement, technique, breath control and timing. It demonstrates the synchronisation of hands, feet, eyes and breath, and is performed to the count of 4 seconds", "responseType": "GPT" },
+            { "prompt": "What is pushing motion?", "answer": "A movement performed with no impact. This is because one does not intend to cause severe damage or trauma to the opponent when defending their attacks", "responseType": "" }
         ]
     },
     "blue-stripe": {
@@ -271,7 +271,7 @@
             { "prompt": "What does two step sparring improve?", "answer": ["Focus", "Distance", "Timing"], "responseType": "typo" }
         ],
         "extra": [
-            { "prompt": "Reverse knife hand block", "answer": "Sonkal Dung Makgi", "responseType": "translate" },
+            { "prompt": "Reverse knifehand block", "answer": "Sonkal Dung Makgi", "responseType": "translate" },
             { "prompt": "U-shape block", "answer": "Diguta Makgi", "responseType": "translate" },
             { "prompt": "Angle punch", "answer": "Giockja Jirugi", "responseType": "translate" },
             { "prompt": "Front snap kick", "answer": "Ap Cha Busigi", "responseType": "translate" },
@@ -351,7 +351,7 @@
         "questions": [
             { "prompt": "What does Toi-Gye mean?", "answer": "Toi-Gye is the penname of the noted scholar Yi Hwang (16th CE) and authority on neo-confucianism. The 37 movements of the pattern refer to his birthplace on 37 degrees latitude and the diagram represents a scholar", "responseType": "GPT" },
             { "prompt": "How many movements does Toi-Gye have?", "answer": "37", "responseType": "exact" },
-            { "prompt": "VerticaL-stance", "answer": "Soo Jik Sogi", "responseType": "translate" },
+            { "prompt": "Vertical stance", "answer": "Soo Jik Sogi", "responseType": "translate" },
             { "prompt": "Upward punch", "answer": "Ollyo Jirugi", "responseType": "translate" },
             { "prompt": "Knifehand downward strike", "answer": "Sonkal Naeryo Taerigi", "responseType": "translate" },
             { "prompt": "Double forearm pushing block", "answer": "Doo Palmok Miro Makgi", "responseType": "translate" },
@@ -375,7 +375,7 @@
             { "prompt": "What does step turning allow for?", "answer": "Allows any change in direction from, can be executed with either foot, moving forward, backward, clockwise or anti-clockwise and can be combined with double stepping, shifting and or sliding", "responseType": "GPT" },
             { "prompt": "Spot turn", "answer": "Gujari Dolgi", "responseType": "translate" },
             { "prompt": "What do spot turns allow for?", "answer": "Only turn 180 degrees to face opponent behind, with this method both feet move to complete the turn. Generally the front foot will move first but on occasion the back foot can be moved first. The turn is executed after moving one foot onto the centre line of the stance and can be taken clockwise or anti-clockwise, depending which leg is forward. On completion the front leg will be opposite to the one before the turn", "responseType": "GPT" },
-            { "prompt": "When are pivot turns used?", "answer": "Pivot turns are used mostly in walking, sitting or diagonaL-stance and is executed when pivoting on both feet at the same time", "responseType": "GPT" }
+            { "prompt": "When are pivot turns used?", "answer": "Pivot turns are used mostly in walking, sitting or diagonal stance and is executed when pivoting on both feet at the same time", "responseType": "GPT" }
         ]
     },
     "red": {

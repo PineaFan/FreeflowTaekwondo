@@ -14,7 +14,7 @@ function constructPattern(patternData: pattern, index: number, accent: string, f
             <p className={Styles.leftText}>Ready position: {patternData.ready}</p>
                 {
                     patternData.moves.map((move, index) => {
-                        return <p key={index} className={Styles.leftText}><b>{index + 1}:</b> {move}</p>
+                        return <p key={index} className={Styles.leftText}>{index + 1}. {move}</p>
                     })
                 }
             <p className={Styles.leftText}>To finish: {patternData.end}</p>
