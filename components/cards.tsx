@@ -16,7 +16,8 @@ export function Card(props: React.PropsWithChildren<{
     description?: string,
     button?: {
         text: string,
-        link: string
+        link: string,
+        newTab?: boolean
     },
     image?: string,
     icon?: string,
@@ -51,7 +52,7 @@ export function Card(props: React.PropsWithChildren<{
             { props.icon && <img src={props.icon} className={Styles.icon} alt="" /> }{props.title}
         </h2>}
         {props.subtitle && <h3 className={Styles.description}>{props.subtitle}</h3>}
-        {props.button && <a href={props.button.link} className={Styles.button} style={
+        {props.button && <a href={props.button.link} target={props.button.newTab ? "_blank" : ""} className={Styles.button} style={
             props.accent ? {
                 border: `solid 3px #${props.accent}`, borderRadius: "100vw",
                 backgroundColor: "#FFFFFF",

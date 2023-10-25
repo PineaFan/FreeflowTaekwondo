@@ -30,7 +30,7 @@ export default function Index(props: React.PropsWithChildren<{}>) {
             <Card
                 title="Events"
                 subtitle="Details on when camps, squads, gradings and seminars are being held this year."
-                button={{text: "Events", link: "https://nctkd.co.uk/events.html"}}  // TODO
+                button={{text: "Events", link: "https://nctkd.co.uk/events.html", newTab: true}}  // TODO
                 image="images/gradings.png"
             />
             <Card
@@ -84,7 +84,7 @@ export default function Index(props: React.PropsWithChildren<{}>) {
             <Card
                 title="Facebook"
                 subtitle="Join the Facebook group for updates and messages"
-                button={{text: "Visit", link: "https://facebook.com/tkdclasses/"}}
+                button={{text: "Visit", link: "https://facebook.com/tkdclasses/", newTab: true}}
                 icon={"icons/facebook.svg"}
             />
         </CardRow>
@@ -92,12 +92,12 @@ export default function Index(props: React.PropsWithChildren<{}>) {
         <SectionHeading id="policies" showLine={true}>Policies</SectionHeading>
         <div className={Styles.center}>
             <div className={Styles.linkList}>
-                <a href="/policies/CodeOfConduct.pdf">Parent, Carer and Child Code of Conduct</a>
-                <a href="/policies/InstructorCodeOfConduct.pdf">Instructor Code of Ethics</a>
-                <a href="/policies/ChildProtectionPolicy.pdf">Child Protection Policy</a>
-                <a href="https://puma-uk.com/about#safeguarding">PUMA Safeguarding</a>
-                <a href="/policies/SafeguardingTeam">PUMA Safeguarding Team</a>
-                <a href="/policies/ComplaintsProcedure.pdf">Complaints Procedure</a>
+                <a target="_blank" href="/policies/CodeOfConduct.pdf">Parent, Carer and Child Code of Conduct</a>
+                <a target="_blank" href="/policies/InstructorCodeOfConduct.pdf">Instructor Code of Ethics</a>
+                <a target="_blank" href="/policies/ChildProtectionPolicy.pdf">Child Protection Policy</a>
+                <a target="_blank" href="https://puma-uk.com/about#safeguarding">PUMA Safeguarding</a>
+                <a target="_blank" href="/policies/SafeguardingTeam">PUMA Safeguarding Team</a>
+                <a target="_blank" href="/policies/ComplaintsProcedure.pdf">Complaints Procedure</a>
             </div>
             <br /><br />
             <CardRow>
@@ -105,14 +105,14 @@ export default function Index(props: React.PropsWithChildren<{}>) {
                     title="Safeguarding"
                     image="policies/safeguardingLogo.jpg"
                     subtitle="We have demonstrated an ongoing commitment to safer sport in Martial Arts."
-                    button={{text: "View Certificate", link: "/policies/safeguarding.jpg"}}
+                    button={{text: "View Certificate", link: "/policies/safeguarding.jpg", newTab: true}}
                     fitMethod='showAll'
                 />
                 <Card
                     title="ChildLine"
                     image="policies/childline.jpeg"
                     subtitle="ChildLine is a private and confidential service for children and young people up to the age of nineteen."
-                    button={{text: "Visit Website", link: "https://childline.org.uk/"}}
+                    button={{text: "Visit Website", link: "https://childline.org.uk/", newTab: true}}
                     fitMethod='showAll'
                 />
             </CardRow>
@@ -120,11 +120,11 @@ export default function Index(props: React.PropsWithChildren<{}>) {
         <SectionHeading id="resources" showLine={true}>Resources</SectionHeading>
         <div className={Styles.center}>
             <div className={Styles.linkList}>
-                <a href="https://chesterfieldtaekwondo.co.uk/">Chesterfield Taekwondo</a>
-                <a href="https://nctkd.co.uk/">New Century homepage</a>
-                <a href="https://puma-uk.com/">PUMA homepage</a>
+                <a target="_blank" href="https://chesterfieldtaekwondo.co.uk/">Chesterfield Taekwondo</a>
+                <a target="_blank" href="https://nctkd.co.uk/">New Century homepage</a>
+                <a target="_blank" href="https://puma-uk.com/">PUMA homepage</a>
                 <a href="mailto:ryan@pinea.dev">Website issues (Email)</a>
-                <a href="https://facebook.com/tkdclasses/">Facebook</a>
+                <a target="_blank" href="https://facebook.com/tkdclasses/">Facebook</a>
             </div>
         </div>
     </>;
