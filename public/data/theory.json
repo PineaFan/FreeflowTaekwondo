@@ -251,7 +251,7 @@
         "questions": [
             { "prompt": "What does Yul-Gok mean?", "answer": "It is the pseudonym of a great philosopher and scholar Yi I (1536 - 1584 CE) nicknamed the 'Confucious of Korea'. The 38 movements refer to his birthplace on 38 degrees latitude and the diagram represents a scholar", "responseType": "GPT" },
             { "prompt": "How many movements does Yul-Kok have?", "answer": "38", "responseType": "GPT" },
-            { "prompt": "X stance", "answer": "Kyocha Sogi", "responseType": "translate" },
+            { "prompt": "X-stance", "answer": "Kyocha Sogi", "responseType": "translate" },
             { "prompt": "Low stance", "answer": "Nachuo Sogi", "responseType": "translate" },
             { "prompt": "X-fist rising block", "answer": "Kyocha Joomuk Chookyo Makgi", "responseType": "translate" },
             { "prompt": "Palm pressing block", "answer": "Sonbadak Noollo Makgi", "responseType": "translate" },
@@ -387,7 +387,7 @@
             { "prompt": "How many movements does Hwa-Rang have?", "answer": "29", "responseType": "exact" },
             { "prompt": "Close ready stance C", "answer": "Moa Junbi Sogi C", "responseType": "translate" },
             { "prompt": "Middle front outer forearm block", "answer": "Kaunde Ap Bakat Palmok Makgi", "responseType": "translate" },
-            { "prompt": "X knifehand middle checking block", "answer": "Kyocha Sonkal Kaunde Momchau Makgi", "responseType": "translate" },
+            { "prompt": "X-knifehand middle checking block", "answer": "Kyocha Sonkal Kaunde Momchau Makgi", "responseType": "translate" },
             { "prompt": "Twin palm upward block", "answer": "Sang Sonbadak Ollyo Makgi", "responseType": "translate" },
             { "prompt": "Palm pushing block", "answer": "Sonbadak Miro Makgi", "responseType": "translate" },
             { "prompt": "Knifehand high front strike", "answer": "Sonkal Nopunde Ap Taerigi", "responseType": "translate" },
