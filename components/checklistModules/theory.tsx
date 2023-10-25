@@ -33,7 +33,7 @@ export default function Theory(props: React.PropsWithChildren<{
                     return <Card
                         key={index}
                         title={`Theory Card` + (props.data.images.length > 1 ? ` ${index + 1} of ${props.data.images.length}` : "")}
-                        subtitle={`View the ${props.beltObject.displayName} theory card in fullscreen to download or print it`}
+                        subtitle={`View the ${props.beltObject.displayName} theory card in fullscreen to download or print it.`}
                         image={`theory/${image}.png`}
                         button={{"text": "Download", "link": `theory/${image}.png`}}
                         accent={props.beltObject.stripe}

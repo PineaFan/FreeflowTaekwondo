@@ -32,7 +32,7 @@ export default function BeltTying(props: React.PropsWithChildren<{
                 {
                     sections.map((subsection, id) => {
                         return <React.Fragment key={id}>{subsection.map((line, index) => {
-                            return <p key={index}>{(id === 0) ? "" : ((index + 1).toString() + ". ")}{line}</p>
+                            return <p key={index}><b>{(id === 0) ? "" : ((index + 1).toString() + ". ")}</b>{line}</p>
                         })}</React.Fragment>
                     })
                 }

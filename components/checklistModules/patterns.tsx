@@ -14,7 +14,7 @@ function constructPattern(patternData: pattern, index: number, accent: string, f
             <p className={Styles.leftText}>Ready position: {patternData.ready}</p>
                 {
                     patternData.moves.map((move, index) => {
-                        return <p key={index} className={Styles.leftText}>{index + 1}: {move}</p>
+                        return <p key={index} className={Styles.leftText}><b>{index + 1}:</b> {move}</p>
                     })
                 }
             <p className={Styles.leftText}>To finish: {patternData.end}</p>
@@ -26,7 +26,7 @@ function constructPattern(patternData: pattern, index: number, accent: string, f
             <Card
                 title={patternData.name}
                 subtitle={patternData.about.join(". ") + "."}
-                button={patternData.video ? {text: "Watch on YouTube", link: patternData.video} : undefined}
+                button={patternData.video ? {text: "Watch on YouTube", link: patternData.video, newTab: true} : undefined}
                 image={patternData.video ? `youtube/${patternData.video}` : undefined}
                 accent={accent}
             />
@@ -38,7 +38,7 @@ function constructPattern(patternData: pattern, index: number, accent: string, f
             />
             <Card
                 title="Diagram"
-                subtitle={`The diagram for ${patternData.name} can be seen above. ${patternData.facing}`}
+                subtitle={`The diagram for ${patternData.name} can be seen above. ${patternData.facing}.`}
                 image={`patterns/${patternData.diagram}.svg`}
                 fitMethod="showAll"
                 accent={accent}
