@@ -3,6 +3,12 @@ import React from 'react';
 import Styles from '../../styles/components/checklistModule/linework.module.css';
 import { belt, linework } from '../../types';
 
+
+const blackStripeInformation = [
+    "Black stripes do not have any pre-set linework to perform - You will be made aware on the week before your grading."
+]
+
+
 export default function Linework(props: React.PropsWithChildren<{
     belt: string;
     beltObject: belt;
@@ -25,11 +31,17 @@ export default function Linework(props: React.PropsWithChildren<{
     return <div className={Styles.container}>
         <div className={Styles.center}>
             {
-                processedLinework.map((linework: linework, index: number) => {
-                    return <p key={index} className={Styles.linework}>
-                        <b>{linework.direction ? `${linework.direction + ":"}` : ""}</b> {linework.english} ({linework.korean})
-                    </p>
-                })
+                props.belt !== "black-stripe" ? (
+                    processedLinework.map((linework: linework, index: number) => {
+                        return <p key={index} className={Styles.linework}>
+                            <b>{linework.direction ? `${linework.direction + ":"}` : ""}</b> {linework.english} ({linework.korean})
+                        </p>
+                    })
+                ) : (
+                    blackStripeInformation.map((text, index) => {
+                        return <p key={index} className={Styles.linework}>{text}</p>
+                    })
+                )
             }
         </div>
     </div>

@@ -18,7 +18,7 @@ export function Card(props: React.PropsWithChildren<{
         text: string,
         link: string,
         newTab?: boolean
-    },
+    } | { text: string, link: string, newTab?: boolean }[],
     image?: string,
     icon?: string,
     accent?: string,
@@ -46,21 +46,27 @@ export function Card(props: React.PropsWithChildren<{
     }
     const has_text = props.title || props.subtitle || props.description || props.button;
     const has_image = props.image;
+    const button = props.button ? ( Array.isArray(props.button) ? props.button : [props.button]) : undefined
 
     const textObject = <div className={Styles.text}>
-        {props.title && <h2 className={Styles.title}>
-            { props.icon && <img src={props.icon} className={Styles.icon} alt="" /> }{props.title}
-        </h2>}
-        {props.subtitle && <h3 className={Styles.description}>{props.subtitle}</h3>}
-        {props.button && <a href={props.button.link} target={props.button.newTab ? "_blank" : ""} className={Styles.button} style={
-            props.accent ? {
-                border: `solid 3px #${props.accent}`, borderRadius: "100vw",
-                backgroundColor: "#FFFFFF",
-                color: "#424242"} : {}
-            }>
-                {props.button.text}
-            </a>
-        }
+        <div className={Styles.distribute}>
+            <>
+                {props.title && <h2 className={Styles.title}>
+                    { props.icon && <img src={props.icon} className={Styles.icon} alt="" /> }{props.title}
+                </h2>}
+                {props.subtitle && <h3 className={Styles.description}>{props.subtitle}</h3>}
+            </>
+            <>{button ? <div className={Styles.overflowFlex}>{button.map((button, index) => { return <a key={index} href={button.link} target={button.newTab ? "_blank" : ""} className={Styles.button} style={
+                props.accent ? {
+                    border: `solid 3px #${props.accent}`, borderRadius: "100vw",
+                    backgroundColor: "#FFFFFF",
+                    color: "#424242"} : {}
+                }>
+                    {button.text}
+                </a>
+            })}</div> : null
+            }</>
+        </div>
     </div>
 
     if (has_image && has_text) {

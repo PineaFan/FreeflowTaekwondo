@@ -72,6 +72,26 @@
     padding-block: 0.25rem;
     border-radius: 100vw;
     transition: border 0.3s ease-in-out;
+    max-lines: 1;
+    text-overflow: ellipsis;
 }
 
 @media print { .button { display: none } }
+
+.overflowFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.distribute {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+}

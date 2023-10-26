@@ -62,7 +62,7 @@ export default function Theory(props: React.PropsWithChildren<{
                 props.data.questions.map((question, index) => {
                     return <div className={Styles.question} key={index}>
                         <p className={Styles.prompt}>{question.prompt}</p>
-                        <p className={Styles.answer} style={{borderLeftColor: `#${props.beltObject.stripe}`}}>{formatAnswer(question.answer)}</p>
+                        {question.responseType !== "opinion" ? <p className={Styles.answer} style={{borderLeftColor: `#${props.beltObject.stripe}`}}>{formatAnswer(question.answer)}</p> : null }
                     </div>
                 })
             }</div>
