@@ -24,3 +24,7 @@ body {
 .content {
     padding: 2rem;
 }
+
+a {
+    text-decoration: none;
+}

@@ -8,6 +8,7 @@ import React from 'react';
 
 import Styles from '../styles/components/card.module.css';
 import Image from 'next/image';
+import { Share } from './icons';
 
 
 export function Card(props: React.PropsWithChildren<{
@@ -63,6 +64,7 @@ export function Card(props: React.PropsWithChildren<{
                     color: "#424242"} : {}
                 }>
                     {button.text}
+                    { button.newTab ? <Share colour={props.accent || "#FFFFFF"} /> : null }
                 </a>
             })}</div> : null
             }</>

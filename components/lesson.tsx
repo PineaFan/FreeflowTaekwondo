@@ -2,6 +2,7 @@ import React from 'react';
 
 import Styles from '../styles/components/lesson.module.css';
 import Image from 'next/image';
+import { Share } from './icons';
 
 
 export function Lesson(props: React.PropsWithChildren<{
@@ -26,7 +27,7 @@ export function Lesson(props: React.PropsWithChildren<{
             <p className={Styles.town}>({props.location_name})</p>
         </div>
         <a href={apple_link} className={Styles.location}>
-            {props.building_name} ({props.postcode}) <Image src="/icons/open.svg" width={16} height={16} alt="open"/>
+            {props.building_name} ({props.postcode}) <Share colour="#6576CC"/>
         </a> {/*TODO: Maybe make this look nicer */}
         <div className={Styles.classes}>
             {props.classes.map((c, i) => {

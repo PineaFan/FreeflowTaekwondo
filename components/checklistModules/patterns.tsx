@@ -6,6 +6,7 @@ import { SectionSubheading, SectionSmallSubheading } from '../title'
 import CollapsibleContent from '../collapsibleContent';
 import { Card, CardRow } from '../cards'
 import Link from 'next/link';
+import { RightArrow, Share } from '../icons';
 
 
 function constructPattern(patternData: pattern, index: number, accent: string, fullPage: boolean) {
@@ -20,8 +21,10 @@ function constructPattern(patternData: pattern, index: number, accent: string, f
             <p className={Styles.leftText}>To finish: {patternData.end}</p>
         </div>
     </div>
+    // The ready position files are stored as the patternData.ready value, but only the first letter
+    const readyPosition = patternData.ready.split(" ").map((word) => word[0]).join("").toUpperCase()
     return <div className={Styles.list} key={index}>
-        <SectionSubheading id={`patterns.${index}`} showLine={false}>{patternData.name}</SectionSubheading>
+        <a href={`pattern/${patternData.name}`}><SectionSubheading id={`patterns.${index}`} showLine={false}>{patternData.name}<RightArrow colour={accent} /></SectionSubheading></a>
         <CardRow>
             <Card
                 title={patternData.name}
@@ -33,8 +36,9 @@ function constructPattern(patternData: pattern, index: number, accent: string, f
             <Card
                 title="Ready position"
                 subtitle={`The ready position for ${patternData.name} is ${patternData.ready}.`}
-                image={`patterns/${patternData.ready}.svg`}  // TODO
+                image={`patterns/junbi/${readyPosition}.jpg`}
                 accent={accent}
+                button={{text: "Fullscreen", link: `patterns/junbi/${readyPosition}.jpg`, newTab: true}}
             />
             <Card
                 title="Diagram"

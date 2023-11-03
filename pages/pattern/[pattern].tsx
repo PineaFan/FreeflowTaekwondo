@@ -18,7 +18,7 @@ export default function Page() {
         description="This shouldn't take long."
         colour="F27878"
         loading={true}
-        showHomeButton={"/"}
+        showHomeButton={"/home"}
     />;
     const toSearch = (router.query.pattern ? router.query.pattern : "") as string
     // Find if the pattern is in the list of patterns
@@ -30,7 +30,7 @@ export default function Page() {
             subtitle={`Searched pattern list for "${toSearch}"`}
             description="Here's a list of all the patterns."
             colour="F27878"
-            showHomeButton={"/checklist"}
+            showHomeButton={"/home"}
             loading={router.query.pattern === "loading"}
         /><br />
         <div style={{display: "flex", flexDirection: "column", gap: "1rem"}}>
@@ -61,7 +61,7 @@ export default function Page() {
             title={`Pattern ${patternObject.name}`}
             description={`Here's what you need to know about ${patternObject.name}.`}
             colour={beltChose!.stripe}
-            showHomeButton={"/"}
+            showHomeButton={"/checklist"}
         />
         <Patterns belt={internalBeltName!} beltObject={beltChose!} data={[patternObject]} fullPage={true}/>
     </>

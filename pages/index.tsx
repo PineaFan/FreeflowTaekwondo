@@ -5,6 +5,7 @@ import { Card, CardRow } from '../components/cards';
 import { SectionHeading, SectionSubheading } from '../components/title';
 import { Lesson } from '../components/lesson';
 import { SocialPost } from '../components/socialPost';
+import { Share } from '../components/icons';
 
 import Styles from '../styles/pages/index.module.css';
 
@@ -25,7 +26,7 @@ export default function Index(props: React.PropsWithChildren<{}>) {
                 title="Weekly Lessons"
                 subtitle="4 lessons held every week in 3 different locations."
                 button={{text: "Class Times", link: "/#classes"}}
-                image="images/sparring.png"
+                image="images/sparring.jpg"
             />
             <Card
                 title="Events"
@@ -95,12 +96,12 @@ export default function Index(props: React.PropsWithChildren<{}>) {
         <SectionHeading id="policies" showLine={true}>Policies</SectionHeading>
         <div className={Styles.center}>
             <div className={Styles.linkList}>
-                <a target="_blank" href="/policies/CodeOfConduct.pdf">Parent, Carer and Child Code of Conduct</a>
-                <a target="_blank" href="/policies/InstructorCodeOfConduct.pdf">Instructor Code of Ethics</a>
-                <a target="_blank" href="/policies/ChildProtectionPolicy.pdf">Child Protection Policy</a>
-                <a target="_blank" href="https://puma-uk.com/about#safeguarding">PUMA Safeguarding</a>
-                <a target="_blank" href="/policies/SafeguardingTeam">PUMA Safeguarding Team</a>
-                <a target="_blank" href="/policies/ComplaintsProcedure.pdf">Complaints Procedure</a>
+                <a target="_blank" href="/policies/CodeOfConduct.pdf">Parent, Carer and Child Code of Conduct<Share /></a>
+                <a target="_blank" href="/policies/InstructorCodeOfConduct.pdf">Instructor Code of Ethics<Share /></a>
+                <a target="_blank" href="/policies/ChildProtectionPolicy.pdf">Child Protection Policy<Share /></a>
+                <a target="_blank" href="https://puma-uk.com/about#safeguarding">PUMA Safeguarding<Share /></a>
+                <a target="_blank" href="/policies/SafeguardingTeam">PUMA Safeguarding Team<Share /></a>
+                <a target="_blank" href="/policies/ComplaintsProcedure.pdf">Complaints Procedure<Share /></a>
             </div>
             <br /><br />
             <CardRow>
@@ -123,11 +124,11 @@ export default function Index(props: React.PropsWithChildren<{}>) {
         <SectionHeading id="resources" showLine={true}>Resources</SectionHeading>
         <div className={Styles.center}>
             <div className={Styles.linkList}>
-                <a target="_blank" href="https://chesterfieldtaekwondo.co.uk/">Chesterfield Taekwondo</a>
-                <a target="_blank" href="https://nctkd.co.uk/">New Century homepage</a>
-                <a target="_blank" href="https://puma-uk.com/">PUMA homepage</a>
-                <a href="mailto:ryan@pinea.dev">Website issues (Email)</a>
-                <a target="_blank" href="https://facebook.com/tkdclasses/">Facebook</a>
+                <a target="_blank" href="https://chesterfieldtaekwondo.co.uk/">Chesterfield Taekwondo<Share /></a>
+                <a target="_blank" href="https://nctkd.co.uk/">New Century homepage<Share /></a>
+                <a target="_blank" href="https://puma-uk.com/">PUMA homepage<Share /></a>
+                <a href="mailto:ryan@pinea.dev">Website issues (Email)<Share /></a>
+                <a target="_blank" href="https://facebook.com/tkdclasses/">Facebook<Share /></a>
             </div>
         </div>
     </>;

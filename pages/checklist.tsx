@@ -92,20 +92,19 @@ const gradingCards: Record<string, {
         title: "Patterns",
         _subtitle: (currentBelt: belt, _name: string) => patternDescription(currentBelt),
         button: {text: "Check moves", link: "#patterns"},
-        image: "patterns/Plus.svg",
-        fillMethod: "showAll"
+        image: "patterns/card.jpg"
     },
     "linework": {
         title: "Linework",
         _subtitle: (_currentBelt: belt, name: string) => `You could be asked to perform up to ${linework[name].length} different moves for linework. These moves mostly come from your next pattern.`,
         button: {text: "Practice moves", link: "#linework"},
-        image: "images/linework.png"  // TODO
+        image: "images/linework.jpg"
     },
     "prearrangedSparring": {
         title: "Prearranged Sparring",
         subtitle: `You will be expected to perform prearranged sparring against another person of the same belt. This helps to improve your focus, distance, and timing.`,
         button: {text: "Check moves", link: "#prearrangedSparring"},
-        image: "images/prearrangedSparring.png"  // TODO
+        _image: (name: string) => `prearrangedSparring/${belts[name].requirements.prearrangedSparring!.name[0]}.jpg`
     },
     "powerTest": {
         title: "Power Test",
@@ -115,7 +114,7 @@ const gradingCards: Record<string, {
     "sparring": {
         title: "Sparring",
         subtitle: `You will be expected to spar against others at a similar belt to you. You are not expected to hurt your opponent, but instead should demonstrate as many different moves as possible.`,
-        image: "images/sparring.png"
+        image: "images/sparring.jpg"
     },
     "theory": {
         title: "Theory",
@@ -133,7 +132,7 @@ const gradingCards: Record<string, {
         title: "Padwork",
         subtitle: "You will be asked to demonstrate sequence of moves against a pad.",
         button: {text: "Check moves", link: "#padwork"},
-        image: "images/padwork.png"  // TODO
+        image: "images/padwork.jpg"
     }
 }
 
@@ -176,8 +175,11 @@ export default function Checklist() {
     const accent = belts[belt].stripe === "FFFFFF" ? "C4C4C4" : belts[belt].stripe;
 
     gradingCards.linework.subtitle = gradingCards.linework._subtitle!(belts[belt], belt);
-    gradingCards.theory.image = gradingCards.theory._image!(belt);
     gradingCards.minimum.subtitle = gradingCards.minimum._subtitle!(belts[belt]);
+    gradingCards.theory.image = gradingCards.theory._image!(belt);
+    if (belts[belt].requirements.prearrangedSparring) {
+        gradingCards.prearrangedSparring.image = gradingCards.prearrangedSparring._image!(belt)
+    }
 
     let cardTitles = Object.keys(belts[belt].requirements).filter((x) => x in gradingCards);
     cardTitles.push("linework");
