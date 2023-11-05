@@ -287,6 +287,7 @@ export default function Flashcards() {
         <div className={Styles.markAs}
             style={{
                 opacity: cardAnimationStage >= 2 ? 1 : 0,
+                pointerEvents: cardAnimationStage >= 2 ? "all" : "none",
                 transitionDelay: cardAnimationStage >= 2 ? "0.3s" : "0s",
             }}
         >
