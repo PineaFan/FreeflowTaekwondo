@@ -18,7 +18,7 @@
     },
     "purple-junior": {
         "images": ["purple-junior"],
-        "name": "Junior Purple belt",
+        "name": "Junior Purple stripe",
         "kup": "10th",
         "questions": [
             { "prompt": "What are the tenets of Taekwondo?", "answer": ["Courtesy", "Integrity", "Perseverance", "Self control", "Indomitable spirit"], "responseType": "typo" },
@@ -40,7 +40,7 @@
     },
     "orange-junior": {
         "images": ["orange-junior-grading", "orange-junior-extra"],
-        "name": "Junior Orange belt",
+        "name": "Junior Orange stripe",
         "kup": "10th",
         "questions": [
             { "prompt": "Attention stance", "answer": "Charyot Sogi", "responseType": "translate" },
@@ -127,7 +127,7 @@
     },
     "yellow-stripe": {
         "images": ["yellow-stripe-grading", "yellow-stripe-extra"],
-        "name": "Senior Purple belt",
+        "name": "Yellow stripe",
         "kup": "9th",
         "questions": [
             { "prompt": "Taekwondo was introduced into the UK in...", "answer": "1967", "responseType": "exact" },
@@ -156,7 +156,7 @@
     },
     "yellow": {
         "images": ["yellow-grading", "yellow-extra"],
-        "name": "Senior Yellow belt",
+        "name": "Yellow belt",
         "kup": "8th",
         "questions": [
             { "prompt": "What is Dan-Gun named after?", "answer": "Dan-Gun is named after the Holy Dan-Gun, the legendary founder of Korea in the year 2333 BCE", "responseType": "GPT" },
@@ -184,7 +184,7 @@
     },
     "green-stripe": {
         "images": ["green-stripe-grading", "green-stripe-extra"],
-        "name": "Senior Green belt",
+        "name": "Green stripe",
         "kup": "7th",
         "questions": [
             { "prompt": "What was Do-San?", "answer": "Do-San is the pseudonym of the patriot Ahn Chang-Ho, who devoted his entire life to furthering the education of Korea and its independence movement.", "responseType": "GPT" },
@@ -213,7 +213,7 @@
     },
     "green": {
         "images": ["green-grading", "green-extra"],
-        "name": "Senior Green belt",
+        "name": "Green belt",
         "kup": "6th",
         "questions": [
             { "prompt": "Who was Won-Hyo?", "answer": "Won-Hyo was the noted monk who introduced Buddhism into the Silla Dynasty in the year 686 CE", "responseType": "GPT" },
@@ -246,7 +246,7 @@
     },
     "blue-stripe": {
         "images": ["blue-stripe-grading", "blue-stripe-extra"],
-        "name": "Senior Blue belt",
+        "name": "Blue stripe",
         "kup": "5th",
         "questions": [
             { "prompt": "What does Yul-Gok mean?", "answer": "It is the pseudonym of a great philosopher and scholar Yi I (1536 - 1584 CE) nicknamed the 'Confucious of Korea'. The 38 movements refer to his birthplace on 38 degrees latitude and the diagram represents a scholar", "responseType": "GPT" },
@@ -306,7 +306,7 @@
     },
     "blue": {
         "images": ["blue-grading", "blue-extra"],
-        "name": "Senior Blue belt",
+        "name": "Blue belt",
         "kup": "4th",
         "questions": [
             { "prompt": "What does Joong-Gun mean?", "answer": "Joong-Gun is named after the patriot An Joong-Gun who assassinated Hiro-Bumi Ito, the first Japanese Governor General of Korea, known as the man who played the leading part of the Korea-Japan merger. There are 32 movements in this pattern to represent Mr An's age when he was executed at Lui-Shung Prison in 1910", "responseType": "GPT" },
@@ -346,7 +346,7 @@
     },
     "red-stripe": {
         "images": ["red-stripe-grading", "red-stripe-extra"],
-        "name": "Senior Red belt",
+        "name": "Red stripe",
         "kup": "3rd",
         "questions": [
             { "prompt": "What does Toi-Gye mean?", "answer": "Toi-Gye is the penname of the noted scholar Yi Hwang (16th CE) and authority on neo-confucianism. The 37 movements of the pattern refer to his birthplace on 37 degrees latitude and the diagram represents a scholar", "responseType": "GPT" },
@@ -380,10 +380,10 @@
     },
     "red": {
         "images": ["red-grading", "red-extra"],
-        "name": "Senior Red belt",
+        "name": "Red belt",
         "kup": "2nd",
         "questions": [
-            { "prompt": "What does Hwa-Rang mean?", "answer": "Hwa-Rang is named after the Hwa-Rang youth group which originated in the Silla Dynasty in the early 7th century. The 29 movements refer to the 29th Infantry Division, where Taekwondo developed into maturity", "responseType": "GPT" },
+            { "prompt": "What does Hwa-Rang mean?", "answer": "Hwa-Rang is named after the Hwa-Rang youth group which originated in the Silla Dynasty in the early 7th century. This group eventually became the actual driving force for the unification of the three kingoms of Korea. The 29 movements refer to the 29th Infantry Division, where Taekwondo developed into maturity", "responseType": "GPT" },
             { "prompt": "How many movements does Hwa-Rang have?", "answer": "29", "responseType": "exact" },
             { "prompt": "Close ready stance C", "answer": "Moa Junbi Sogi C", "responseType": "translate" },
             { "prompt": "Middle front outer forearm block", "answer": "Kaunde Ap Bakat Palmok Makgi", "responseType": "translate" },
@@ -429,7 +429,7 @@
     },
     "black-stripe": {
         "images": ["black-stripe"],
-        "name": "Senior Black belt",
+        "name": "Black stripe",
         "kup": "1st",
         "questions": [
             { "prompt": "What does Choong-Moo mean?", "answer": "Choong-Moo was the name given to the great Admiral Yi Soon-Sin of the Yi Dynasty. He was reputed to have invented the first armoured battleship (Kobukson) in 1592, which is said to be the precursor of the present day submarine. The reason why this pattern ends with a left hand attack is to symbolise his regrettable death, having no chance to show his unrestrained potentiality checked by the forced reservation of his loyalty to the king", "responseType": "GPT" },
