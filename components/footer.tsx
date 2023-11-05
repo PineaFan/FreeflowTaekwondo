@@ -11,6 +11,7 @@ const packageList: Record<string, string> = {
     "react-animate-height": "https://npmjs.com/package/react-animate-height",
     "ical-toolkit": "https://npmjs.com/package/ical-toolkit",
     "chart.js": "https://npmjs.com/package/chart.js",
+    "react-rewards": "https://npmjs.com/package/react-rewards",
 }
 
 
