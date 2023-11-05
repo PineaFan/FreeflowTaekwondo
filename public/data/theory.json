@@ -442,7 +442,7 @@
             { "prompt": "Where do you see yourself within Taekwondo in three years time?", "responseType": "opinion" },
             { "prompt": "If you are unsuccessful at something, how will you overcome this?", "responseType": "opinion" },
             { "prompt": "Can you name all 12 stances used as a color belt, English and Korean?", "responseType": "opinion" },
-            { "prompt": "What is the difference between a martial artist and a ports person?", "responseType": "opinion" },
+            { "prompt": "What is the difference between a martial artist and a sports person?", "responseType": "opinion" },
             { "prompt": "How have you supported your instructor, school and local area?", "responseType": "opinion" },
             { "prompt": "Who is your greatest inspiration inside and outside of Taekwondo?", "responseType": "opinion" },
             { "prompt": "Why, initially, was there 24 patterns, what did this represent?", "responseType": "opinion" },
