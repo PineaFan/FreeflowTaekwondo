@@ -35,7 +35,7 @@ export function Footer() {
             </>})}
         </p>
         <p className={Styles.text}>
-            Hosted by <Link href="https://clicks.codes">Clicks</Link>
+            Hosted by <Link className={Styles.link} href="https://clicks.codes">Clicks</Link>
         </p>
     </div>
 }
