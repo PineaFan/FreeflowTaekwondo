@@ -23,8 +23,9 @@ function constructPattern(patternData: pattern, index: number, accent: string, f
     </div>
     // The ready position files are stored as the patternData.ready value, but only the first letter
     const readyPosition = patternData.ready.split(" ").map((word) => word[0]).join("").toUpperCase()
+    const title = <SectionSubheading id={`patterns.${index}`} showLine={false}>{patternData.name}</SectionSubheading>
     return <div className={Styles.list} key={index}>
-        <a href={`pattern/${patternData.name}`}><SectionSubheading id={`patterns.${index}`} showLine={false}>{patternData.name}<RightArrow colour={accent} /></SectionSubheading></a>
+        { fullPage ? title : <a href={`pattern/${patternData.name}`} className={Styles.inlineText}>{title}<RightArrow colour={accent} /></a> }
         <CardRow>
             <Card
                 title={patternData.name}

@@ -8,6 +8,15 @@
 }
 
 .icon {
-    height: 12px;
-    width: 12px;
+    height: 100%;
+    max-height: 30px;
+    width: auto;
+}
+
+.center {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

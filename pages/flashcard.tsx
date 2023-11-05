@@ -62,7 +62,7 @@ export default function Flashcards() {
         title="Theory Flashcards"
         colour={belts[belt].stripe}
         description="Test your knowledge of the theory for your next grading."
-        showHomeButton={"/checklist#theory"}
+        backLink={"/checklist#theory"}
         loading={!beltChose}
     />;
     if (!beltChose) {

@@ -31,6 +31,7 @@
     font-size: 2rem;
     margin: 0;
     line-height: 2rem;
+    display: inline;
 }
 
 .h2 {
@@ -39,6 +40,7 @@
     margin: 0;
     text-align: center;
     width: 100%;
+    display: inline;
 }
 
 .p {
@@ -48,12 +50,6 @@
     text-align: center;
     width: 100%;
 }
-
-/* Create an animation which turns a div into a loading bar by making it all white, then wiping to yellow, then green, then blue, then red, then black, then back to white */
-
-/* Define the animation
-The transition between each colour should smoothly wipe rather than fade
-*/
 
 @keyframes loading {
     0% {
@@ -78,7 +74,7 @@ The transition between each colour should smoothly wipe rather than fade
     justify-content: center;
     align-items: center;
     gap: 10px;
-    height: 2rem;
+    min-height: 2rem;
     width: 100%;
 }
 
@@ -91,10 +87,10 @@ The transition between each colour should smoothly wipe rather than fade
     justify-content: center;
     align-items: center;
     gap: 0.1rem;
-    height: 2rem;
+    height: 15px;
     width: 100%;
 
     font-size: 15px;
     padding: 0;
-    margin: 0;
+    margin-bottom: 5px;
 }

@@ -9,15 +9,15 @@ const capitalise = (string: string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const generateHomeLocation = (showHomeButton?: string) => {
-    if (!showHomeButton) {
+const generateHomeLocation = (backLink?: string) => {
+    if (!backLink) {
         return "Home";
     }
-    showHomeButton = showHomeButton.split("#")[0].split("?")[0];
-    if (showHomeButton === "/") {
+    backLink = backLink.split("#")[0].split("?")[0];
+    if (backLink === "/") {
         return "Home";
     }
-    const split = showHomeButton.split("/");
+    const split = backLink.split("/");
     return capitalise(split[split.length - 1]);
 }
 
@@ -26,13 +26,13 @@ export default function Header(props: React.PropsWithChildren<{
     subtitle?: string,
     description: string,
     colour?: string,
-    showHomeButton?: string,  // TODO: Show this
+    backLink?: string,  // TODO: Show this
     loading?: boolean,
 }>) {
-    const homeLocation = generateHomeLocation(props.showHomeButton);
+    const homeLocation = generateHomeLocation(props.backLink);
     return <div className={Styles.container}>
         <div className={Styles.close}>
-            { props.showHomeButton ? <a href={props.showHomeButton} className={Styles.link}><LeftArrow colour={props.colour} />{homeLocation}</a> : null }
+            { props.backLink ? <a href={props.backLink} className={Styles.link}><LeftArrow colour={'6576CC'} />{homeLocation}</a> : null }
             <div className={Styles.horizontal}>
                 <h1 className={Styles.h1}>{props.title}</h1>
             </div>

@@ -161,14 +161,14 @@ export default function Checklist() {
         // subtitle="Check all the requirements for your next grading."
         description="Select your grade below to see what the requirements are for your next belt."
         colour={beltChose ? belts[belt].stripe : "FFFFFF"}
-        showHomeButton={"/"}
+        backLink={"/"}
         loading={!beltChose}
     />;
 
     if (!beltChose) {
         return <>
             { header }
-            <NoBelt title={"What's on this grading?"} backLink={'checklist'} setBelt={setBelt} />
+            <NoBelt title={"What's on this grading?"} backLink={'home'} setBelt={setBelt} />
         </>;
     }
 
