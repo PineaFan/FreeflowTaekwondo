@@ -6,6 +6,7 @@ import { SectionHeading, SectionSubheading } from '../components/title';
 import { Lesson } from '../components/lesson';
 import { SocialPost } from '../components/socialPost';
 import { Share } from '../components/icons';
+import { Footer } from '../components/footer';
 
 import Styles from '../styles/pages/index.module.css';
 
@@ -69,6 +70,14 @@ export default function Index(props: React.PropsWithChildren<{}>) {
             </div>
         </div>
         <br />
+        <SectionSubheading id="littlePumas">Little PUMAs</SectionSubheading>
+        <CardRow>
+            <Card image="images/LP/1.jpg"/>
+            <Card image="images/LP/2.jpg"/>
+            <Card image="images/LP/4.jpg"/>
+        </CardRow>
+        <p style={{width: "100%", textAlign: "center"}}>Little PUMAs is a specially designed program for children aged 4-7. It is a fun, exciting and safe way to introduce your child to the world of martial arts.</p>
+        <p style={{width: "100%", textAlign: "center"}}>Classes aim to help young children co-ordination, discipline, focus and concentration, balance, and teamwork.</p>
         <SectionSubheading id="new">New to Taekwondo?</SectionSubheading>
         <p style={{width: "100%", textAlign: "center"}}>Get your first 2 lessons free with no commitments - Just let Stacey know before you come!</p>
         <SectionHeading id="contact" showLine={true}>Contact</SectionHeading>
@@ -127,9 +136,11 @@ export default function Index(props: React.PropsWithChildren<{}>) {
                 <a target="_blank" href="https://chesterfieldtaekwondo.co.uk/">Chesterfield Taekwondo<Share /></a>
                 <a target="_blank" href="https://nctkd.co.uk/">New Century homepage<Share /></a>
                 <a target="_blank" href="https://puma-uk.com/">PUMA homepage<Share /></a>
-                <a href="mailto:ryan@pinea.dev">Website issues (Email)<Share /></a>
+                <a target="_blank" href="https://puma-uk.com/styles#lp">Little PUMAs<Share /></a>
                 <a target="_blank" href="https://facebook.com/tkdclasses/">Facebook<Share /></a>
+                <a href="mailto:ryan@pinea.dev">Website issues (Email)<Share /></a>
             </div>
         </div>
+        <Footer />
     </>;
 }

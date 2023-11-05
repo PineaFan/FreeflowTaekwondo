@@ -40,14 +40,14 @@ export default function Theory(props: React.PropsWithChildren<{
                     />
                 })
             }
-            {/* <Card
+            <Card
                 title={"Flashcards"}
                 subtitle={`Flashcards of the ${props.beltObject.displayName} theory card questions can be completed online, or printed out`}
                 image="flashcard.png"
                 button={{"text": "Flashcards", "link": `/flashcard`}}
                 accent={props.beltObject.stripe}
             />
-            <Card
+            {/* <Card
                 title={"Take a quiz"}
                 subtitle={`If you think you can remember the whole card, you can practice an example quiz here`}
                 image="quiz.png"

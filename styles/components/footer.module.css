@@ -1,13 +1,36 @@
 .background {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline: 2rem;
+    padding-block: 2vh;
+    margin: -2rem;
     margin-top: 50px;
+    margin-bottom: calc(-50px - 2rem);
     background-color: #F0F0F0;
-    padding: 2rem;
+    width: 100%;
+
+    border-top: solid #6576CC 4px;
 }
+@media print { .background { display: none } }
 
 .title {
+    font-size: 1.5rem;
     font-weight: 400;
-    font-size: 2rem;
-    margin: 0;
+    margin-bottom: 10px;
 }
 
+.text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+    margin: 2px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
 
+.link {
+    color: #6576CC;
+}
