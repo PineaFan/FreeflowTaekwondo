@@ -1,3 +1,4 @@
+
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -183,6 +184,7 @@ export default function Flashcards() {
     const markQuestion = (mark: "none" | "correct" | "incorrect" | "almost") => {
         if (mark === "correct" && !isCorrectAnimating) {
             correctReward();
+			setTimeout(() => { nextQuestion() }, 300)
         } else if (mark === "almost" && !isAlmostAnimating) {
             almostReward();
         }
@@ -301,14 +303,14 @@ export default function Flashcards() {
                 </p>
             })}
         </div>
-
+		
+		<SectionSubheading id="Totals">Progress</SectionSubheading>
         {/* Chart */}
         <div className={Styles.chart}>
             <Doughnut data={config.data} options={config.options} />
         </div>
 
         {/* Totals */}
-        <SectionSubheading id="Totals">Progress</SectionSubheading>
         <div className={Styles.center}>
             <p className={Styles.button} style={{borderColor: `#`}} onClick={() => handleReset()}>{resetClicks === 0 ? "Reset all" : "Click again to confirm"}</p>
             <div className={Styles.totals}>
