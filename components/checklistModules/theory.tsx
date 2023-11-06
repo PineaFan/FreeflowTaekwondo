@@ -44,7 +44,7 @@ export default function Theory(props: React.PropsWithChildren<{
                 title={"Flashcards"}
                 subtitle={`Flashcards of the ${props.beltObject.displayName} theory card questions can be completed online, or printed out`}
                 image="flashcard.png"
-                button={{"text": "Flashcards", "link": `/flashcard`}}
+                button={{"text": "Flashcards", "link": `/flashcards`}}
                 accent={props.beltObject.stripe}
             />
             {/* <Card

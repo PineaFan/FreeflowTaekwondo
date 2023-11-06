@@ -78,7 +78,7 @@ const gradingCards: Record<string, {
     button?: {
         text: string;
         link: string;
-    };
+    } | { text: string, link: string}[];
     image?: string;
     _image?: Function;
     fillMethod?: "showAll" | "fill";
@@ -119,7 +119,7 @@ const gradingCards: Record<string, {
     "theory": {
         title: "Theory",
         subtitle: `You will be expected to answer theory questions from your card. You will be asked 5 questions from your card.`,
-        button: {text: "Revise", link: "#theory"},
+        button: [{text: "Revise", link: "#theory"}, {text: "Flashcards", link: "/flashcards"}],
         _image: (name: string) => `theory/${theory[name].images[0]}.png`
     },
     "beltTying": {
