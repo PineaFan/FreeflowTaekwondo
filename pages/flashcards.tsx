@@ -48,11 +48,11 @@ const capitalise = (string: string) => {
 
 const answerString = (object: string | string[] | undefined) => {
     if (typeof object === "string") {
-        return object;
+        return capitalise(object);
     } else if (typeof object === "undefined") {
         return "";
     } else {
-        return object.join(", ");
+        return capitalise(object.join(", "));
     }
 }
 
@@ -168,7 +168,6 @@ export default function Flashcards() {
     }
 
     const shakeCard = () => {
-        console.log("Shaking card");
         setIsShaking(true);
         setTimeout(() => {
             setIsShaking(false);
@@ -190,6 +189,10 @@ export default function Flashcards() {
     const nextQuestion = (remainOnQuestion?: boolean) => {
         setShakeNext(false);
         if (cardAnimationStage % 2 === 0) {
+            // if (  // If there are no questions
+            //     (remainOnQuestion && filteredQuestions.length === 1) ||
+            //     filteredQuestions.length === 0
+            // ) { return shakeCard(); }
             setCardAnimationStage(cardAnimationStage + 1);
             // Wait 0.3s
             setTimeout(() => {
@@ -205,7 +208,7 @@ export default function Flashcards() {
 
                 // There is a special case when "remainOnQuestion" is true, and the last question has just been deleted.
                 // In this case, the card data needs to be noneSelected
-                if (remainOnQuestion && filteredQuestions.length === 1) {
+                if (remainOnQuestion && filteredQuestions.length === 1 || filteredQuestions.length === 0) {
                     setCurrentCardData({... noneSelected, status: "none"});
                 }
             }, 300);
@@ -214,6 +217,7 @@ export default function Flashcards() {
     const previousQuestion = () => {
         setShakeNext(false);
         if (cardAnimationStage % 2 === 0) {
+            if (questionNumber === 0) { return shakeCard(); }
             setCardAnimationStage(cardAnimationStage + 1);
             // Wait 0.3s
             setTimeout(() => {
@@ -251,7 +255,7 @@ export default function Flashcards() {
         setCurrentCardData({... currentCardData, status: mark});
         if (mark === "correct" && !isCorrectAnimating) {
             correctReward();
-			setTimeout(() => { nextQuestion() }, 300)
+			setTimeout(() => { nextQuestion(filteredQuestions.length === 1); }, 300)
         } else if (mark === "almost" && !isAlmostAnimating) {
             almostReward();
         }
@@ -291,14 +295,17 @@ export default function Flashcards() {
     }
 
     const handleKeyPress = (event: KeyboardEvent) => {
+        /* If the user has a keyboard, they can navigate the flashcards using the keyboard
+        Left and right go to the previous and next question respectively
+        Space or enter flips the card
+        1, 2, and 3 mark the question as correct, almost correct, and incorrect respectively
+        */
         if (event.key === "ArrowLeft") {
             previousQuestion();
         } else if (event.key === "ArrowRight") {
             nextQuestion();
         } else if (event.key === " " || event.key === "Enter") {
             flipCard();
-        } else if (event.key === "x") {
-            shakeCard();
         }
         if (cardAnimationStage >= 2) {
             if (event.key === "1") {
