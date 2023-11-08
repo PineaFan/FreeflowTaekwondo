@@ -182,10 +182,10 @@ export default function Checklist() {
     }
 
     let cardTitles = Object.keys(belts[belt].requirements).filter((x) => x in gradingCards);
+    cardTitles.push("theory");
     cardTitles.push("linework");
     if (Object.keys(padwork).includes(belt)) cardTitles.push("padwork")
     cardTitles = cardTitles.concat(belts[belt].requirements.extra.filter((x) => x in gradingCards) || []);
-    cardTitles.push("theory");
 
     const modules = cardTitles.filter((x) => Object.keys(ExaminedModules).includes(x)).map((key, index) => {
         // Input data for the module

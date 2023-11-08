@@ -74,7 +74,7 @@ export default function Index(props: React.PropsWithChildren<{}>) {
         <CardRow>
             <Card image="images/LP/1.jpg"/>
             <Card image="images/LP/2.jpg"/>
-            <Card image="images/LP/4.jpg"/>
+            <Card image="images/LP/3.jpg"/>
         </CardRow>
         <p style={{width: "100%", textAlign: "center"}}>Little PUMAs is a specially designed program for children aged 4-7. It is a fun, exciting and safe way to introduce your child to the world of martial arts.</p>
         <p style={{width: "100%", textAlign: "center"}}>Classes aim to help young children co-ordination, discipline, focus and concentration, balance, and teamwork.</p>

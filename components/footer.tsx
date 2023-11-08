@@ -30,9 +30,12 @@ export function Footer() {
         </p>
         <p className={Styles.text}>
             Using
-            { Object.keys(packageList).map((name, index) => { return <>
-                <a className={Styles.link} href={packageList[name]}>{name}{index === Object.keys(packageList).length - 1 ? '' : ','}</a>
-            </>})}
+            { Object.keys(packageList).map((name, index) => { return <a
+                key={index}
+                className={Styles.link}
+                href={packageList[name]}
+            >{name}{index === Object.keys(packageList).length - 1 ? '' : ','}</a>
+            })}
         </p>
         <p className={Styles.text}>
             Hosted by <Link className={Styles.link} href="https://clicks.codes">Clicks</Link>

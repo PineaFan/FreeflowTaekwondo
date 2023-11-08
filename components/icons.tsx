@@ -58,3 +58,39 @@ export function LeftArrow(props: React.PropsWithChildren<{
         </>
     );
 }
+
+export function Circle(props: React.PropsWithChildren<{
+    colour?: string
+}>) {
+    let colour = props.colour || "#6576CC";
+    if (colour[0] !== "#") { colour = "#" + colour; }
+    return (
+        <>
+            <div className={Styles.container}>
+                <div className={Styles.center} style={{height: "1rem"}}>
+                    <svg viewBox="0 0 24 24" fill={colour} xmlns="http://www.w3.org/2000/svg" className={Styles.icon}>
+                        <circle cx="12" cy="12" r="12"/>
+                    </svg>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export function Ring(props: React.PropsWithChildren<{
+    colour?: string
+}>) {
+    let colour = props.colour || "#6576CC";
+    if (colour[0] !== "#") { colour = "#" + colour; }
+    return (
+        <>
+            <div className={Styles.container}>
+                <div className={Styles.center} style={{height: "1rem"}}>
+                    <svg viewBox="0 0 24 24" fill={colour} xmlns="http://www.w3.org/2000/svg" className={Styles.icon}>
+                        <circle cx="12" cy="12" r="10" stroke={colour} fill="transparent" strokeWidth="4"/>
+                    </svg>
+                </div>
+            </div>
+        </>
+    );
+}

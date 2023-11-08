@@ -1,20 +1,20 @@
-
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import untypedBelts from "../public/data/belts.json";
 import untypedTheory from "../public/data/theory.json";
 import { belt, theory } from "../types";
 import Styles from "../styles/pages/flashcard.module.css";
-import Link from "next/link";
+
 import Header from "../components/header";
+import { isMobile } from "react-device-detect";
 import { NoBelt } from "../components/beltUtils";
-import { LeftArrow, RightArrow } from "../components/icons";
+import { LeftArrow, RightArrow, Circle, Ring } from "../components/icons";
 
 import Chart, { ArcElement, Tooltip, Legend} from "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
 import { useReward } from "react-rewards";
 import { SectionSubheading } from "../components/title";
+
 
 Chart.register(ArcElement, Tooltip, Legend);
 
@@ -39,6 +39,8 @@ const typeInstructions: Record<string, string | null> = {
     "list": null,
     "DNA": null,
 }
+
+const noneSelected = {prompt: "No questions to show - Select a type to get started", responseType: "none"};
 
 function questionSide(question: theory["questions"][0], accent: string) {
     return <>
@@ -67,14 +69,20 @@ export default function Flashcards() {
     const [isShaking, setIsShaking] = useState(false);  // Whether the card is shaking
     const [markedAs, setMarkedAs] = useState<Record<string, "none" | "correct" | "incorrect" | "almost">>({});  // The user's answers
     const [resetClicks, setResetClicks] = useState(0);  // The number of times the user has clicked "reset all"
+    const [currentCardData, setCurrentCardData] = useState<{prompt: string, responseType: string, answer?: string | string[], status: keyof typeof statuses}>({prompt: "", responseType: "", status: ""});  // The data for the current card
+    const [statusesToShow, setStatusesToShow] = useState(["correct", "almost", "incorrect", "none"]);  // The statuses to show to the user, allowing them to filter the questions
+    const [updateOnRefresh, setUpdateOnRefresh] = useState(false);  // Whether to update the page on refresh
+    const [shakeNext, setShakeNext] = useState(false);  // Whether to shake the next card
+    let questionNumber = currentQuestion;
 
     const { reward: correctReward, isAnimating: isCorrectAnimating } = useReward("correct", "confetti", {
         colors: Object.keys(statuses).filter((key) => key !== "none").map((key) => statuses[key]),
         elementCount: 50,
+        lifetime: 100
     });
     const { reward: almostReward, isAnimating: isAlmostAnimating } = useReward("almost", "confetti", {
         colors: [statuses["almost"]],
-        elementCount: 25
+        elementCount: 25,
     });
 
     const cardStages = [ Styles.cardFront, Styles.cardFlip ];
@@ -121,6 +129,8 @@ export default function Flashcards() {
     if (cardSections.includes("questions")) { questionTypes = ["translate", "exact", "typo", "list", "GPT"] }
 
     let filteredQuestions: theory["questions"] = [];
+    let countFilteredQuestions: theory["questions"] = [];
+
     if (cardSections.includes("questions")) {
         filteredQuestions = filteredQuestions.concat(questions);
     }
@@ -130,6 +140,23 @@ export default function Flashcards() {
     // Get all questions that aren't ignored, and a type the user wants
     filteredQuestions = filteredQuestions.filter((x) => (!ignoredTypes.includes(x.responseType)) && (questionTypes.includes(x.responseType)));
 
+    countFilteredQuestions = Array.from(filteredQuestions)
+
+    // Get all questions where it's marked as correct, almost, or incorrect if in the statusesToShow array
+    filteredQuestions = filteredQuestions.filter((x) => statusesToShow.includes(markedAs[x.prompt] || "none"));
+
+    if (filteredQuestions.length === 0) {
+        filteredQuestions = [noneSelected];
+    }
+    if (questionNumber >= filteredQuestions.length) {
+        setCurrentQuestion(0);
+        questionNumber = 0;
+    }
+
+    if (currentCardData.status === "") {
+        setCurrentCardData({... filteredQuestions[questionNumber], status: markedAs[filteredQuestions[questionNumber].prompt] || "none"});
+    }
+
     const shakeCard = () => {
         console.log("Shaking card");
         setIsShaking(true);
@@ -138,7 +165,7 @@ export default function Flashcards() {
         }, 600);
     }
     const flipCard = () => {
-        if (!filteredQuestions[currentQuestion].answer) {
+        if (!filteredQuestions[questionNumber].answer) {
             shakeCard();
             return;
         }
@@ -150,9 +177,9 @@ export default function Flashcards() {
             }, 300);
         }
     }
-    const nextQuestion = () => {
+    const nextQuestion = (remainOnQuestion?: boolean) => {
+        setShakeNext(false);
         if (cardAnimationStage % 2 === 0) {
-            // Rewrite this to flip the card too
             setCardAnimationStage(cardAnimationStage + 1);
             // Wait 0.3s
             setTimeout(() => {
@@ -160,13 +187,23 @@ export default function Flashcards() {
                     setCardAnimationStage(0);
                 }, 300);
                 setCardAnimationStage(3);
-                setCurrentQuestion((currentQuestion + 1) % filteredQuestions.length);
+                if (!remainOnQuestion) {
+                    questionNumber = (questionNumber + 1) % filteredQuestions.length;
+                }
+                setCurrentQuestion(questionNumber);
+                setCurrentCardData({... filteredQuestions[questionNumber], status: markedAs[filteredQuestions[questionNumber].prompt] || "none"});
+
+                // There is a special case when "remainOnQuestion" is true, and the last question has just been deleted.
+                // In this case, the card data needs to be noneSelected
+                if (remainOnQuestion && filteredQuestions.length === 1) {
+                    setCurrentCardData({... noneSelected, status: "none"});
+                }
             }, 300);
         }
     }
     const previousQuestion = () => {
+        setShakeNext(false);
         if (cardAnimationStage % 2 === 0) {
-            // Rewrite this to flip the card too
             setCardAnimationStage(cardAnimationStage + 1);
             // Wait 0.3s
             setTimeout(() => {
@@ -174,7 +211,26 @@ export default function Flashcards() {
                     setCardAnimationStage(0);
                 }, 300);
                 setCardAnimationStage(3);
-                setCurrentQuestion((currentQuestion - 1 + filteredQuestions.length) % filteredQuestions.length);
+                questionNumber = (questionNumber - 1 + filteredQuestions.length) % filteredQuestions.length;
+                setCurrentQuestion(questionNumber);
+                setCurrentCardData({... filteredQuestions[questionNumber], status: markedAs[filteredQuestions[questionNumber].prompt] || "none"});
+            }, 300);
+        }
+    }
+    const firstQuestion = (force?: boolean) => {
+        if (cardAnimationStage % 2 === 0) {
+            setShakeNext(false);
+            if (questionNumber === 0 && !force) { return shakeCard(); }
+            setCardAnimationStage(cardAnimationStage + 1);
+            // Wait 0.3s
+            setTimeout(() => {
+                setTimeout(() => {
+                    setCardAnimationStage(0);
+                }, 300);
+                setCardAnimationStage(3);
+                questionNumber = 0;
+                setCurrentQuestion(questionNumber);
+                setCurrentCardData({... filteredQuestions[questionNumber], status: markedAs[filteredQuestions[questionNumber].prompt] || "none"});
             }, 300);
         }
     }
@@ -182,14 +238,18 @@ export default function Flashcards() {
         localStorage.setItem("markedAs", JSON.stringify(markedAs));
     }
     const markQuestion = (mark: "none" | "correct" | "incorrect" | "almost") => {
+        setCurrentCardData({... currentCardData, status: mark});
         if (mark === "correct" && !isCorrectAnimating) {
             correctReward();
 			setTimeout(() => { nextQuestion() }, 300)
         } else if (mark === "almost" && !isAlmostAnimating) {
             almostReward();
         }
-        setMarkedAs({...markedAs, [filteredQuestions[currentQuestion].prompt]: mark});
-        saveMarkedAsToLocalStorage({...markedAs, [filteredQuestions[currentQuestion].prompt]: mark});
+        if (mark !== "correct") {
+            setShakeNext(true);
+        }
+        setMarkedAs({...markedAs, [filteredQuestions[questionNumber].prompt]: mark});
+        saveMarkedAsToLocalStorage({...markedAs, [filteredQuestions[questionNumber].prompt]: mark});
     }
     const handleReset = () => {
         setResetClicks(resetClicks + 1);
@@ -197,7 +257,27 @@ export default function Flashcards() {
             setMarkedAs({});
             saveMarkedAsToLocalStorage({});
             setResetClicks(0);
+            firstQuestion();
+        } else if (resetClicks === 0) {
+            setTimeout(() => {
+                setResetClicks(0);
+            }, 5000);
         }
+    }
+    const toggleStatus = async (status: string) => {
+        let newStatusesToShow = Array.from(statusesToShow);
+        if (newStatusesToShow.includes(status)) {
+            newStatusesToShow = newStatusesToShow.filter((x) => x !== status)
+            setStatusesToShow(newStatusesToShow);
+        } else {
+            newStatusesToShow.push(status);
+            setStatusesToShow(newStatusesToShow);
+        }
+        setUpdateOnRefresh(true);
+    }
+    if (updateOnRefresh) {
+        setUpdateOnRefresh(false);
+        firstQuestion(true);
     }
 
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -210,25 +290,34 @@ export default function Flashcards() {
         } else if (event.key === "x") {
             shakeCard();
         }
+        if (cardAnimationStage >= 2) {
+            if (event.key === "1") {
+                markQuestion("correct");
+            } else if (event.key === "2") {
+                markQuestion("almost");
+            } else if (event.key === "3") {
+                markQuestion("incorrect");
+            }
+        }
     }
     document.onkeydown = handleKeyPress;
 
     // Generate colour and cards
-    const accent = statuses[markedAs[filteredQuestions[currentQuestion].prompt] || "none"];
+    const accent = statuses[markedAs[currentCardData.prompt] || "none"];
 
-    const generatedQuestionSide = questionSide(filteredQuestions[currentQuestion], accent);
-    const generatedAnswerSide = answerSide(filteredQuestions[currentQuestion], accent);
+    const generatedQuestionSide = questionSide(currentCardData, accent);
+    const generatedAnswerSide = answerSide(currentCardData, accent);
 
     // Count the number of each status
     const counts: Record<string, number> = { "correct": 0, "almost": 0, "incorrect": 0, "none": 0 };
-    const questionNames: string[] = filteredQuestions.map((x) => x.prompt);
+    const questionNames: string[] = countFilteredQuestions.map((x) => x.prompt);
     Object.keys(markedAs).forEach((key) => {
         if (questionNames.includes(key)) {
             counts[markedAs[key]]++;
         }
     });
     // Count the number of filteredQuestions that are "none"
-    filteredQuestions.forEach((toCheck) => {
+    countFilteredQuestions.forEach((toCheck) => {
         if (!(toCheck.prompt in markedAs)) {
             counts["none"]++;
         }
@@ -238,11 +327,11 @@ export default function Flashcards() {
     const config = {
         type: "doughnut",
         data: {
-            labels: Object.keys(counts).map((key) => capitalise(key)),
+            labels: Object.keys(counts).filter((key) => statusesToShow.includes(key)).map((key) => capitalise(key)),
             datasets: [{
                 label: " Questions",
-                data: Object.values(counts),
-                backgroundColor: Object.values(statuses),
+                data: Object.keys(counts).filter((key) => statusesToShow.includes(key)).map((key) => counts[key]),
+                backgroundColor: Object.keys(counts).filter((key) => statusesToShow.includes(key)).map((key) => statuses[key]),
                 hoverOffset: 10
             }]
         },
@@ -262,11 +351,11 @@ export default function Flashcards() {
 
         {/* Buttons, total card */}
         <div className={Styles.center}>
-            <p className={Styles.count}>{currentQuestion + 1} / {filteredQuestions.length}</p>
+            <p className={Styles.count}>{questionNumber + 1} / {filteredQuestions.length}</p>
             <div className={Styles.control}>
                 <div className={Styles.inlineText} onClick={() => previousQuestion()}><LeftArrow />Back</div>
                 <div className={Styles.inlineText} onClick={() => flipCard()}>Flip</div>
-                <div className={Styles.inlineText} onClick={() => nextQuestion()}>{((currentQuestion + 1) === Object.keys(filteredQuestions).length) ? "Restart" : "Next"}<RightArrow /></div>
+                <div className={Styles.inlineText + " " + (shakeNext ? Styles.shakeNext : null)} onClick={() => nextQuestion()}>{((questionNumber + 1) === Object.keys(filteredQuestions).length) ? "Restart" : "Next"}<RightArrow /></div>
             </div>
         </div>
 
@@ -303,19 +392,32 @@ export default function Flashcards() {
                 </p>
             })}
         </div>
-		
 		<SectionSubheading id="Totals">Progress</SectionSubheading>
-        {/* Chart */}
-        <div className={Styles.chart}>
-            <Doughnut data={config.data} options={config.options} />
-        </div>
+        <div className={Styles.horizontal}>
+            {/* Chart */}
+            <div className={Styles.chart}>
+                <Doughnut data={config.data} options={config.options} />
+            </div>
 
-        {/* Totals */}
-        <div className={Styles.center}>
-            <p className={Styles.button} style={{borderColor: `#`}} onClick={() => handleReset()}>{resetClicks === 0 ? "Reset all" : "Click again to confirm"}</p>
-            <div className={Styles.totals}>
-                { Object.keys(counts).filter(x => counts[x] > 0).map((key, index) => {
-                    return <p className={Styles.total} key={index}>{counts[key]} {capitalise(key.replace("none", "unmarked").replace("almost", "almost correct"))}</p>
+            {/* Totals */}
+            <div className={Styles.totalContainer}>
+                <div className={Styles.inlineText} style={{justifyContent: "flex-start", gap: "0.5rem"}}>
+                    <p className={Styles.button} style={{borderColor: statuses.incorrect}} onClick={() => handleReset()}>{resetClicks === 0 ? "Reset all" : `${isMobile ? "Tap" : "Click"} again to confirm`}</p>
+                    <p className={Styles.button} style={{borderColor: `#6576CC`}} onClick={() => firstQuestion()}>First card</p>
+                </div>
+                <p className={Styles.total}>Click a type to hide it</p>
+                { Object.keys(counts).map((key, index) => {
+                    const colour = statuses[key]
+                    const object = statusesToShow.includes(key) ? <Circle colour={colour} /> : <Ring colour={colour} />;
+                    return <div
+                        key={index}
+                        className={Styles.inlineText}
+                        style={{justifyContent: "flex-start", gap: "0.5rem"}}
+                        onClick={() => toggleStatus(key)}
+                    >
+                        {object}
+                        <p className={Styles.total}>{counts[key]} {capitalise(key.replace("none", "unmarked").replace("almost", "almost correct"))}</p>
+                    </div>
                 })}
             </div>
         </div>
