@@ -42,6 +42,20 @@ const typeInstructions: Record<string, string | null> = {
 
 const noneSelected = {prompt: "No questions to show - Select a type to get started", responseType: "none"};
 
+const capitalise = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+const answerString = (object: string | string[] | undefined) => {
+    if (typeof object === "string") {
+        return object;
+    } else if (typeof object === "undefined") {
+        return "";
+    } else {
+        return object.join(", ");
+    }
+}
+
 function questionSide(question: theory["questions"][0], accent: string) {
     return <>
         <p className={Styles.text}>{question.prompt}</p>
@@ -53,12 +67,8 @@ function questionSide(question: theory["questions"][0], accent: string) {
 function answerSide(question: theory["questions"][0], accent: string) {
     return <>
         <div className={Styles.hr} style={{backgroundColor: `${accent}`}} />
-        <p className={Styles.text}>{question.answer}</p>
+        <p className={Styles.text}>{answerString(question.answer)}</p>
     </>
-}
-
-const capitalise = (string: string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export default function Flashcards() {
@@ -257,7 +267,7 @@ export default function Flashcards() {
             setMarkedAs({});
             saveMarkedAsToLocalStorage({});
             setResetClicks(0);
-            firstQuestion();
+            firstQuestion(true);
         } else if (resetClicks === 0) {
             setTimeout(() => {
                 setResetClicks(0);
