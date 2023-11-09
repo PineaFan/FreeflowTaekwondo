@@ -323,7 +323,7 @@ export default function Flashcards() {
     // Generate colour and cards
     const accent = statuses[markedAs[currentCardData.prompt] || "none"];
 
-    const generatedQuestionSide = questionSide(currentCardData, accent);
+    const generatedQuestionSide = questionSide(currentCardData, accent, currentCardData.responseType === "none");
     const generatedAnswerSide = answerSide(currentCardData, accent);
 
     // Count the number of each status
