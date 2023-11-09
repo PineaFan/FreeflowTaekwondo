@@ -56,12 +56,13 @@ const answerString = (object: string | string[] | undefined) => {
     }
 }
 
-function questionSide(question: theory["questions"][0], accent: string) {
+function questionSide(question: theory["questions"][0], accent: string, showAll?: () => void) {
     return <>
         <p className={Styles.text}>{question.prompt}</p>
         { typeInstructions[question.responseType] === null ? null : <>
             <p className={Styles.text}>{typeInstructions[question.responseType] || ""}</p>
         </> }
+		{ showAll ? <p className={Styles.button} style={{borderColor: `#6576CC`}} onClick={showAll}>Show all questions</p>
     </>
 }
 function answerSide(question: theory["questions"][0], accent: string) {
