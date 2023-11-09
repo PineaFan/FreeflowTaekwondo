@@ -85,6 +85,7 @@ export default function Flashcards() {
     const [updateOnRefresh, setUpdateOnRefresh] = useState(false);  // Whether to update the page on refresh
     const [shakeNext, setShakeNext] = useState(false);  // Whether to shake the next card
     let questionNumber = currentQuestion;
+    const interact = isMobile ? "Tap" : "Click"
 
     const { reward: correctReward, isAnimating: isCorrectAnimating } = useReward("correct", "confetti", {
         colors: Object.keys(statuses).filter((key) => key !== "none").map((key) => statuses[key]),
@@ -423,11 +424,11 @@ export default function Flashcards() {
 
             {/* Totals */}
             <div className={Styles.totalContainer}>
-                <div className={Styles.inlineText} style={{justifyContent: "flex-start", gap: "0.5rem"}}>
-                    <p className={Styles.button} style={{borderColor: statuses.incorrect}} onClick={() => handleReset()}>{resetClicks === 0 ? "Reset all" : `${isMobile ? "Tap" : "Click"} again to confirm`}</p>
+                <div className={Styles.buttonContainer} style={{justifyContent: "flex-start", gap: "0.5rem"}}>
+                    <p className={Styles.button} style={{borderColor: statuses.incorrect}} onClick={() => handleReset()}>{resetClicks === 0 ? "Reset all" : `${interact} again to confirm`}</p>
                     <p className={Styles.button} style={{borderColor: `#6576CC`}} onClick={() => firstQuestion()}>First card</p>
                 </div>
-                <p className={Styles.total}>Click a type to hide it</p>
+                <p className={Styles.total}>{interact} a type to hide it</p>
                 { Object.keys(counts).map((key, index) => {
                     const colour = statuses[key]
                     const object = statusesToShow.includes(key) ? <Circle colour={colour} /> : <Ring colour={colour} />;
