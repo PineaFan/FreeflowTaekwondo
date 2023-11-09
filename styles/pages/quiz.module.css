@@ -1,0 +1,68 @@
+.center {
+    width: 100%;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.textList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 1rem;
+}
+
+.textLine {
+    padding: 0;
+    margin: 0;
+}
+
+.button {
+    border: solid 3px #424242;
+    padding-inline: 0.75rem;
+    padding-block: 0.25rem;
+    margin: 0;
+    border-radius: 100vw;
+    cursor: pointer;
+    text-align: center;
+    width: fit-content;
+    max-lines: 1;
+    line-clamp: 1;
+    transition: border 0.3s ease-in-out;
+}
+
+.option {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.count {
+    font-size: 1.5rem;
+}
+
+.textArea {
+    width: min(80vw, 50rem);
+    min-height: 10rem;
+    resize: none;
+}
+
+.textArea:focus {
+    outline: none;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
