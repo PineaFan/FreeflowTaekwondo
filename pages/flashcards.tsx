@@ -62,7 +62,7 @@ function questionSide(question: theory["questions"][0], accent: string, showAll?
         { typeInstructions[question.responseType] === null ? null : <>
             <p className={Styles.text}>{typeInstructions[question.responseType] || ""}</p>
         </> }
-		{ showAll ? <p className={Styles.button} style={{borderColor: `#6576CC`}} onClick={showAll}>Show all questions</p> : null }
+		{ question.responseType === "none" ? <p className={Styles.button} style={{borderColor: `#6576CC`}} onClick={showAll}>Show all questions</p> : null }
     </>
 }
 function answerSide(question: theory["questions"][0], accent: string) {
@@ -292,7 +292,7 @@ export default function Flashcards() {
     }
     const enableAllStatuses = () => {
         setStatusesToShow(["correct", "almost", "incorrect", "none"])
-	setUpdateOnRefresh(true)
+        setUpdateOnRefresh(true);
     }
     if (updateOnRefresh) {
         setUpdateOnRefresh(false);
@@ -391,7 +391,7 @@ export default function Flashcards() {
                 Styles.card + " " +
                 cardStages[cardAnimationStage % 2] + " " +
                 (isShaking ? Styles.shake : null)
-            } onClick={() => flipCard()}>
+            } onClick={() => currentCardData.responseType === "none" ? null : flipCard()}>
                 { cardAnimationStage < 2 ? generatedQuestionSide : <>{generatedQuestionSide}{generatedAnswerSide}</> }
             </div>
         </div>
