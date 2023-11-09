@@ -279,7 +279,7 @@ export default function Flashcards() {
             }, 5000);
         }
     }
-    const toggleStatus = async (status: string) => {
+    const toggleStatus = (status: string) => {
         let newStatusesToShow = Array.from(statusesToShow);
         if (newStatusesToShow.includes(status)) {
             newStatusesToShow = newStatusesToShow.filter((x) => x !== status)
@@ -289,6 +289,10 @@ export default function Flashcards() {
             setStatusesToShow(newStatusesToShow);
         }
         setUpdateOnRefresh(true);
+    }
+    const enableAllStatuses = () => {
+        setStatusesToShow(["correct", "almost", "incorrect", "none"])
+	setUpdateOnRefresh(true)
     }
     if (updateOnRefresh) {
         setUpdateOnRefresh(false);
@@ -323,7 +327,7 @@ export default function Flashcards() {
     // Generate colour and cards
     const accent = statuses[markedAs[currentCardData.prompt] || "none"];
 
-    const generatedQuestionSide = questionSide(currentCardData, accent, currentCardData.responseType === "none");
+    const generatedQuestionSide = questionSide(currentCardData, accent, enableAllStatuses);
     const generatedAnswerSide = answerSide(currentCardData, accent);
 
     // Count the number of each status
