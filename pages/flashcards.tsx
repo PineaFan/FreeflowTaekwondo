@@ -257,7 +257,7 @@ export default function Flashcards() {
         setCurrentCardData({... currentCardData, status: mark});
         if (mark === "correct" && !isCorrectAnimating) {
             correctReward();
-			setTimeout(() => { nextQuestion(filteredQuestions.length === 1); }, 300)
+			setTimeout(() => { nextQuestion(filteredQuestions.length === 1 || !statusesToShow.includes("correct")); }, 300)
         } else if (mark === "almost" && !isAlmostAnimating) {
             almostReward();
         }
