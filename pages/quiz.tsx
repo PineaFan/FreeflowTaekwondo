@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import untypedBelts from "../public/data/belts.json";
 import untypedTheory from "../public/data/theory.json";
@@ -41,18 +41,39 @@ const preamble: string[] = [
 ]
 
 
+const markAnswer = async (question: theory["questions"][0], answer: string): Promise<boolean> => {
+    switch (question.responseType) {
+        case "exact": { return question.answer === answer; }
+        case "translate": { }
+        case "GPT": { }
+        case "typo": { }
+        case "list": { }
+        case "opinion": { return true }
+    }
+    // Artificial delay
+    console.log("before")
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log("after")
+    return false;
+}
+
+
 export default function Flashcards() {
     const [belt, _setBelt] = useState("white-senior");  // The user's belt
     const [beltChose, setBeltChosen] = useState(false);  // Whether the user has chosen a belt
     const [includeExtra, setIncludeExtra] = useState(false);  // Whether to include extra questions
     const [includeOpinion, setIncludeOpinion] = useState(false);  // Whether to include opinion questions
     const [opacity, setOpacity] = useState(1);  // The opacity of the page [0, 1]
+    const [updateOnRefresh, setUpdateOnRefresh] = useState(false);  // Whether to update the page on refresh
 
     const [textareaValue, setTextareaValue] = useState("");  // The value of the textarea
 
     const [questionList, setQuestionList] = useState<theory["questions"]>([]);  // The list of questions to be asked
     const [answerList, setAnswerList] = useState<string[]>([]);  // The list of answers to the questions ["" if not answered]
     const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0);  // The number of the current question
+    const [marks, setMarks] = useState<number[]>([]);  // The number of marks the user has for each question [-1 if not answered, 0 if wrong, 1 if correct]
+
+    const textAreaRef = React.createRef<HTMLTextAreaElement>();
 
     function setBelt(value: number) {
         const belt = Object.keys(belts)[value];
@@ -68,6 +89,9 @@ export default function Flashcards() {
             setBeltChosen(true);
         }
     }, []);
+    if (updateOnRefresh) {
+        setUpdateOnRefresh(false);
+    }
 
     const header = <Header
         title="Theory Quiz"
@@ -127,19 +151,63 @@ export default function Flashcards() {
             setOpacity(1);
         }, 600);
     }
+    const restartQuiz = () => {
+        setOpacity(0);
+        setTimeout(() => {
+            setMarks([]);
+            setQuestionList([]);
+            setAnswerList([]);
+            beginQuiz();
+            setOpacity(1);
+        }, 600);
+    }
     const clear = () => {
         setTextareaValue("");
     }
+
+    const markAnswers = async () => {
+        // For each question, mark the answer
+        for (let i = 0; i < questionList.length; i++) {
+            console.log(`Marking question ${i}: ${questionList[i].prompt}, ${answerList[i]}`)
+            const question = questionList[i];
+            const answer = answerList[i].trim().toLowerCase();
+            console.log(`Using answer ${answer}`)
+            if (answer === "") {
+                const marksCopy = marks;
+                marksCopy.push(-1);
+                setMarks(marksCopy);
+                continue;
+            }
+            const mark = await markAnswer(question, answer);
+            const marksCopy = marks;
+            marksCopy.push(mark ? 1 : 0);
+            setMarks(marksCopy);
+            setUpdateOnRefresh(true);
+        }
+        setOpacity(0);
+        setTimeout(() => {
+            setMarks(marks.concat([1]));
+            setOpacity(1);
+        }, 600);
+    }
     const nextQuestion = () => {
-        if (currentQuestionNumber === questionList.length - 1) {
+        if (currentQuestionNumber === questionList.length) {
             return;
-            // Quiz is over
         }
         setOpacity(0);
         setTimeout(() => {
             setTextareaValue("");
+            if (currentQuestionNumber === questionList.length - 1) {
+                markAnswers();
+            }
             setCurrentQuestionNumber(currentQuestionNumber + 1);
             setOpacity(1);
+            // Focus on the textarea
+            console.log(textAreaRef.current)
+            if (textAreaRef.current) {
+                console.log("focusing")
+                textAreaRef.current.focus();
+            }
         }, 600);
     }
     const skip = () => {
@@ -180,20 +248,55 @@ export default function Flashcards() {
                 <p className={Styles.button} onClick={() => beginQuiz()} style={{borderColor: statuses.correct}}>Begin Quiz</p>
             </div>
         </>
-    } else {
+    } else if (currentQuestionNumber < questionList.length) {
         const question = questionList[currentQuestionNumber];
         return <>
             { header }
             <div className={Styles.center} style={{opacity: opacity}}>
                 <p className={Styles.count}>{currentQuestionNumber + 1} / {questionList.length}</p>
                 <p className={Styles.question}>{typeInstructions[question.responseType].pre}{question.prompt}{typeInstructions[question.responseType].post}</p>
-                <textarea className={Styles.textArea} placeholder="Type your answer here..." autoFocus={true} value={textareaValue} onChange={(e) => setTextareaValue(e.target.value)} />
+                { question.responseType === "list" ? <p className={Styles.question}>Use a comma to split each answer</p> : null }
+                <textarea className={Styles.textArea} placeholder="Type your answer here..." autoFocus={true} value={textareaValue} onChange={(e) => setTextareaValue(e.target.value)} ref={textAreaRef} />
                 <div className={Styles.buttonRow}>
                     <p className={Styles.button} style={{borderColor: statuses.incorrect}} onClick={() => skip()}>Skip</p>
                     <p className={Styles.button} style={{borderColor: statuses.almost}} onClick={() => clear()}>Clear</p>
                     <p className={Styles.button} style={{borderColor: statuses.correct}} onClick={() => submit()}>Submit</p>
                 </div>
             </div>
+        </>
+    } else if (currentQuestionNumber === questionList.length && (!marks.length || marks.length <= questionList.length)) {
+        return <>
+            { header }
+            <div className={Styles.center} style={{opacity: opacity}}>
+                <div className={Styles.progressContainer}>
+                    <div className={Styles.progress} style={{
+                        width: `${(marks.length / questionList.length) * 100}%`,
+                        backgroundColor: "#" + (belts[belt].stripe === "FFFFFF" ? statuses.correct : belts[belt].stripe),
+                    }} />
+                </div>
+                Marking your answers
+            </div>
+        </>
+    } else if (currentQuestionNumber === questionList.length && marks.length === questionList.length + 1) {
+        const userMarks: typeof marks = marks.slice(0, -1);
+        const correct = userMarks.filter((x) => x === 1).length;
+        const incorrect = userMarks.filter((x) => x === 0).length;
+        const skipped = userMarks.filter((x) => x === -1).length;
+        return <>
+            { header }
+            <div className={Styles.center} style={{opacity: opacity}}>
+                <p className={Styles.count}>Quiz Complete</p>
+                <p className={Styles.question}>You got {correct} questions correct, {incorrect} questions incorrect, and skipped {skipped} questions.</p>
+                <p className={Styles.question}>Your score is {correct} / {questionList.length}</p>
+                <p className={Styles.button} style={{borderColor: statuses.correct}} onClick={() => restartQuiz()}>Take Another Quiz</p>
+                <p className={Styles.button} style={{borderColor: statuses.almost}} onClick={() => window.location.href = "/flashcards"}>Revise Theory Card</p>
+            </div>
+        </>
+    } else {
+        return <>a
+            <p>{marks.length} {currentQuestionNumber} {questionList.length}</p>
+            b
+            <p>{marks.length === questionList.length} {currentQuestionNumber === questionList.length} {marks.length === questionList.length && currentQuestionNumber === questionList.length}</p>
         </>
     }
 }

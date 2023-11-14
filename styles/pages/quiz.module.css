@@ -34,6 +34,11 @@
     max-lines: 1;
     line-clamp: 1;
     transition: border 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
 }
 
 .option {
@@ -51,6 +56,10 @@
     width: min(80vw, 50rem);
     min-height: 10rem;
     resize: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: solid 3px #424242;
+    box-shadow: 0 0 1rem #42424280;
 }
 
 .textArea:focus {
@@ -65,4 +74,24 @@
     gap: 1rem;
     flex-wrap: wrap;
     width: 100%;
+}
+
+.progressContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: min(80vw, 50rem);
+    background-color: #C4C4C4;
+    height: 0.5rem;
+    border-radius: 100vw;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 100vw;
+    transition: width 0.3s ease-in-out;
 }
