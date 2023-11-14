@@ -188,7 +188,7 @@ export default function Flashcards() {
             }, 300);
         }
     }
-    const nextQuestion = (remainOnQuestion?: boolean) => {
+    const nextQuestion = (force?: boolean, remainOnQuestion?: boolean) => {
         setShakeNext(false);
         if (cardAnimationStage % 2 === 0) {
             // if (  // If there are no questions
@@ -202,15 +202,20 @@ export default function Flashcards() {
                     setCardAnimationStage(0);
                 }, 300);
                 setCardAnimationStage(3);
+                const next = (questionNumber + 1) % filteredQuestions.length
                 if (!remainOnQuestion) {
-                    questionNumber = (questionNumber + 1) % filteredQuestions.length;
+                    questionNumber = next;
                 }
                 setCurrentQuestion(questionNumber);
-                setCurrentCardData({... filteredQuestions[questionNumber], status: markedAs[filteredQuestions[questionNumber].prompt] || "none"});
+                if (force) {
+                    setCurrentCardData({... filteredQuestions[next], status: markedAs[filteredQuestions[next].prompt] || "none"});
+                } else {
+                    setCurrentCardData({... filteredQuestions[questionNumber], status: markedAs[filteredQuestions[questionNumber].prompt] || "none"});
+                }
 
                 // There is a special case when "remainOnQuestion" is true, and the last question has just been deleted.
                 // In this case, the card data needs to be noneSelected
-                if (remainOnQuestion && filteredQuestions.length === 1 || filteredQuestions.length === 0) {
+                if (force && filteredQuestions.length === 1 || filteredQuestions.length === 0) {
                     setCurrentCardData({... noneSelected, status: "none"});
                 }
             }, 300);
@@ -257,7 +262,7 @@ export default function Flashcards() {
         setCurrentCardData({... currentCardData, status: mark});
         if (mark === "correct" && !isCorrectAnimating) {
             correctReward();
-			setTimeout(() => { nextQuestion(filteredQuestions.length === 1); }, 300)
+			setTimeout(() => { nextQuestion(filteredQuestions.length === 1 || !ignoredTypes.includes("correct"), !ignoredTypes.includes("correct")); }, 300)
         } else if (mark === "almost" && !isAlmostAnimating) {
             almostReward();
         }
