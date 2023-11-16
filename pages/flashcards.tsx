@@ -14,6 +14,7 @@ import Chart, { ArcElement, Tooltip, Legend} from "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
 import { useReward } from "react-rewards";
 import { SectionSubheading } from "../components/title";
+import { type } from "os";
 
 
 Chart.register(ArcElement, Tooltip, Legend);
@@ -82,6 +83,8 @@ export default function Flashcards() {
     const [resetClicks, setResetClicks] = useState(0);  // The number of times the user has clicked "reset all"
     const [currentCardData, setCurrentCardData] = useState<{prompt: string, responseType: string, answer?: string | string[], status: keyof typeof statuses}>({prompt: "", responseType: "", status: ""});  // The data for the current card
     const [statusesToShow, setStatusesToShow] = useState(["correct", "almost", "incorrect", "none"]);  // The statuses to show to the user, allowing them to filter the questions
+
+    const [typesToShow, setTypesToShow] = useState(["questions"]);  // Whether to include extra information in the flashcards
     const [updateOnRefresh, setUpdateOnRefresh] = useState(false);  // Whether to update the page on refresh
     const [shakeNext, setShakeNext] = useState(false);  // Whether to shake the next card
     let questionNumber = currentQuestion;
@@ -134,11 +137,16 @@ export default function Flashcards() {
     const ignoredTypes = ["DNA"]
     const questions = theory[belt].questions.filter((x) => !ignoredTypes.includes(x.responseType));
     const extra = theory[belt].extra ? theory[belt].extra!.filter((x) => !ignoredTypes.includes(x.responseType)) : [];
+    console.log(extra)
 
-    let cardSections = ["questions"];
+    let cardSections = typesToShow;
     let questionTypes: string[] = [];
-    if (cardSections.length === 0) { cardSections = ["questions"]; }
-    if (cardSections.includes("questions")) { questionTypes = ["translate", "exact", "typo", "list", "GPT"] }
+    if (cardSections.length === 0) {
+        cardSections = ["questions"];
+        setTypesToShow(cardSections);
+        setUpdateOnRefresh(true);
+    }
+    questionTypes = ["translate", "exact", "typo", "list", "GPT"];
 
     let filteredQuestions: theory["questions"] = [];
     let countFilteredQuestions: theory["questions"] = [];
@@ -167,6 +175,21 @@ export default function Flashcards() {
 
     if (currentCardData.status === "") {
         setCurrentCardData({... filteredQuestions[questionNumber], status: markedAs[filteredQuestions[questionNumber].prompt] || "none"});
+    }
+
+
+    const toggleQuestionType = (type: string, enable: boolean) => {
+        let newTypesToShow = Array.from(typesToShow);
+        if (enable) {
+            newTypesToShow.push(type);
+        } else {
+            newTypesToShow = newTypesToShow.filter((x) => x !== type)
+        }
+        if (newTypesToShow.length === 0) {
+            newTypesToShow.push(type === "questions" ? "extra" : "questions");
+        }
+        setTypesToShow(newTypesToShow);
+        setUpdateOnRefresh(true);
     }
 
     const shakeCard = () => {
@@ -224,7 +247,7 @@ export default function Flashcards() {
     const previousQuestion = () => {
         setShakeNext(false);
         if (cardAnimationStage % 2 === 0) {
-            if (questionNumber === 0) { return shakeCard(); }
+            // if (questionNumber === 0) { return shakeCard(); }
             setCardAnimationStage(cardAnimationStage + 1);
             // Wait 0.3s
             setTimeout(() => {
@@ -447,6 +470,26 @@ export default function Flashcards() {
                         <p className={Styles.total}>{counts[key]} {capitalise(key.replace("none", "unmarked").replace("almost", "almost correct"))}</p>
                     </div>
                 })}
+            </div>
+            <div className={Styles.totalContainer}>
+                <div style={{display: "flex", gap: "1rem", flexDirection: "column"}}>
+                    <div
+                            className={Styles.button + " " + Styles.option}
+                            onClick={() => toggleQuestionType("questions", !typesToShow.includes("questions"))}
+                            style={{borderColor: typesToShow.includes("questions") ? statuses.correct : statuses.incorrect}}
+                        >
+                            <input type="checkbox" checked={typesToShow.includes("questions")} readOnly />
+                            Standard questions
+                    </div>
+                    <div
+                            className={Styles.button + " " + Styles.option}
+                            onClick={() => toggleQuestionType("extra", !typesToShow.includes("extra"))}
+                            style={{borderColor: typesToShow.includes("extra") ? statuses.correct : statuses.incorrect}}
+                        >
+                            <input type="checkbox" checked={typesToShow.includes("extra")} readOnly />
+                            Extra information
+                    </div>
+                </div>
             </div>
         </div>
     </>

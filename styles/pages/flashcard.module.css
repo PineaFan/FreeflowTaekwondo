@@ -105,6 +105,19 @@
     width: fit-content;
     max-lines: 1;
     line-clamp: 1;
+    transition: border 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.option {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .markAs {
@@ -162,4 +175,12 @@
 
 .total {
     margin: 0;
+}
+
+.centerAlign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
 }
