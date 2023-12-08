@@ -313,7 +313,7 @@
             { "prompt": "How many movements does Joong-Gun have?", "answer": "32", "responseType": "exact" },
             { "prompt": "Close ready stance B", "answer": "Moa Junbi Sogi B", "responseType": "translate" },
             { "prompt": "Rear foot stance", "answer": "Dwit Bal Sogi", "responseType": "translate" },
-            { "prompt": "How should your feet and weight be on a rear foot stance (Dwit Bal Sogi)?", "answer": "One shoulder width in totao, front ball of the foot sligtly touching the floor, body weight on the back foot", "responseType": "GPT" },
+            { "prompt": "How should your feet and weight be on a rear foot stance (Dwit Bal Sogi)?", "answer": "One shoulder width in total, front ball of the foot sligtly touching the floor, body weight on the back foot", "responseType": "GPT" },
             { "prompt": "Upset fingertip thrust", "answer": "Dwijibun Sonkut Tulgi", "responseType": "translate" },
             { "prompt": "Side back strike", "answer": "Yopdwi Taerigi", "responseType": "translate" },
             { "prompt": "W-shape block", "answer": "San Makgi", "responseType": "translate" },
