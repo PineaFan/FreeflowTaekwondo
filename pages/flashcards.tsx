@@ -137,7 +137,6 @@ export default function Flashcards() {
     const ignoredTypes = ["DNA"]
     const questions = theory[belt].questions.filter((x) => !ignoredTypes.includes(x.responseType));
     const extra = theory[belt].extra ? theory[belt].extra!.filter((x) => !ignoredTypes.includes(x.responseType)) : [];
-    console.log(extra)
 
     let cardSections = typesToShow;
     let questionTypes: string[] = [];
@@ -285,7 +284,10 @@ export default function Flashcards() {
         setCurrentCardData({... currentCardData, status: mark});
         if (mark === "correct" && !isCorrectAnimating) {
             correctReward();
-			setTimeout(() => { nextQuestion(filteredQuestions.length === 1 || !ignoredTypes.includes("correct"), !ignoredTypes.includes("correct")); }, 300)
+            console.log(ignoredTypes)
+			setTimeout(() => {
+                nextQuestion(filteredQuestions.length === 1 || !statusesToShow.includes("correct"), !statusesToShow.includes("correct"));
+            }, 300)
         } else if (mark === "almost" && !isAlmostAnimating) {
             almostReward();
         }
