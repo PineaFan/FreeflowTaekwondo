@@ -53,8 +53,8 @@ export default function Index(props: React.PropsWithChildren<{}>) {
         </CardRow>
         <SocialPost>Huge congratulations to these young men winning Stone&apos;s student of the year 2022. Keep up the hard work all of you!</SocialPost>
         <CardRow>
-            <Card image="images/SOTY/2.jpeg"/>
             <Card image="images/SOTY/1.jpeg"/>
+            <Card image="images/SOTY/2.jpeg"/>
             <Card image="images/SOTY/3.jpeg"/>
             <Card image="images/SOTY/4.jpeg"/>
         </CardRow>
