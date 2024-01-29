@@ -134,7 +134,7 @@ export default function Index(props: React.PropsWithChildren<{}>) {
         <div className={Styles.center}>
             <div className={Styles.linkList}>
                 <a target="_blank" href="https://chesterfieldtaekwondo.co.uk/">Chesterfield Taekwondo<Share /></a>
-                <a target="_blank" href="https://nctkd.co.uk/">New Century homepage<Share /></a>
+                { /* <a target="_blank" href="https://nctkd.co.uk/">New Century homepage<Share /></a> */ }
                 <a target="_blank" href="https://puma-uk.com/">PUMA homepage<Share /></a>
                 <a target="_blank" href="https://puma-uk.com/styles#lp">Little PUMAs<Share /></a>
                 <a target="_blank" href="https://facebook.com/tkdclasses/">Facebook<Share /></a>
