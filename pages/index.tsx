@@ -33,7 +33,6 @@ export default function Index(props: React.PropsWithChildren<{}>) {
                 title="Events"
                 subtitle="Details on when camps, squads, gradings and seminars are being held this year."
                 button={[
-                    {text: "New Century", link: "https://nctkd.co.uk/events.html", newTab: true},
                     {text: "PUMA", link: "https://www.puma-uk.com/calendar", newTab: true}
                 ]}
                 image="images/gradings.png"
