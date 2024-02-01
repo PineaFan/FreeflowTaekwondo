@@ -59,7 +59,7 @@ const patternDescription = (currentBelt: belt) => {
 }
 
 const beltDetails = (currentBelt: belt) => {
-    let out = `You will need to have attended at least ${currentBelt.requirements.minimum.lessons} lessons, and have been training for at least ${currentBelt.requirements.minimum.months} months`;
+    let out = `You will need to have attended at least ${currentBelt.requirements.minimum.lessons} lessons, and have been training for at least ${currentBelt.requirements.minimum.months} months since you got your last belt`;
     if (currentBelt.requirements.minimum.squads) {
         out += `. You will also need to have attended at least ${currentBelt.requirements.minimum.squads} squad${currentBelt.requirements.minimum.squads > 1 ? 's' : ''}`;
     }
