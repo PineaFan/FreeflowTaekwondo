@@ -17,8 +17,7 @@
         "postcode": "ST10 1HJ",
         "geo": "South+Moorlands+Leisure+Centre+Allen+St+Cheadle+ST10+1HJ",
         "classes": [
-            { "name": "Little PUMAs (4-7)", "start": "19:00", "end": "19:30", "UUID": "TueLP" },
-            { "name": "All Grades", "start": "19:30", "end": "20:30", "UUID": "TueAll" }
+            { "name": "All Grades", "start": "19:00", "end": "20:00", "UUID": "TueAll" }
         ]
     },
     {
