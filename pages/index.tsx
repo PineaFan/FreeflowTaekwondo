@@ -15,7 +15,6 @@ import Image from 'next/image';
 
 
 export default function Index(props: React.PropsWithChildren<{}>) {
-    const [searchValue, setSearchValue] = React.useState("");
     return <>
         <Header
             title="Freeflow Taekwondo"

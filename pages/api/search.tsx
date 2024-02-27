@@ -71,7 +71,7 @@ export function searchPatterns(search: string): { id: string, name: string, desc
         return {
             id: result,
             name: patterns[result].name,
-            description: Object.keys(firstBelt).includes(result) ? `${belts[Object.keys(firstBelt).find(key => firstBelt[key] === result) || ""].displayName} pattern` : "Pattern",
+            description: Object.values(firstBelt).includes(result) ? `${belts[Object.keys(firstBelt).find(key => firstBelt[key] === result) || ""].displayName} pattern` : "Pattern",
         }
     });
 };
