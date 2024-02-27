@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Styles from '../styles/components/header.module.css';
-import Image from 'next/image';
 import { LeftArrow } from './icons';
 
 

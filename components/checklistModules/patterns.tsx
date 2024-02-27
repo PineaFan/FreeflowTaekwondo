@@ -6,7 +6,7 @@ import { SectionSubheading, SectionSmallSubheading } from '../title'
 import CollapsibleContent from '../collapsibleContent';
 import { Card, CardRow } from '../cards'
 import Link from 'next/link';
-import { RightArrow, Share } from '../icons';
+import { RightArrow } from '../icons';
 
 
 function constructPattern(patternData: pattern, index: number, accent: string, fullPage: boolean) {

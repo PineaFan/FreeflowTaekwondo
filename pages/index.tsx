@@ -15,6 +15,7 @@ import Image from 'next/image';
 
 
 export default function Index(props: React.PropsWithChildren<{}>) {
+    const [searchValue, setSearchValue] = React.useState("");
     return <>
         <Header
             title="Freeflow Taekwondo"
@@ -50,7 +51,7 @@ export default function Index(props: React.PropsWithChildren<{}>) {
                 image="images/stacey.png"
             />
         </CardRow>
-        <SocialPost>Huge congratulations to these young men winning Stone&apos;s student of the year 2022. Keep up the hard work all of you!</SocialPost>
+        <SocialPost>Huge congratulations to these students winning Student of the Year in 2023. Keep up the hard work all of you!</SocialPost>
         <CardRow>
             <Card image="images/SOTY/1.jpeg"/>
             <Card image="images/SOTY/2.jpeg"/>

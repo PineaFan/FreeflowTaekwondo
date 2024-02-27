@@ -1,13 +1,6 @@
-// Allows for rectangular components to be crated in a flexbox.
-// Wrap automatically to the next line if needed
-
-// Each card can contain an image, title, subtitle and button
-
-
 import React from 'react';
 
 import Styles from '../styles/components/card.module.css';
-import Image from 'next/image';
 import { Share } from './icons';
 
 

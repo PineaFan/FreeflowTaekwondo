@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Styles from '../styles/components/lesson.module.css';
-import Image from 'next/image';
 import { Share } from './icons';
 
 

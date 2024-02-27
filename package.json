@@ -28,5 +28,8 @@
     "react-router-dom": "^6.16.0",
     "sharp": "^0.32.6",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "react-search-box": "^3.0.0"
   }
 }

@@ -5,7 +5,7 @@ import untypedBelts from '../../public/data/belts.json';
 import untypedPatterns from '../../public/data/patterns.json';
 import { belt, pattern } from '../../types';
 import Patterns from '../../components/checklistModules/patterns';
-import { searchPattern } from '../api/search';
+import { searchPatterns } from '../api/search';
 
 const patterns: Record<string, pattern> = untypedPatterns;
 const belts: Record<string, belt> = untypedBelts;
@@ -13,6 +13,8 @@ const belts: Record<string, belt> = untypedBelts;
 export default function Page() {
     const router = useRouter()
     // Check if the router has loaded or if the user just didn't select a pattern
+    // Warning: Text content did not match. Server: "Searching pattern list" Client: "Select a pattern"
+
     if (!router.isReady) return <Header
         title="Searching pattern list"
         description="This shouldn't take long."
@@ -22,16 +24,17 @@ export default function Page() {
     />;
     const toSearch = (router.query.pattern ? router.query.pattern : "") as string
     // Find if the pattern is in the list of patterns
-    const patternChose = searchPattern(toSearch);
+    const patternChose = searchPatterns(toSearch)[0];
+    const patternProvided = toSearch !== "";
 
     if (Object.keys(patternChose).length === 0) return <>
         <Header
-            title="Pattern not found"
-            subtitle={`Searched pattern list for "${toSearch}"`}
+            title={patternProvided ? "Pattern not found" : "Select a pattern"}
+            subtitle={patternProvided ? `Searched pattern list for "${toSearch}"` : "Pick a pattern to view"}
             description="Here's a list of all the patterns."
             colour="F27878"
             backLink={"/home"}
-            loading={router.query.pattern === "loading"}
+            loading={router.query.pattern === "loading" || !patternProvided}
         /><br />
         <div style={{display: "flex", flexDirection: "column", gap: "1rem"}}>
             {

@@ -14,7 +14,6 @@ import Chart, { ArcElement, Tooltip, Legend} from "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
 import { useReward } from "react-rewards";
 import { SectionSubheading } from "../components/title";
-import { type } from "os";
 
 
 Chart.register(ArcElement, Tooltip, Legend);
