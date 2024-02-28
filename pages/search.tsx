@@ -1,33 +1,57 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Header from '../components/header';
 import Styles from '../styles/pages/search.module.css';
-import { SectionHeading } from '../components/title';
-import { searchClass, searchPatterns, searchTranslate } from './api/search';
+import { searchPatterns, searchTranslate, searchClass } from './api/search';
 
 
 function SearchResult(props: React.PropsWithChildren<{title: string, description: string, url?: string}>) {
-    return <><span>
-        <a href={props.url}>{props.title}</a> - {props.description}
-    </span><br /></>;
+    return <a className={Styles.listElement} href={props.url}>
+        <p className={Styles.main}>{props.title}</p>
+        <p
+            className={Styles.subText}
+            style={{color: props.url ? "#6576CC" : "#424242"}}
+        >{props.description}</p>
+    </a>;
 }
 
 
 export default function Search() {
-    const [search, setSearch] = React.useState('');
+    const [search, setSearch] = React.useState("");
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const url = new URL(window.location.href);
+            const q = url.searchParams.get('q');
+            setSearch(q || "");
+        }
+    }, []);
 
     const patternResults = searchPatterns(search);
+    const translateResults = searchTranslate(search);
     const classResults = searchClass(search);
-    const theoryResults = searchTranslate(search);
 
     // Each needs to be formatted to be displayed in the search results, with a title and a description.
     const patterns = patternResults.map(p => ({url: `/pattern/${p.name}`, title: p.name, description: p.description}));
+    const translate = translateResults.map(t => ({title: t.prompt, description: t.answer}));
     const classes = classResults.map(c => ({
-        title: `${c.location_name}`,
-        description: `${c.day}s in ${c.building_name}, ${c.postcode}`
+        url: `/#classes`,
+        title: `${c.location_name} (${c.day})`,
+        description: `${c.classes.length} classes at ${c.building_name} on ${c.day}s starting from ${c.classes[0].start}`
     }));
-    const theory = theoryResults.map(t => ({title: t.prompt, description: t.answer}));
+    const totalResults = [...patterns, ...classes, ...translate];
 
+    // On search, update the URL to reflect the new search query.
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const url = new URL(window.location.href);
+            url.searchParams.set('q', search);
+            window.history.replaceState({}, '', url.toString());
+        }
+    }, [search]);
+
+    // If there are no results, display a message.
+    const error = <SearchResult title="No results found" description="Try a different search term or check for spelling mistakes" />
 
     return <>
         <Header
@@ -35,21 +59,22 @@ export default function Search() {
             description="Search through all the theory, patterns and classes."
             backLink='/'
         />
-        <i>{"This page is in development - It doesn't look great yet, but it's functional!"}</i><br />
-        <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder='Theory, pattern, or class'/>
-        <div className={Styles.searchResults}>
-            { patterns.length ? <>
-                <SectionHeading id="Patterns">Patterns</SectionHeading>
-                {patterns.map((p, i) => <SearchResult key={i} {...p} />)}
-            </> : null }
-            { classes.length ? <>
-                <SectionHeading id="Classes">Classes</SectionHeading>
-                {classes.map((c, i) => <SearchResult key={i} {...c} />)}
-            </> : null }
-            { theory.length ? <>
-                <SectionHeading id="Theory">Theory</SectionHeading>
-                {theory.map((t, i) => <SearchResult key={i} {...t} />)}
-            </> : null }
+        <div className={Styles.container}>
+            <div className={Styles.center}>
+                <input
+                    type="text"
+                    value={search}
+                    onChange={e => setSearch(e.target.value)}
+                    placeholder='Theory, pattern, or class'
+                    className={Styles.searchBar}
+                />
+                <div className={Styles.searchResults}>
+                    { totalResults ? <>
+                        {totalResults.map((p, i) => <SearchResult key={i} {...p} />)}
+                    </> : null }
+                    { (!totalResults.length && search) && error }
+                </div>
+            </div>
         </div>
     </>
 };

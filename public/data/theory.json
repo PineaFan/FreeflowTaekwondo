@@ -81,7 +81,7 @@
             { "prompt": "Do means...", "answer": "Art, way or method", "responseType": "GPT" },
             { "prompt": "Uniform", "answer": "Dobok", "responseType": "translate" },
             { "prompt": "Belt", "answer": "Ti", "responseType": "translate" },
-            { "prompt": "Training Hall", "answer": "Dojang", "responseType": "translate" },
+            { "prompt": "Training hall", "answer": "Dojang", "responseType": "translate" },
             { "prompt": "What does white signify?", "answer": "Innocence, beginner, no previous knowledge of Taekwondo", "responseType": "GPT" },
             { "prompt": "Why have you started Taekwondo?", "responseType": "opinion" },
             { "prompt": "What are the tenets of Taekwondo?", "answer": "Courtesy, integrity, perseverance, self control, indomitable spirit", "responseType": "typo" },

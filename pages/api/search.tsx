@@ -20,6 +20,7 @@ const allTranslateObjects = Object.keys(theoryContent).map(key =>
     question => question.responseType === "translate"
 );
 
+
 const allTranslateQuestions: Record<string, string> = {};
 allTranslateObjects.forEach(question => {
     const prompt = question.prompt;
