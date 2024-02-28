@@ -11,9 +11,9 @@ export default function App({ Component, pageProps }: AppProps) {
             <meta httpEquiv="Content-Language" content="en" />
         </Head>
         <div className='content'>
-            <Component
-                {...pageProps}
-            />
+                <Component
+                    {...pageProps}
+                />
         </div>
     </div>
 }

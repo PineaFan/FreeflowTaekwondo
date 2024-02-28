@@ -12,6 +12,7 @@ import Styles from '../styles/pages/index.module.css';
 
 import classes from '../public/data/classes.json';
 import Image from 'next/image';
+import Search from '../components/search';
 
 
 export default function Index(props: React.PropsWithChildren<{}>) {
@@ -21,6 +22,7 @@ export default function Index(props: React.PropsWithChildren<{}>) {
             subtitle="Stone, Cheadle and Chell Taekwondo classes"
             description="A safe, family-friendly place for all ages to learn the Korean art of Self Defence."
         />
+        <Search />
         <SectionHeading id="about">About</SectionHeading>
         <CardRow>
             <Card
