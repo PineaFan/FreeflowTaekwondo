@@ -2,7 +2,7 @@
     width: 100%;
     height: 1rem;
     font-size: 1rem;
-    padding: 0.5rem;
+    padding-top: 0.5rem;
 
     border: none;
     outline: none;
@@ -27,7 +27,7 @@
 }
 .inputRow {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: baseline;
     flex-direction: row;
     gap: 0.5rem;
@@ -43,10 +43,10 @@
     transition: opacity 0.1s ease-in-out;
     height: 2rem;
     width: 2rem;
+    border-radius: 0.25rem;
 }
 .clearSearch:focus {
-    outline: 3px solid #6576CC;
-    border-radius: 100vw;
+    outline: 1px solid #6576CC;
 }
 
 .container {

@@ -78,13 +78,13 @@ export default function Search() {
                         type="text"
                         value={search}
                         onChange={e => setSearch(e.target.value)}
-                        placeholder='Find a pattern, theory question or class...'
+                        placeholder='Pattern, theory question or class...'
                         className={Styles.searchBar}
                     />
                     {<button
                         className={Styles.clearSearch}
                         onClick={() => { setSearch(""); searchRef.current?.focus(); }}
-                        style={{opacity: search ? 1 : 0}}
+                        style={{opacity: search ? 1 : 0, position: search ? "relative" : "fixed"}}
                     >x</button>}
                 </div>
                 <div className={Styles.searchResults}>
