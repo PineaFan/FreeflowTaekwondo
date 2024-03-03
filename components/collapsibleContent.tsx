@@ -31,7 +31,12 @@ export default function CollapsibleContent(props: React.PropsWithChildren<{
         >{props.children}</AnimateHeight>
         <div className={Styles.footer}>
             <div className={Styles.fillWidth} style={{backgroundColor: `#${accent}`}} />
-            <div className={Styles.button} onClick={() => toggleOpen()}>
+            <div
+                className={Styles.button}
+                onClick={() => toggleOpen()}
+                tabIndex={0}
+                onKeyUp={(e) => { if (e.key === "Enter" || e.key === " ") toggleOpen() }}
+            >
                 Show {open ? "less" : "more"}
             </div>
             <div className={Styles.fillWidth} style={{backgroundColor: `#${accent}`}} />

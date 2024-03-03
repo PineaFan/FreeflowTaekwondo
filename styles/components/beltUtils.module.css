@@ -6,7 +6,7 @@
     transition: border-color 0.3s ease-in-out;
     font-size: 1rem;
 }
-.select:active, .select:focus {
+.select:active {
     outline: none;
 }
 

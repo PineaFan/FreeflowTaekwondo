@@ -6,7 +6,7 @@ import { belt, theory } from "../types";
 import Styles from "../styles/pages/flashcard.module.css";
 
 import Header from "../components/header";
-import { isMobile } from "react-device-detect";
+import { isMobile, isMacOs } from "react-device-detect";
 import { NoBelt } from "../components/beltUtils";
 import { LeftArrow, RightArrow, Circle, Ring } from "../components/icons";
 
@@ -86,8 +86,10 @@ export default function Flashcards() {
     const [typesToShow, setTypesToShow] = useState(["questions"]);  // Whether to include extra information in the flashcards
     const [updateOnRefresh, setUpdateOnRefresh] = useState(false);  // Whether to update the page on refresh
     const [shakeNext, setShakeNext] = useState(false);  // Whether to shake the next card
+
     let questionNumber = currentQuestion;
     const interact = isMobile ? "Tap" : "Click"
+    const modifier = isMacOs ? "Cmd" : "Ctrl";
 
     const { reward: correctReward, isAnimating: isCorrectAnimating } = useReward("correct", "confetti", {
         colors: Object.keys(statuses).filter((key) => key !== "none").map((key) => statuses[key]),
@@ -122,7 +124,7 @@ export default function Flashcards() {
     const header = <Header
         title="Theory Flashcards"
         colour={belts[belt].stripe}
-        description="Test your knowledge of the theory for your next grading."
+        description={"Test your knowledge of the theory for your next grading." + (isMobile ? "" : ` Press ${modifier}+k for keyboard shortcuts.`)}
         backLink={"/checklist#theory"}
         loading={!beltChose}
     />;
@@ -337,11 +339,45 @@ export default function Flashcards() {
         */
         if (event.key === "ArrowLeft") {
             previousQuestion();
+            return;
         } else if (event.key === "ArrowRight") {
             nextQuestion();
-        } else if (event.key === " " || event.key === "Enter") {
+            return;
+        } else if (event.key === " " || event.key === "f") {
+            event.preventDefault();
             flipCard();
+            return;
+        } else if (event.key === "r") {
+            handleReset();
+            return;
+        } else if (event.key === "k") {
+            firstQuestion();
+            return;
         }
+
+        if (event.metaKey || event.ctrlKey) {
+            if (event.key === "1") {
+                event.preventDefault();
+                toggleStatus("correct");
+            } else if (event.key === "2") {
+                event.preventDefault();
+                toggleStatus("almost");
+            } else if (event.key === "3") {
+                event.preventDefault();
+                toggleStatus("incorrect");
+            } else if (event.key === "4") {
+                event.preventDefault();
+                toggleStatus("none");
+            } else if (event.key === "s") {
+                event.preventDefault();
+                toggleQuestionType("questions", !typesToShow.includes("questions"));
+            } else if (event.key === "e") {
+                event.preventDefault();
+                toggleQuestionType("extra", !typesToShow.includes("extra"));
+            }
+            return;
+        }
+
         if (cardAnimationStage >= 2) {
             if (event.key === "1") {
                 markQuestion("correct");
@@ -400,14 +436,13 @@ export default function Flashcards() {
 
     return <>
         { header }
-
         {/* Buttons, total card */}
         <div className={Styles.center}>
             <p className={Styles.count}>{questionNumber + 1} / {filteredQuestions.length}</p>
             <div className={Styles.control}>
-                <div className={Styles.inlineText} onClick={() => previousQuestion()}><LeftArrow />Back</div>
-                <div className={Styles.inlineText} onClick={() => flipCard()}>Flip</div>
-                <div className={Styles.inlineText + " " + (shakeNext ? Styles.shakeNext : null)} onClick={() => nextQuestion()}>{((questionNumber + 1) === Object.keys(filteredQuestions).length) ? "Restart" : "Next"}<RightArrow /></div>
+                <button className={Styles.inlineText} onClick={() => previousQuestion()}><LeftArrow />Back</button>
+                <button className={Styles.inlineText} onClick={() => flipCard()}>Flip</button>
+                <button className={Styles.inlineText + " " + (shakeNext ? Styles.shakeNext : null)} onClick={() => nextQuestion()}>{((questionNumber + 1) === Object.keys(filteredQuestions).length) ? "Restart" : "Next"}<RightArrow /></button>
             </div>
         </div>
 
@@ -421,7 +456,8 @@ export default function Flashcards() {
                 Styles.card + " " +
                 cardStages[cardAnimationStage % 2] + " " +
                 (isShaking ? Styles.shake : null)
-            } onClick={() => currentCardData.responseType === "none" ? null : flipCard()}>
+            } onClick={() => currentCardData.responseType === "none" ? null : flipCard()}
+            >
                 { cardAnimationStage < 2 ? generatedQuestionSide : <>{generatedQuestionSide}{generatedAnswerSide}</> }
             </div>
         </div>
@@ -435,13 +471,14 @@ export default function Flashcards() {
             }}
         >
             { Object.keys(statuses).filter(x => x !== "none").map((key, index) => {
-                return <p
+                return <button
                     className={Styles.button}
                     style={{borderColor: `${statuses[key]}`}}
                     onClick={() => markQuestion(key as any)}
                     id={key}
+                    tabIndex={cardAnimationStage >= 2 ? 0 : -1}
                     key={index}>{capitalise(key)}
-                </p>
+                </button>
             })}
         </div>
 		<SectionSubheading id="Totals">Progress</SectionSubheading>
@@ -454,14 +491,14 @@ export default function Flashcards() {
             {/* Totals */}
             <div className={Styles.totalContainer}>
                 <div className={Styles.buttonContainer} style={{justifyContent: "flex-start", gap: "0.5rem"}}>
-                    <p className={Styles.button} style={{borderColor: statuses.incorrect}} onClick={() => handleReset()}>{resetClicks === 0 ? "Reset all" : `${interact} again to confirm`}</p>
-                    <p className={Styles.button} style={{borderColor: `#6576CC`}} onClick={() => firstQuestion()}>First card</p>
+                    <button className={Styles.button} style={{borderColor: statuses.incorrect}} onClick={() => handleReset()}>{resetClicks === 0 ? "Reset all" : `${interact} again to confirm`}</button>
+                    <button className={Styles.button} style={{borderColor: `#6576CC`}} onClick={() => firstQuestion()}>First card</button>
                 </div>
                 <p className={Styles.total}>{interact} a type to hide it</p>
                 { Object.keys(counts).map((key, index) => {
                     const colour = statuses[key]
                     const object = statusesToShow.includes(key) ? <Circle colour={colour} /> : <Ring colour={colour} />;
-                    return <div
+                    return <button
                         key={index}
                         className={Styles.inlineText}
                         style={{justifyContent: "flex-start", gap: "0.5rem"}}
@@ -469,7 +506,7 @@ export default function Flashcards() {
                     >
                         {object}
                         <p className={Styles.total}>{counts[key]} {capitalise(key.replace("none", "unmarked").replace("almost", "almost correct"))}</p>
-                    </div>
+                    </button>
                 })}
             </div>
             <div className={Styles.totalContainer}>
@@ -493,5 +530,20 @@ export default function Flashcards() {
                 </div>
             </div>
         </div>
+        {/* Keyboard Shortcuts */}
+        { isMobile ? null : <div>
+            <SectionSubheading id="Shortcuts">Keyboard Shortcuts</SectionSubheading>
+            <div className={Styles.horizontal}>
+                <div>
+                    <p>Left / Right - Previous/Next card</p>
+                    <p>F / Space - Flip card</p>
+                    <p>1 / 2 / 3 - Mark as correct/almost correct/incorrect</p>
+                    <p>R - Reset cards</p>
+                    <p>K - First card</p>
+                    <p>{modifier} + 1/2/3/4 - Toggle correct/almost correct/incorrect/unmarked types</p>
+                    <p>{modifier} + s/e - Toggles standard questions / extra information</p>
+                </div>
+            </div>
+        </div> }
     </>
 }

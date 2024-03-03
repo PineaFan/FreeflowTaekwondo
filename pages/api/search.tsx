@@ -42,10 +42,21 @@ Object.keys(belts).forEach(belt => {
     }
 });
 
+const pages: Record<string, [string, string]> = {
+    "Home": ["/", "Go back to the home page"],
+    "Patterns": ["/pattern", "List of all colour belt patterns"],
+    "Classes": ["/#classes", "List of all classes and times"],
+    "Flashcards": ["/flashcards", "Practice your theory card for your next grading"],
+    "Grading Checklist": ["/checklist", "Check everything you need for your next grading"],
+    "Contact": ["/#contact", "Contact Stacey"],
+    "Resources": ["/#resources", "List of other websites with Taekwondo resources"]
+};
+
 const translateSearcher = new Searcher(Object.keys(allTranslateQuestions));
 const reverseTranslateSearcher = new Searcher(Object.values(allTranslateQuestions));
 const patternSearcher = new Searcher(Object.keys(patterns));
 const classSearcher = new Searcher(classes.map(lesson => lesson.day + lesson.location_name + lesson.building_name));
+const pageSearcher = new Searcher(Object.keys(pages));
 
 
 const unURLEncode = (str: string) => {
@@ -83,12 +94,24 @@ export function searchClass(search: string): lesson[] {
     return classes.filter(lesson => results.includes(lesson.day + lesson.location_name + lesson.building_name));
 }
 
+export const pageSearch = (search: string): {title: string, description: string, url: string}[] => {
+    search = unURLEncode(search);
+    const results = pageSearcher.search(search);
+    return results.map(result => { return {
+        title: result,
+        description: pages[result][1],
+        url: pages[result][0],
+    }})
+}
+
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const search = req.query.q as string || "";
     const translate = searchTranslate(search);
     const pattern = searchPatterns(search)[0];
     const lesson = searchClass(search);
+    const page = pageSearch(search);
     res.status(200).send({
+        pages: page,
         translations: translate,
         classes: lesson,
         pattern

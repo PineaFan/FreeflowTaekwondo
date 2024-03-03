@@ -86,9 +86,13 @@
     flex-wrap: wrap;
     gap: 0.25rem;
     color: #6576CC;
-    text-align: center;
     cursor: pointer;
-    height: 1rem;
+    height: max(1rem, 25px);
+
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    height: 24px;
 }
 
 .count {
@@ -111,6 +115,8 @@
     align-items: center;
     flex-direction: row;
     gap: 0.5rem;
+    background-color: transparent;
+    font-size: 16px;
 }
 
 .option {
@@ -175,6 +181,7 @@
 
 .total {
     margin: 0;
+    height: 23px;
 }
 
 .centerAlign {

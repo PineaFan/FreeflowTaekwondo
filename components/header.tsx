@@ -25,13 +25,33 @@ export default function Header(props: React.PropsWithChildren<{
     subtitle?: string,
     description: string,
     colour?: string,
-    backLink?: string,  // TODO: Show this
+    backLink?: string,
     loading?: boolean,
 }>) {
-    const homeLocation = generateHomeLocation(props.backLink);
+    // Check query parameters for backLink and backText (bl and bt)
+    const [backLink, setBackLink] = React.useState<{link?: string, text?: string}>({
+        link: props.backLink,
+        text: generateHomeLocation(props.backLink),
+    });
+
+    // Get the query parameters
+    React.useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const url = new URL(window.location.href);
+            const backLink = url.searchParams.get('bl');
+            const backText = url.searchParams.get('bt');
+            if (backLink) {
+                setBackLink({
+                    link: backLink,
+                    text: backText || generateHomeLocation(backLink),
+                });
+            }
+        }
+    }, []);
+
     return <div className={Styles.container}>
         <div className={Styles.close}>
-            { props.backLink ? <a href={props.backLink} className={Styles.link}><LeftArrow colour={'6576CC'} />{homeLocation}</a> : null }
+            { backLink.link ? <a href={backLink.link} className={Styles.link}><LeftArrow colour={'6576CC'} />{backLink.text}</a> : null }
             <div className={Styles.horizontal}>
                 <h1 className={Styles.h1}>{props.title}</h1>
             </div>

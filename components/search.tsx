@@ -1,24 +1,25 @@
 import React, { useEffect } from 'react';
 
 import Styles from '../styles/components/search.module.css';
-import { searchPatterns, searchTranslate, searchClass } from '../pages/api/search';
+import { searchPatterns, searchTranslate, searchClass, pageSearch } from '../pages/api/search';
 import Image from 'next/image';
 
 
 function SearchResult(props: React.PropsWithChildren<{title: string, description: string, url?: string}>) {
-    return <a className={Styles.listElement} href={props.url}>
+    const element = <>
         <p className={Styles.main}>{props.title}</p>
         <p
             className={Styles.subText}
             style={{color: props.url ? "#6576CC" : "#424242"}}
         >{props.description}</p>
-    </a>;
+    </>;
+    if (!props.url) { return <div className={Styles.listElement}>{element}</div>; }
+    return <a className={Styles.listElement} href={props.url + "?bl=/&bt=Home"}>{element}</a>;
 }
 
 
 export default function Search() {
     const [search, setSearch] = React.useState("");
-    const [selectedIndex, setSelectedIndex] = React.useState(null);
     // Create a ref for a html input element
     const searchRef = React.useRef<HTMLInputElement>(null);
 
@@ -33,6 +34,7 @@ export default function Search() {
     const patternResults = searchPatterns(search);
     const translateResults = searchTranslate(search);
     const classResults = searchClass(search);
+    const pageResults = pageSearch(search);
 
     // Each needs to be formatted to be displayed in the search results, with a title and a description.
     const patterns = patternResults.map(p => ({url: `/pattern/${p.name}`, title: p.name, description: p.description}));
@@ -42,13 +44,18 @@ export default function Search() {
         title: `${c.location_name} (${c.day})`,
         description: `${c.classes.length} classes at ${c.building_name} on ${c.day}s starting from ${c.classes[0].start}`
     }));
-    const totalResults = [...patterns, ...classes, ...translate];
+    const totalResults = [...pageResults, ...patterns, ...classes, ...translate];
 
     // On search, update the URL to reflect the new search query.
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const url = new URL(window.location.href);
-            url.searchParams.set('q', search);
+            // If the search is empty, remove the query parameter.
+            if (!search) {
+                url.searchParams.delete('q');
+            } else {
+                url.searchParams.set('q', search);
+            }
             window.history.replaceState({}, '', url.toString());
         }
     }, [search]);
@@ -85,9 +92,10 @@ export default function Search() {
                         className={Styles.clearSearch}
                         onClick={() => { setSearch(""); searchRef.current?.focus(); }}
                         style={{opacity: search ? 1 : 0, position: search ? "relative" : "fixed"}}
+                        tabIndex={search ? 0 : -1}
                     >x</button>}
                 </div>
-                <div className={Styles.searchResults}>
+                <div className={Styles.searchResults} tabIndex={search ? 0 : -1}>
                     { totalResults ? <>
                         {totalResults.map((p, i) => <SearchResult key={i} {...p} />)}
                     </> : null }
