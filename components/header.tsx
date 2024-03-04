@@ -45,6 +45,10 @@ export default function Header(props: React.PropsWithChildren<{
                     link: backLink,
                     text: backText || generateHomeLocation(backLink),
                 });
+                // Remove the query parameters from the URL
+                url.searchParams.delete('bl');
+                url.searchParams.delete('bt');
+                window.history.replaceState({}, '', url.toString());
             }
         }
     }, []);

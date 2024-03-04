@@ -59,6 +59,7 @@ export default function Page() {
             break;
         }
     }
+    beltChose = beltChose || belts["black-stripe"] as belt;
     return <>
         <Header
             title={`Pattern ${patternObject.name}`}
