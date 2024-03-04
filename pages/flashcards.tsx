@@ -124,7 +124,7 @@ export default function Flashcards() {
     const header = <Header
         title="Theory Flashcards"
         colour={belts[belt].stripe}
-        description={"Test your knowledge of the theory for your next grading." + (isMobile ? "" : ` Press ${modifier}+k for keyboard shortcuts.`)}
+        description={"Test your knowledge of the theory for your next grading."}
         backLink={"/checklist#theory"}
         loading={!beltChose}
     />;
