@@ -10,7 +10,7 @@
             { "prompt": "Kwon means...", "answer": "A fist to punch or destroy with the hand", "responseType": "GPT" },
             { "prompt": "Do means...", "answer": "Art, way or method", "responseType": "GPT" },
             { "prompt": "Uniform", "answer": "Dobok", "responseType": "translate" },
-            { "prompt": "Belt", "answer": "Ti", "responseType": "translate" },
+            { "prompt": "Belt", "answer": "Ti", "responseType": "translate" },AA
             { "prompt": "Training hall", "answer": "Dojang", "responseType": "translate" },
             { "prompt": "What does white signify?", "answer": "Innocence, beginner, no previous knowledge of Taekwondo", "responseType": "GPT" },
             { "prompt": "Why have you started Taekwondo?", "responseType": "opinion" }
@@ -241,7 +241,7 @@
             { "prompt": "What is fast motion?", "answer": "Two or more moves performed in 'double-time' due to the second sine wave only being half of the normal sine wave, as you have less time to utilise the full range of movement", "responseType": "GPT" },
             { "prompt": "What is connecting motion?", "answer": "Two or more moves performed within the same sine wave that are linked by breath. The first move sets up the opening for the second, therefore the first is always a block and the second move is an attack. However, there are some exceptions", "responseType": "GPT" },
             { "prompt": "What is slow motion?", "answer": "Used to show the practitioners movement, technique, breath control and timing. It demonstrates the synchronisation of hands, feet, eyes and breath, and is performed to the count of 4 seconds", "responseType": "GPT" },
-            { "prompt": "What is pushing motion?", "answer": "A movement performed with no impact. This is because one does not intend to cause severe damage or trauma to the opponent when defending their attacks", "responseType": "" }
+            { "prompt": "What is pushing motion?", "answer": "A movement performed with no impact. This is because one does not intend to cause severe damage or trauma to the opponent when defending their attacks", "responseType": "GPT" }
         ]
     },
     "blue-stripe": {
@@ -294,14 +294,14 @@
             { "prompt": "What part of the foot should be used in a side thrusting kick (Yop Cha Tulgi)?", "answer": "Ball of the foot", "responseType": "typo" },
             { "prompt": "What part of the foot should be used in a side pushing kick (Yop Cha Milgi)?", "answer": "Foot sword", "responseType": "typo" },
             { "prompt": "What part of the foot should be used in a stamping kick (Cha Bapgi)?", "answer": "Back sole", "responseType": "typo" },
-            { "prompt": "Ball of the foot", "answer": "", "responseType": "translate" },
-            { "prompt": "Foot sword", "answer": "", "responseType": "translate" },
-            { "prompt": "Back heel", "answer": "", "responseType": "translate" },
-            { "prompt": "Knee", "answer": "", "responseType": "translate" },
-            { "prompt": "Toes", "answer": "", "responseType": "translate" },
-            { "prompt": "Back sole", "answer": "", "responseType": "translate" },
-            { "prompt": "Instep", "answer": "", "responseType": "translate" },
-            { "prompt": "Side instep", "answer": "", "responseType": "translate" }
+            { "prompt": "Ball of the foot", "answer": "Apkumachi", "responseType": "translate" },
+            { "prompt": "Foot sword", "answer": "Balkal", "responseType": "translate" },
+            { "prompt": "Back heel", "answer": "Dwitchook", "responseType": "translate" },
+            { "prompt": "Knee", "answer": "Moorup", "responseType": "translate" },
+            { "prompt": "Toes", "answer": "Balkut", "responseType": "translate" },
+            { "prompt": "Back sole", "answer": "Dwitkumachi", "responseType": "translate" },
+            { "prompt": "Instep", "answer": "Baldung", "responseType": "translate" },
+            { "prompt": "Side instep", "answer": "Yop Baldung", "responseType": "translate" }
         ]
     },
     "blue": {
