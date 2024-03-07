@@ -10,7 +10,7 @@
             { "prompt": "Kwon means...", "answer": "A fist to punch or destroy with the hand", "responseType": "GPT" },
             { "prompt": "Do means...", "answer": "Art, way or method", "responseType": "GPT" },
             { "prompt": "Uniform", "answer": "Dobok", "responseType": "translate" },
-            { "prompt": "Belt", "answer": "Ti", "responseType": "translate" },AA
+            { "prompt": "Belt", "answer": "Ti", "responseType": "translate" },
             { "prompt": "Training hall", "answer": "Dojang", "responseType": "translate" },
             { "prompt": "What does white signify?", "answer": "Innocence, beginner, no previous knowledge of Taekwondo", "responseType": "GPT" },
             { "prompt": "Why have you started Taekwondo?", "responseType": "opinion" }
