@@ -25,8 +25,11 @@ const allTranslateQuestions: Record<string, string> = {};
 allTranslateObjects.forEach(question => {
     const prompt = question.prompt;
     const answer = question.answer;
-    if (prompt && answer && typeof answer === "string") {
+    if (!prompt || !answer) return;
+    if (typeof answer === "string") {
         allTranslateQuestions[prompt] = answer;
+    } else if (Array.isArray(answer)) {
+        allTranslateQuestions[prompt] = answer.join(", ");
     }
 });
 const reverseTranslateQuestions: Record<string, string> = {};
@@ -42,14 +45,15 @@ Object.keys(belts).forEach(belt => {
     }
 });
 
-const pages: Record<string, [string, string]> = {
-    "Home": ["/", "Go back to the home page"],
-    "Patterns": ["/pattern", "List of all colour belt patterns"],
-    "Classes": ["/#classes", "List of all classes and times"],
-    "Flashcards": ["/flashcards", "Practice your theory card for your next grading"],
-    "Grading Checklist": ["/checklist", "Check everything you need for your next grading"],
-    "Contact": ["/#contact", "Contact Stacey"],
-    "Resources": ["/#resources", "List of other websites with Taekwondo resources"]
+const pages: Record<string, [string, string | undefined, string]> = {
+    "Home": ["/", undefined, "Go back to the home page"],
+    "Patterns": ["/pattern", undefined, "List of all colour belt patterns"],
+    "Classes": ["/", "classes", "List of all classes and times"],
+    "Flashcards": ["/flashcards", undefined, "Practice your theory card for your next grading"],
+    "Grading Checklist": ["/checklist", undefined, "Check everything you need for your next grading"],
+    "Contact": ["/", "contact", "Contact Stacey"],
+    "Resources": ["/", "resources", "List of other websites with Taekwondo resources"],
+    "Policies": ["/", "policies", "List of policies and useful information"],
 };
 
 const translateSearcher = new Searcher(Object.keys(allTranslateQuestions));
@@ -94,13 +98,14 @@ export function searchClass(search: string): lesson[] {
     return classes.filter(lesson => results.includes(lesson.day + lesson.location_name + lesson.building_name));
 }
 
-export const pageSearch = (search: string): {title: string, description: string, url: string}[] => {
+export const pageSearch = (search: string): {title: string, description: string, url: string, section: string | undefined}[] => {
     search = unURLEncode(search);
     const results = pageSearcher.search(search);
     return results.map(result => { return {
         title: result,
-        description: pages[result][1],
+        description: pages[result][2],
         url: pages[result][0],
+        section: pages[result][1]
     }})
 }
 

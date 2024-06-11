@@ -5,7 +5,7 @@ import { searchPatterns, searchTranslate, searchClass, pageSearch } from '../pag
 import Image from 'next/image';
 
 
-function SearchResult(props: React.PropsWithChildren<{title: string, description: string, url?: string}>) {
+function SearchResult(props: React.PropsWithChildren<{title: string, description: string, url?: string, section?: string | undefined}>) {
     const element = <>
         <p className={Styles.main}>{props.title}</p>
         <p
@@ -14,7 +14,7 @@ function SearchResult(props: React.PropsWithChildren<{title: string, description
         >{props.description}</p>
     </>;
     if (!props.url) { return <div className={Styles.listElement}>{element}</div>; }
-    return <a className={Styles.listElement} href={props.url + "?bl=/&bt=Home"}>{element}</a>;
+    return <a className={Styles.listElement} href={props.url + "?bl=/&bt=Home" + (props.section ? `#${props.section}` : "")}>{element}</a>;
 }
 
 
@@ -78,7 +78,10 @@ export default function Search() {
     return <>
         <div className={Styles.container}>
             <div className={Styles.center}>
-                <div className={Styles.inputRow}>
+                <div
+                    className={Styles.inputRow}
+                    style={{borderColor: search ? "#6576CCFF" : "#6576CC00"}}
+                >
                     <Image src="/icons/search.svg" height={16} width={16} alt="Search" />
                     <input
                         ref={searchRef}

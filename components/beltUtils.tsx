@@ -42,7 +42,7 @@ export function NoBelt(props: React.PropsWithChildren<{
 }>) {
     return <div className={Styles.container}>
         <SectionHeading id="top" showLine={false}>{props.title}</SectionHeading>
-        <p className={Styles.text}>You don&apos;t have a belt selected - Choose your belt below to get started</p>
+        <p className={Styles.text}>Choose your belt below to get started</p>
         <div className={Styles.text}>{props.prompt || "Grading checklist for"} <BeltSelect currentBelt="white-senior" setBelt={props.setBelt} unset={true} /></div>
     </div>
 }
