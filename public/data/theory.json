@@ -161,7 +161,7 @@
         "questions": [
             { "prompt": "What is Dan-Gun named after?", "answer": "Dan-Gun is named after the Holy Dan-Gun, the legendary founder of Korea in the year 2333 BCE", "responseType": "GPT" },
             { "prompt": "How many movements does Dan-Gun have?", "answer": "21", "responseType": "exact" },
-            { "prompt": "Three step sparring", "answer": "Sambo Matoski", "responseType": "translate" },
+            { "prompt": "Three step sparring", "answer": "Sambo Matsoki", "responseType": "translate" },
             { "prompt": "What does three step sparring improve?", "answer": ["Focus", "Distance", "Timing"], "responseType": "list" },
             { "prompt": "Outer forearm middle block", "answer": "Bakat Palmok Kaunde Makgi", "responseType": "translate" },
             { "prompt": "Outer forearm high block", "answer": "Bakat Palmok Nopunde Makgi", "responseType": "translate" },
@@ -267,7 +267,7 @@
             { "prompt": "What part of the foot does a turning kick (Dollyo Chagi) use?", "answer": "Ball of the foot", "responseType": "typo" },
             { "prompt": "Reverse turning kick", "answer": "Bandae Dollyo Chagi", "responseType": "translate" },
             { "prompt": "What part of the foot does a reverse turning kick (Bandae Dollyo Chagi) use?", "answer": "Back heel", "responseType": "typo" },
-            { "prompt": "Two step sparring", "answer": "Ibo Matoski", "responseType": "translate" },
+            { "prompt": "Two step sparring", "answer": "Ibo Matsoki", "responseType": "translate" },
             { "prompt": "What does two step sparring improve?", "answer": ["Focus", "Distance", "Timing"], "responseType": "typo" }
         ],
         "extra": [
