@@ -170,7 +170,7 @@
             { "prompt": "Outer forearm high wedging block", "answer": "Bakat Palmok Nopunde Hechyo Makgi", "responseType": "translate" },
             { "prompt": "Double punch", "answer": "Doo Jirugi", "responseType": "translate" },
             { "prompt": "Twin forearm block", "answer": "Sang Palmok Makgi", "responseType": "translate" },
-            { "prompt": "Free sparring", "answer": "Jayoo Matoski", "responseType": "translate" },
+            { "prompt": "Free sparring", "answer": "Jayoo Matsoki", "responseType": "translate" },
             { "prompt": "What does green signify?", "answer": "The plants growth as Taekwondo skills begin to develop", "responseType": "GPT" }
         ],
         "extra": [
