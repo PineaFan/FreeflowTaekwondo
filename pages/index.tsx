@@ -47,7 +47,7 @@ export default function Index(props: React.PropsWithChildren<{}>) {
             />
             <Card
                 title="Trained Instructor"
-                subtitle="Stacey Weatherer (5th Degree Black Belt) is fully DBS checked, fully insured and first aid trained."
+                subtitle="Stacey Weatherer (6th Degree Black Belt) is fully DBS checked, fully insured and first aid trained."
                 button={{text: "Contact", link: "/#contact"}}
                 image="images/stacey.png"
             />
