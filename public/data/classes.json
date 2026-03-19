@@ -17,7 +17,7 @@
         "postcode": "ST10 1HJ",
         "geo": "South+Moorlands+Leisure+Centre+Allen+St+Cheadle+ST10+1HJ",
         "classes": [
-            { "name": "Little PUMAs (4-7)", "start": "19:00", "end": "19:30", "UUID": "TueLP" },
+            { "name": "Little PUMAs (4-7)", "start": "18:30", "end": "19:00", "UUID": "TueLP" },
             { "name": "All Grades", "start": "19:00", "end": "20:00", "UUID": "TueAll" }
         ]
     },
@@ -39,8 +39,8 @@
         "postcode": "ST15 8XQ",
         "geo": "Hilderstone+Village+Hall+Sandon+Rd+Hilderstone+Stone+ST15+8XS",
         "classes": [
-            { "name": "Junior Grades (Blue stripe and below)", "start": "19:00", "end": "20:00", "UUID": "ThuJnr" },
-            { "name": "Senior Grades (Blue belt and above)", "start": "20:00", "end": "21:00", "UUID": "ThuSnr" }
+            { "name": "All Grades", "start": "19:00", "end": "20:00", "UUID": "ThuJnr" },
+            { "name": "Senior Grades (Black Stripe and above)", "start": "20:00", "end": "20:30", "UUID": "ThuSnr" }
         ]
     }
 ]
