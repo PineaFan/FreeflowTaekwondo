@@ -17,9 +17,6 @@ function formatDate(time: string, day_of_week: string) {
     date.setHours(parseInt(timeParts[0]));
     date.setMinutes(parseInt(timeParts[1]));
     date.setSeconds(0);
-    console.log("Date", date)
-    // Convert the date to UTC rather than local time
-    date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
     return date;
 }
 

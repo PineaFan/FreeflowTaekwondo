@@ -13,9 +13,9 @@
     {
         "day": "Tuesday",
         "location_name": "Cheadle",
-        "building_name": "South Moorlands Leisure Centre",
-        "postcode": "ST10 1HJ",
-        "geo": "South+Moorlands+Leisure+Centre+Allen+St+Cheadle+ST10+1HJ",
+        "building_name": "The Guild Hall",
+        "postcode": "ST10 1BG",
+        "geo": "The+Guild+Hall+Tape+Street+Cheadle+ST10+1BG",
         "classes": [
             { "name": "Little PUMAs (4-7)", "start": "18:30", "end": "19:00", "UUID": "TueLP" },
             { "name": "All Grades", "start": "19:00", "end": "20:00", "UUID": "TueAll" }
@@ -39,8 +39,8 @@
         "postcode": "ST15 8XQ",
         "geo": "Hilderstone+Village+Hall+Sandon+Rd+Hilderstone+Stone+ST15+8XS",
         "classes": [
-            { "name": "All Grades", "start": "19:00", "end": "20:00", "UUID": "ThuJnr" },
-            { "name": "Senior Grades (Black Stripe and above)", "start": "20:00", "end": "20:30", "UUID": "ThuSnr" }
+            { "name": "Junior Grades (Red Stripe and below)", "start": "19:00", "end": "20:00", "UUID": "ThuJnr" },
+            { "name": "Senior Grades (Red Belt and above)", "start": "20:00", "end": "21:00", "UUID": "ThuSnr" }
         ]
     }
 ]
