@@ -5,7 +5,10 @@ const venues = [
         area: "Stone",
         address: "Sandon Rd, Hilderstone, Stone",
         postcode: "ST15 8XQ",
-        coordinates: { lat: 52.909392, lng: -2.077887 }
+        coordinates: { lat: 52.909480387028516, lng: -2.0783329438764366 },
+        entranceCoordinates: { lat: 52.90940773511241, lng: -2.0781745137374967 },
+        parkingCoordinates: { lat: 52.9093304226672, lng: -2.0780560596605717 },
+        parking: "Park in the village hall car park. Please use the front entrance instead of the side door."
     },
     {
         id: "cheadle-guild-hall",
@@ -13,7 +16,11 @@ const venues = [
         area: "Cheadle",
         address: "Tape Street, Cheadle",
         postcode: "ST10 1BG",
-        coordinates: { lat: 52.987666, lng: -1.986443}
+        coordinates: { lat: 52.98778189458405, lng: -1.9861839620393495 },
+        entranceCoordinates: { lat: 52.98784564351222, lng: -1.986193736971238 },
+        parkingCoordinates: { lat: 52.98760995308882, lng: -1.9861296249499312 },
+        parking:
+            "Drive into the nearby Morrisons car park. Keep left for the Guild Hall car park. Entrance is around the right of the building on the opposite side of the car park."
     },
     {
         id: "chell-new-horizons",
@@ -21,7 +28,10 @@ const venues = [
         area: "Chell",
         address: "Uplands Ave, Chell",
         postcode: "ST6 6JT",
-        coordinates: { lat: 53.073119, lng: -2.196515 }
+        coordinates: { lat: 53.07310324486423, lng: -2.1964554342787963 },
+        entranceCoordinates: { lat: 53.07317314992745, lng: -2.1961294467737136 },
+        parkingCoordinates: { lat: 53.07293493416827, lng: -2.1959633243695897 },
+        parking: "Park in the New Horizons car park. The sports hall is through the reception and to the left."
     }
 ];
 
