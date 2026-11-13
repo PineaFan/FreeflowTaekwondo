@@ -12,13 +12,14 @@ export default function Home() {
             <div className="w-full max-w-400 px-4">
                 <AboutSection />
                 <div className="w-full max-w-5xl mx-auto">
-                <StudentOfTheYearSection />
-                <ClassesSection />
-                <LittlePumasSection />
-                <NewToTaekwondoSection />
-                <ContactSection />
-                <PoliciesSection />
-                <UsefulLinksSection /></div>
+                    <StudentOfTheYearSection />
+                    <ClassesSection />
+                    <LittlePumasSection />
+                    <NewToTaekwondoSection />
+                    <ContactSection />
+                    <PoliciesSection />
+                    <UsefulLinksSection />
+                </div>
             </div>
         </main>
     );

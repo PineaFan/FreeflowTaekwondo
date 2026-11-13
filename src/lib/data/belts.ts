@@ -1,254 +1,188 @@
+export type Belt = {
+    name: string;
+    colour: string;
+    stripe: string | null;
+    /** Represents a Kup for senior belts, or Degree for black belts */
+    level: number | null;
+    group: "junior" | "senior" | "black";
+    next: string | null;
+};
+
 export const belts = {
     "white-junior": {
-        name: "White (Junior)",
+        name: "White Belt",
         colour: "white",
-        stripe: "white",
-        kup: "10th",
-        requirements: {
-            extra: [],
-            minimum: {
-                lessons: 12,
-                months: 3,
-                squads: 0,
-                seniorGradeTrainings: 0
-            }
-        }
+        stripe: null,
+        level: null,
+        group: "junior",
+        next: "purple-junior"
     },
     "purple-junior": {
-        name: "Purple Stripe (Junior)",
+        name: "Purple Stripe",
         colour: "white",
         stripe: "purple",
-        kup: "10th",
-        requirements: {
-            patterns: ["4dp-1", "4dp-2"],
-            extra: [],
-            minimum: {
-                lessons: 12,
-                months: 3,
-                squads: 0,
-                seniorGradeTrainings: 0
-            }
-        }
+        level: null,
+        group: "junior",
+        next: "orange-junior"
     },
     "orange-junior": {
-        name: "Orange Stripe (Junior)",
+        name: "Orange Stripe",
         colour: "white",
         stripe: "orange",
-        kup: "10th",
-        requirements: {
-            patterns: ["4db"],
-            extra: [],
-            minimum: {
-                lessons: 12,
-                months: 3,
-                squads: 0,
-                seniorGradeTrainings: 0
-            }
-        }
+        level: null,
+        group: "junior",
+        next: "yellow-stripe"
     },
     "white-senior": {
-        name: "White",
+        name: "White Belt",
         colour: "white",
-        stripe: "white",
-        kup: "10th",
-        requirements: {
-            patterns: ["4dp-1", "4dp-2", "4db"],
-            extra: [],
-            minimum: {
-                lessons: 12,
-                months: 3,
-                squads: 0,
-                seniorGradeTrainings: 0
-            }
-        }
+        stripe: null,
+        level: 10,
+        group: "senior",
+        next: "yellow-stripe"
     },
     "yellow-stripe": {
         name: "Yellow Stripe",
         colour: "white",
         stripe: "yellow",
-        kup: "9th",
-        requirements: {
-            patterns: ["chonJi"],
-            extra: [],
-            minimum: {
-                lessons: 20,
-                months: 3,
-                squads: 0,
-                seniorGradeTrainings: 0
-            }
-        }
+        level: 9,
+        group: "senior",
+        next: "yellow-belt"
     },
-    yellow: {
-        name: "Yellow",
+    "yellow-belt": {
+        name: "Yellow Belt",
         colour: "yellow",
-        stripe: "yellow",
-        kup: "8th",
-        requirements: {
-            patterns: ["danGun", "chonJi"],
-            prearrangedSparring: {
-                name: "3 Step 1 & 2",
-                moves: ["3 step 1", "3 step 2"]
-            },
-            extra: [],
-            minimum: {
-                lessons: 20,
-                months: 3,
-                squads: 0,
-                seniorGradeTrainings: 0
-            }
-        }
+        stripe: null,
+        level: 8,
+        group: "senior",
+        next: "green-stripe"
     },
     "green-stripe": {
         name: "Green Stripe",
         colour: "yellow",
         stripe: "green",
-        kup: "7th",
-        requirements: {
-            patterns: ["doSan", "danGun", "chonJi"],
-            prearrangedSparring: {
-                name: "3 Step 3 & 4",
-                moves: ["3 step 3", "3 step 4"]
-            },
-            extra: [],
-            minimum: {
-                lessons: 20,
-                months: 3,
-                squads: 0,
-                seniorGradeTrainings: 0
-            }
-        }
+        level: 7,
+        group: "senior",
+        next: "green-belt"
     },
-    green: {
-        name: "Green",
+    "green-belt": {
+        name: "Green Belt",
         colour: "green",
-        stripe: "green",
-        kup: "6th",
-        requirements: {
-            patterns: ["wonHyo", "doSan", "danGun"],
-            prearrangedSparring: {
-                name: "3 Step 5 & 6",
-                moves: ["3 step 5", "3 step 6"]
-            },
-            extra: ["sparring", "beltTying"],
-            minimum: {
-                lessons: 20,
-                months: 3,
-                squads: 1,
-                seniorGradeTrainings: 0
-            }
-        }
+        stripe: null,
+        level: 6,
+        group: "senior",
+        next: "blue-stripe"
     },
     "blue-stripe": {
         name: "Blue Stripe",
         colour: "green",
         stripe: "blue",
-        kup: "5th",
-        requirements: {
-            patterns: ["yulGok", "wonHyo", "doSan"],
-            prearrangedSparring: {
-                name: "2 Step 1 & 2",
-                moves: ["2 step 1", "2 step 2"]
-            },
-            extra: ["sparring"],
-            minimum: {
-                lessons: 20,
-                months: 3,
-                squads: 1,
-                seniorGradeTrainings: 0
-            }
-        }
+        level: 5,
+        group: "senior",
+        next: "blue-belt"
     },
-    blue: {
-        name: "Blue",
+    "blue-belt": {
+        name: "Blue Belt",
         colour: "blue",
-        stripe: "blue",
-        kup: "4th",
-        requirements: {
-            patterns: ["joongGun", "yulGok", "wonHyo"],
-            prearrangedSparring: {
-                name: "2 Step 3 & 4",
-                moves: ["2 step 3", "2 step 4"]
-            },
-            extra: ["sparring", "powerTest"],
-            minimum: {
-                lessons: 40,
-                months: 6,
-                squads: 1,
-                seniorGradeTrainings: 0
-            }
-        }
+        stripe: null,
+        level: 4,
+        group: "senior",
+        next: "red-stripe"
     },
     "red-stripe": {
         name: "Red Stripe",
         colour: "blue",
         stripe: "red",
-        kup: "3rd",
-        requirements: {
-            patterns: ["toiGye", "joongGun", "yulGok"],
-            prearrangedSparring: {
-                name: "1 Step standard attacks and defence",
-                moves: ["1 step standard"]
-            },
-            extra: ["sparring", "powerTest"],
-            minimum: {
-                lessons: 40,
-                months: 6,
-                squads: 1,
-                seniorGradeTrainings: 0
-            }
-        }
+        level: 3,
+        group: "senior",
+        next: "red-belt"
     },
-    red: {
-        name: "Red",
+    "red-belt": {
+        name: "Red Belt",
         colour: "red",
-        stripe: "red",
-        kup: "2nd",
-        requirements: {
-            patterns: ["hwaRang", "toiGye", "joongGun"],
-            prearrangedSparring: {
-                name: "1 Step standard attacks and traditional defences",
-                moves: ["1 step traditional"]
-            },
-            extra: ["sparring", "powerTest"],
-            minimum: {
-                lessons: 40,
-                months: 6,
-                squads: 1,
-                seniorGradeTrainings: 1
-            }
-        }
+        stripe: null,
+        level: 2,
+        group: "senior",
+        next: "black-stripe"
     },
     "black-stripe": {
         name: "Black Stripe",
         colour: "red",
         stripe: "black",
-        kup: "1st",
-        requirements: {
-            patterns: ["choongMoo", "hwaRang", "toiGye"],
-            prearrangedSparring: {
-                name: "1 Step traditional attacks and traditional defences",
-                moves: ["1 step freestyle"]
-            },
-            extra: ["sparring", "powerTest"],
-            minimum: {
-                lessons: 60,
-                months: 9,
-                squads: 2,
-                seniorGradeTrainings: 2
-            }
-        }
+        level: 1,
+        group: "senior",
+        next: "black-1"
     },
     "black-1": {
         name: "Black Belt 1st Degree",
         colour: "black",
-        stripe: "black",
-        kup: "I",
-        requirements: {
-            patterns: ["geBaek", "choongMoo", "kwangGae"],
-            prearrangedSparring: {
-                name: "1 Step freestyle attacks and traditional defences",
-                moves: ["1 step freestyle"]
-            }
-        }
+        stripe: null,
+        level: 1,
+        group: "black",
+        next: null
     }
-};
+    // "black-2": {
+    //     name: "Black Belt 2nd Degree",
+    //     colour: "black",
+    //     stripe: null,
+    //     level: 2,
+    //     group: "black",
+    //     next: "black-3"
+    // },
+    // "black-3": {
+    //     name: "Black Belt 3rd Degree",
+    //     colour: "black",
+    //     stripe: null,
+    //     level: 3,
+    //     group: "black",
+    //     next: "black-4"
+    // },
+    // "black-4": {
+    //     name: "Black Belt 4th Degree",
+    //     colour: "black",
+    //     stripe: null,
+    //     level: 4,
+    //     group: "black",
+    //     next: "black-5"
+    // },
+    // "black-5": {
+    //     name: "Black Belt 5th Degree",
+    //     colour: "black",
+    //     stripe: null,
+    //     level: 5,
+    //     group: "black",
+    //     next: "black-6"
+    // },
+    // "black-6": {
+    //     name: "Black Belt 6th Degree",
+    //     colour: "black",
+    //     stripe: null,
+    //     level: 6,
+    //     group: "black",
+    //     next: "black-7"
+    // },
+    // "black-7": {
+    //     name: "Black Belt 7th Degree",
+    //     colour: "black",
+    //     stripe: null,
+    //     level: 7,
+    //     group: "black",
+    //     next: "black-8"
+    // },
+    // "black-8": {
+    //     name: "Black Belt 8th Degree",
+    //     colour: "black",
+    //     stripe: null,
+    //     level: 8,
+    //     group: "black",
+    //     next: "black-9"
+    // },
+    // "black-9": {
+    //     name: "Black Belt 9th Degree",
+    //     colour: "black",
+    //     stripe: null,
+    //     level: 9,
+    //     group: "black",
+    //     next: null
+    // }
+} as const satisfies Record<string, Belt>;

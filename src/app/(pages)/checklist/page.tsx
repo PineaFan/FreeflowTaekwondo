@@ -1,75 +1,83 @@
-import { cookies } from "next/headers";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { Suspense } from "react";
 import { belts } from "@/lib/data/belts";
-import { Tabs } from "@/components/ui/tabs";
-
-// Full class names so Tailwind can detect them
-const BG: Record<string, string> = {
-    white: "bg-white",
-    black: "bg-neutral-900",
-    purple: "bg-purple-500",
-    orange: "bg-amber-500",
-    yellow: "bg-yellow-500",
-    green: "bg-green-600",
-    blue: "bg-blue-600",
-    red: "bg-red-500"
-};
-
-const isBlackBelt = (belt: string) => belt.startsWith("black") && !belt.includes("stripe");
-
-const beltList = Object.entries(belts).map(([slug, belt]) => ({
-    slug,
-    label: belt.name,
-    base: BG[belt.colour],
-    degree: isBlackBelt(slug) ? belt.kup : null,
-    stripe: belt.stripe !== belt.colour ? BG[belt.stripe] : undefined
-}));
-
-function BeltPreview({ base, stripe, degree }: { base: string; stripe?: string; degree?: string | null }) {
-    return (
-        <div
-            aria-hidden
-            className={`relative h-7 w-full overflow-hidden rounded-sm shadow-sm ring-1 ring-inset ring-foreground/15 ${base}`}
-        >
-            {stripe && <div className={`absolute inset-x-0 top-1/3 h-1/3 ${stripe}`} />}
-            <div className="absolute inset-0 bg-linear-to-b from-white/25 via-transparent to-black/5" />
-            {degree && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-serif text-lg font-bold italic text-yellow-300 drop-shadow-sm">
-                        {degree}
-                    </span>
-                </div>
-            )}
-        </div>
-    );
-}
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import _ from "lodash";
+import { ordinal } from "@/lib/utils";
+import { ChevronRightIcon } from "lucide-react";
+import { Item, ItemActions, ItemContent, ItemDescription, ItemGroup, ItemMedia, ItemTitle } from "@/components/ui/item";
+import { Badge } from "@/components/ui/badge";
+import { BeltPreview } from "@/components/belt-preview";
 
 function BeltList() {
+    const beltsByGroup = _(belts)
+        .map((belt, key) => ({ ...belt, key }))
+        .groupBy("group")
+        .value();
+
+    const groupLabels = {
+        junior: "Junior Belts",
+        senior: "Senior Belts",
+        black: "Black Belts"
+    } as const;
+
     return (
-        <Tabs>
-            
+        <Tabs defaultValue="senior" className="mx-auto w-full max-w-md">
+            <TabsList className="grid h-11 w-full grid-cols-3">
+                {Object.keys(beltsByGroup).map((group) => (
+                    <TabsTrigger key={group} value={group}>
+                        {groupLabels[group as keyof typeof groupLabels]}
+                    </TabsTrigger>
+                ))}
+            </TabsList>
+
+            {Object.keys(beltsByGroup).map((group) => (
+                <TabsContent key={group} value={group} className="mt-4">
+                    <ItemGroup className="gap-2">
+                        {beltsByGroup[group].map((belt) => (
+                            <Item
+                                key={belt.key}
+                                size="xs"
+                                variant="outline"
+                                render={<Link href={`/checklist/${belt.key}`} />}
+                            >
+                                <ItemMedia className="w-16 h-9 bg-muted" variant="image">
+                                    <BeltPreview {...belt} />
+                                </ItemMedia>
+                                <ItemContent>
+                                    <ItemTitle>
+                                        {belt.name}
+                                        {belt.level && belt.group !== "black" && (
+                                            <Badge variant="secondary">{ordinal(belt.level)} Kup</Badge>
+                                        )}
+                                        {belt.group === "junior" && <Badge variant="secondary">Junior</Badge>}
+                                    </ItemTitle>
+                                    <ItemDescription>
+                                        {belt.group !== "black" && `Grading for ${belts[belt.next].name}`}
+                                    </ItemDescription>
+                                </ItemContent>
+                                <ItemActions>
+                                    <ChevronRightIcon className="text-muted-foreground" />
+                                </ItemActions>
+                            </Item>
+                        ))}
+                    </ItemGroup>
+                </TabsContent>
+            ))}
         </Tabs>
     );
-}
-
-async function ChecklistContent() {
-    const belt = (await cookies()).get("checklistBelt")?.value;
-    if (belt && Object.hasOwn(belts, belt)) redirect(`/checklist/${belt}`);
-    return <BeltList />;
 }
 
 export default function ChecklistPage() {
     return (
         <div className="flex w-full flex-col items-center gap-6">
             <div className="flex flex-col items-center gap-1 text-center">
-                <h1 className="text-2xl font-bold">Select your belt</h1>
-                <p className="text-sm mt-0 text-muted-foreground">Choose a belt to view its checklist.</p>
+                <h1 className="text-2xl font-bold">Grading Checklist</h1>
+                <p className="text-sm mt-0 text-muted-foreground text-balance">
+                    Select your current belt to see what's on your next grading.
+                </p>
             </div>
-            <Suspense fallback={<BeltList />}>
-                <ChecklistContent />
-            </Suspense>
+            <div className="w-full px-4">
+            <BeltList /></div>
         </div>
     );
 }
