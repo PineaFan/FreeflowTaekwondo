@@ -109,7 +109,7 @@ const links = [
     { name: "PUMA Homepage", link: "https://puma-uk.com/" },
     { name: "Little PUMAs", link: "https://puma-uk.com/styles#lp" },
     { name: "Facebook Group", link: "https://facebook.com/tkdclasses/" },
-    { name: "Website issues", link: "mailto:freeflowtaekwondo@companies.pinea.dev" }
+    { name: "Website issues", link: "mailto:website@freeflowtaekwondo.com" }
 ];
 
 export function UsefulLinksSection() {

@@ -1,11 +1,12 @@
 import { getAll } from "@vercel/global-config";
 import { cacheLife } from "next/cache";
-import { classTypes, mapsQuery, sessions, venues } from "@/lib/classes";
+import { classTypes, mapsQuery, sessions, venues } from "@/lib/data/classes";
 
 const TZ = "Europe/London";
 const DOMAIN = "freeflowtaekwondo.com";
-const LOOKBACK_DAYS = 365
+const LOOKBACK_DAYS = 365;
 const CRLF = "\r\n";
+const EMIT_GEO: boolean = true; // set false if Google's importer rejects the feed
 
 const VTIMEZONE = [
     "BEGIN:VTIMEZONE",
@@ -30,31 +31,80 @@ const VTIMEZONE = [
 const venueById = new Map(venues.map((v) => [v.id, v]));
 const classTypeById = new Map(classTypes.map((c) => [c.id, c]));
 
-const esc = (s: string) => s.replace(/[\\;,]/g, "\\$&").replace(/\n/g, "\\n");
-const fold = (line: string) => line.match(/.{1,73}/gu)!.join(CRLF + " ");
+const esc = (s: string) => s.replace(/[\\;,]/g, "\\$&").replace(/\r?\n/g, "\\n");
 const local = (date: string, time: string) => `${date.replaceAll("-", "")}T${time.replace(":", "")}00`;
+
+const qp = (s: string) => `"${s.replace(/["\r\n]/g, " ")}"`;
+
+const fold = (line: string): string => {
+    if (Buffer.byteLength(line) <= 75) return line;
+    let out = "";
+    let bytes = 0;
+    for (const ch of line) {
+        const cp = ch.codePointAt(0)!;
+        const n = cp < 0x80 ? 1 : cp < 0x800 ? 2 : cp < 0x10000 ? 3 : 4;
+        if (bytes + n > 75) {
+            out += CRLF + " ";
+            bytes = 1;
+        }
+        out += ch;
+        bytes += n;
+    }
+    return out;
+};
 
 type Config = { skippedLessons?: string[]; lessonDatesUpTo?: string };
 export type Filter = { session?: string[]; class?: string[]; venue?: string[] };
 
-export async function buildIcs(filter: Filter = {}): Promise<string> {
+export async function buildIcs(filter: Filter = {}, app: "apple" | "google" = "google"): Promise<string> {
     "use cache";
     cacheLife("hours");
 
     const cfg = await getAll<Config>(["skippedLessons", "lessonDatesUpTo"]);
     const skipped = new Set(cfg.skippedLessons ?? []);
 
-    const selected = sessions.filter(
-        (s) =>
-            (!filter.session || filter.session.includes(s.id)) &&
-            (!filter.class || filter.class.includes(s.classTypeId)) &&
-            (!filter.venue || filter.venue.includes(s.venueId))
-    );
-    const byDay = Object.groupBy(selected, (s) => s.day);
+    // Precompute everything that doesn't depend on the date, once per session
+    const prepared = sessions
+        .filter(
+            (s) =>
+                (!filter.session || filter.session.includes(s.id)) &&
+                (!filter.class || filter.class.includes(s.classTypeId)) &&
+                (!filter.venue || filter.venue.includes(s.venueId))
+    )
+        .map((s) => {
+            const v = venueById.get(s.venueId)!;
+            const ct = classTypeById.get(s.classTypeId)!;
+            const { lat, lng } = v.coordinates;
+            const fullAddress = `${v.name}, ${v.address}, ${v.postcode}`;
+            const extra = "note" in ct ? ct.note : "ageMin" in ct ? `Ages ${ct.ageMin}-${ct.ageMax}` : "";
+            const map =
+                app === "apple"
+                    ? `https://maps.apple.com/place?coordinate=${lat},${lng}&name=${encodeURIComponent(v.name)}`
+                    : `https://www.google.com/maps/search/?api=1&query=${mapsQuery(v)}`;
+
+            const note = [`${ct.name} class at ${v.name} (${v.area})\n${fullAddress}\n${map}`,
+            `\nTo customise your calendar, visit https://${DOMAIN}/#classes`
+            ];
+
+            return {
+                s,
+                uidPrefix: `UID:${s.id}-`,
+                head: `SUMMARY:${esc(`${ct.name} (${v.area})`)}`,
+                tail: [
+                    `LOCATION:${esc(fullAddress)}`,
+                    ...(EMIT_GEO ? [`GEO:${lat};${lng}`] : []), // iCalendar GEO uses a semicolon
+                    `X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=${qp(fullAddress)};X-TITLE=${qp(v.name)}:geo:${lat},${lng}`, // geo: URI uses a comma
+                    `DESCRIPTION:${esc([extra, ...note].filter(Boolean).join("\n"))}`,
+                    `URL:${map}`,
+                    "END:VEVENT"
+                ]
+            };
+        });
+    const byDay = Object.groupBy(prepared, (p) => p.s.day);
 
     // Today's date in London, as YYYY-MM-DD
     const today = new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(new Date());
-    const dtstamp = `${today.replaceAll("-", "")}T000000Z`; // stable all day
+    const dtstamp = `DTSTAMP:${today.replaceAll("-", "")}T000000Z`; // stable all day
 
     const lines: string[] = [
         "BEGIN:VCALENDAR",
@@ -79,23 +129,15 @@ export async function buildIcs(filter: Filter = {}): Promise<string> {
             const date = d.toISOString().slice(0, 10);
             if (skipped.has(date)) continue;
 
-            for (const s of byDay[d.getUTCDay()] ?? []) {
-                const v = venueById.get(s.venueId)!;
-                const ct = classTypeById.get(s.classTypeId)!;
-                const extra = "note" in ct ? ct.note : "ageMin" in ct ? `Ages ${ct.ageMin}-${ct.ageMax}` : "";
-                const map = `https://www.google.com/maps/search/?api=1&query=${mapsQuery(v)}`;
-
+            for (const p of byDay[d.getUTCDay()] ?? []) {
                 lines.push(
                     "BEGIN:VEVENT",
-                    `UID:${s.id}-${date}@${DOMAIN}`,
-                    `DTSTAMP:${dtstamp}`,
-                    `DTSTART;TZID=${TZ}:${local(date, s.start)}`,
-                    `DTEND;TZID=${TZ}:${local(date, s.end)}`,
-                    `SUMMARY:${esc(`${ct.name} (${v.area})`)}`,
-                    `LOCATION:${esc(`${v.name}, ${v.address}, ${v.postcode}`)}`,
-                    `DESCRIPTION:${esc([extra, map].filter(Boolean).join("\n"))}`,
-                    `URL:${map}`,
-                    "END:VEVENT"
+                    `${p.uidPrefix}${date}@${DOMAIN}`,
+                    dtstamp,
+                    `DTSTART;TZID=${TZ}:${local(date, p.s.start)}`,
+                    `DTEND;TZID=${TZ}:${local(date, p.s.end)}`,
+                    p.head,
+                    ...p.tail
                 );
             }
         }

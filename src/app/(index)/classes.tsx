@@ -2,12 +2,13 @@ import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle }
 import Image from "next/image";
 import { BabyIcon, BuildingIcon, DoorOpenIcon, ExternalLinkIcon, SquareParkingIcon, XIcon } from "lucide-react";
 import _ from "lodash";
-import { classTypes, sessions, venues } from "@/lib/classes";
+import { classTypes, sessions, venues } from "@/lib/data/classes";
 import { Localise } from "@/components/localise";
 import { SectionHeading } from "./sections";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import GoogleSatelliteMap, { DirectionsButton } from "./parking";
+import { CustomCalendarDialog } from "./calendar.client";
 
 type Grade = "white" | "yellow" | "green" | "blue" | "red" | "black";
 function GradeIndicator({ min, max }: { min: Grade; max: Grade }) {
@@ -186,7 +187,9 @@ export function ClassesSection() {
                     </Card>
                 ))}
             </div>
-            [Dialog will go here to customise a calendar]
+            <div className="mt-4 text-center text-sm text-muted-foreground">
+                <CustomCalendarDialog />
+            </div>
         </>
     );
 }

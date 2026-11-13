@@ -1,7 +1,7 @@
 // app/schedule.ics/route.ts
 import type { NextRequest } from "next/server";
 import { buildIcs, type Filter } from "@/lib/ics";
-import { classTypes, sessions, venues } from "@/lib/classes";
+import { classTypes, sessions, venues } from "@/lib/data/classes";
 
 const valid = {
     session: new Set(sessions.map((s) => s.id)),
@@ -22,7 +22,11 @@ export async function GET(req: NextRequest) {
         filter[key] = ids;
     }
 
-    return new Response(await buildIcs(filter), {
+    const appQuery = params.get("app");
+    const validApp = appQuery === "google" || appQuery === "apple";
+    const app = validApp ? appQuery : "google";
+
+    return new Response(await buildIcs(filter, app), {
         headers: {
             "Content-Type": "text/calendar; charset=utf-8",
             "Content-Disposition": 'inline; filename="classes.ics"',

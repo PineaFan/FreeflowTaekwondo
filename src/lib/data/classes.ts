@@ -69,6 +69,6 @@ const sessions = [
     { id: "thu-snr", venueId: "hilderstone-village-hall", classTypeId: "senior", day: 4, start: "20:00", end: "21:00" }
 ];
 
-const mapsQuery = (v: Venue) => encodeURIComponent(`${v.coordinates.lat},${v.coordinates.lng} (${v.name})`);
+const mapsQuery = (v: Venue) => encodeURIComponent(`${v.coordinates.lat},${v.coordinates.lng}`);
 
 export { venues, classTypes, sessions, mapsQuery };

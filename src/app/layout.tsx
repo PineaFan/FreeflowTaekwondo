@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { HeartIcon, TriangleIcon } from "lucide-react";
+import Navbar from "../components/navbar";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -34,12 +35,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
       <html
           lang="en"
-          className={`${geist.variable} ${geistMono.variable} h-full antialiased typeset typeset-docs motion-safe:scroll-smooth`}
+          className={`${geist.variable} ${geistMono.variable} h-full antialiased typeset typeset-docs motion-safe:scroll-smooth scroll-pt-2`}
+          data-scroll-behavior="smooth"
           suppressHydrationWarning
       >
-          <body className="flex min-h-full flex-col">
+          <body className="flex min-h-full flex-col relative">
               <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                  <main className="flex-1">{children}</main>
+                  <Navbar />
+
+                  <div className="flex-1">{children}</div>
 
                   <footer className="mt-12 border-t-2 border-blue-500 bg-muted/40">
                       <div className="container mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 md:flex-row md:items-start md:justify-between">
@@ -69,7 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                           <div className="space-y-3 text-sm text-muted-foreground md:text-right">
                               <p className="flex flex-wrap items-center gap-1 md:justify-end">
                                   Made with
-                                  <span className="text-red-500" aria-label="love">
+                                  <span className="text-red-400" aria-label="love">
                                       <HeartIcon fill="currentColor" size={14} />
                                   </span>
                                   by{" "}

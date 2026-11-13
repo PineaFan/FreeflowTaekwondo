@@ -11,7 +11,7 @@ import _ from "lodash";
 import { SectionHeading } from "./sections";
 
 const contact = {
-    email: "weatherers@aol.com",
+    email: "stacey@freeflowtaekwondo.com",
     phone: "07966706791",
     facebook: "https://facebook.com/tkdclasses/"
 };

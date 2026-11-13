@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    allowedDevOrigins: ["localhost", "related-sphere-dome-below.trycloudflare.com"],
+    allowedDevOrigins: ["localhost", "reports.pinea.dev"],
     cacheComponents: true,
     partialPrefetching: true,
     reactCompiler: true,

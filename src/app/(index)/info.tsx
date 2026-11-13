@@ -69,9 +69,16 @@ const cards = [
 
 export function HeroSection() {
     return (
-        <div className="flex items-center justify-center w-screen bg-muted p-4">
+        <div className="flex items-center justify-center w-screen bg-muted p-4 pt-0">
             <div className="flex flex-col gap-0 items-center text-balance text-center">
-                <Image src="/icon.svg" alt="Freeflow Taekwondo logo" width={100} height={100} className="w-24 h-24" />
+                <Image
+                    src="/icon.svg"
+                    alt="Freeflow Taekwondo logo"
+                    width={100}
+                    height={100}
+                    className="w-24 h-24"
+                    loading="eager"
+                />
                 <h1 className="mb-0 mt-2">Freeflow Taekwondo</h1>
                 <h2 className="m-0 text-muted-foreground">Stone, Cheadle and Chell Taekwondo classes</h2>
                 <Separator className="grow bg-accent h-1! rounded m-2" />
@@ -90,7 +97,7 @@ export function AboutSection() {
             <div className="mx-auto max-w-6xl grid w-full grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {cards.map((card) => (
                     <Card key={card.title} className="flex h-full flex-col pt-0">
-                        <div className="w-full aspect-square *:w-full *:h-full">
+                        <div className="relative aspect-square w-full overflow-hidden [&>img]:h-full [&>img]:w-full [&>img]:object-cover *:h-full *:w-full">
                             {isValidElement(card.image) ? (
                                 card.image
                             ) : (
