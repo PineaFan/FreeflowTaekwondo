@@ -1,5 +1,6 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import { ChevronLeftIcon } from "lucide-react";
+import { ChevronLeftIcon, HomeIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,9 +13,16 @@ export default function NotFound() {
                 <h1 className="mt-2 text-2xl font-semibold">Page not found</h1>
                 <p className="mt-2 text-gray-600">The page you are looking for does not exist.</p>
             </div>
-            <Link href="/">
-                <Button size="lg"><ChevronLeftIcon /> Back to home</Button>
-            </Link>
+            <div className="flex gap-2">
+                <Button size="lg" onClick={() => window.history.back()}>
+                    <ChevronLeftIcon /> Back
+                </Button>
+                <Link href="/">
+                    <Button size="lg">
+                        <HomeIcon /> Back to home
+                    </Button>
+                </Link>
+            </div>
         </main>
     );
 }

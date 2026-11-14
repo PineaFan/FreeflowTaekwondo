@@ -11,7 +11,7 @@ import _ from "lodash";
 import { isValidElement } from "react";
 import { SectionHeading } from "./sections";
 
-function BeltsImage() {
+export function BeltsImage() {
     const belts = ["bg-white", "bg-yellow-300", "bg-green-500", "bg-indigo-500", "bg-red-400", "bg-zinc-800"];
 
     return (

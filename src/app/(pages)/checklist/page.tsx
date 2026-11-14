@@ -41,7 +41,7 @@ function BeltList() {
                                 render={<Link href={`/checklist/${belt.key}`} />}
                             >
                                 <ItemMedia className="w-16 h-9 bg-muted" variant="image">
-                                    <BeltPreview {...belt} />
+                                    <BeltPreview {...belt} key={null} />
                                 </ItemMedia>
                                 <ItemContent>
                                     <ItemTitle>

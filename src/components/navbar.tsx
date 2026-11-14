@@ -18,6 +18,7 @@ export default function Navbar() {
                             height={32}
                             className="size-8 shrink-0"
                             priority
+                            loading="eager"
                         />
                         Freeflow Taekwondo
                     </NavigationMenuButton>

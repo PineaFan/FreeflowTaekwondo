@@ -1,6 +1,7 @@
 import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "cn"
+import type { BeltColour } from "@/lib/data/belts";
 
 const buttonVariants = cva(
   "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
@@ -52,6 +53,51 @@ function Button({
       {...props}
     />
   )
+}
+
+type BeltButtonProps = Omit<ButtonPrimitive.Props & VariantProps<typeof buttonVariants>, "variant"> & {
+    belt: BeltColour;
+    variant?: "default" | "secondary" | "outline";
+};
+
+const beltColorsDefault: Record<BeltColour, string> = {
+    white: "bg-white text-black hover:bg-white/80 border border-black/20",
+    yellow: "bg-yellow-400 text-primary hover:bg-yellow-400/80",
+    green: "bg-green-600 text-white hover:bg-green-600/80",
+    blue: "bg-blue-600 text-white hover:bg-blue-600/80",
+    red: "bg-red-600 text-white hover:bg-red-600/80",
+    black: "bg-black text-white hover:bg-black/80 border border-white/20",
+    orange: "bg-orange-500 text-white hover:bg-orange-500/80",
+    purple: "bg-purple-600 text-white hover:bg-purple-600/80"
+};
+const beltColorsSecondary: Record<BeltColour, string> = {
+    white: "border-2 border-black/20",
+    yellow: "border-2 border-yellow-400/40",
+    green: "border-2 border-green-600/40",
+    blue: "border-2 border-blue-600/40",
+    red: "border-2 border-red-600/40",
+    black: "border-2 border-white/20",
+    orange: "border-2 border-orange-500/40",
+    purple: "border-2 border-purple-600/40"
+};
+const beltColorsOutline: Record<BeltColour, string> = {
+    white: "bg-transparent hover:bg-white/10 border-2 border-black/20",
+    yellow: "bg-transparent hover:bg-yellow-400/10 border-2 border-yellow-400/20",
+    green: "bg-transparent hover:bg-green-600/10 border-2 border-green-600/20",
+    blue: "bg-transparent hover:bg-blue-600/10 border-2 border-blue-600/20",
+    red: "bg-transparent hover:bg-red-600/10 border-2 border-red-600/20",
+    black: "bg-transparent hover:bg-black/10 border-2 border-black/20",
+    orange: "bg-transparent hover:bg-orange-500/10 border-2 border-orange-500/20",
+    purple: "bg-transparent hover:bg-purple-600/10 border-2 border-purple-600/20"
+};
+
+export function BeltButton({ belt, className, variant = "default", ...props }: BeltButtonProps) {
+    const extraVariants = {
+        default: beltColorsDefault,
+        secondary: beltColorsSecondary,
+        outline: beltColorsOutline
+    }[variant][belt];
+    return <Button {...props} variant={variant} className={cn(extraVariants, className)} />;
 }
 
 export { Button, buttonVariants }

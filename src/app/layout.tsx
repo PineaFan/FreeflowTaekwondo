@@ -8,13 +8,13 @@ import Navbar from "../components/navbar";
 
 const geist = Geist({
     subsets: ["latin"],
-    variable: "--font-geist",
-})
+    variable: "--font-geist"
+});
 
 const geistMono = Geist_Mono({
     subsets: ["latin"],
-    variable: "--font-geist-mono",
-})
+    variable: "--font-geist-mono"
+});
 
 const packages = [
     { name: "Next.js", href: "https://nextjs.org" },
@@ -27,8 +27,7 @@ const packages = [
 
 export const metadata: Metadata = {
     title: "Freeflow Taekwondo",
-    description:
-        "A safe, family-friendly place for all ages to learn the Korean art of Self Defence.",
+    description: "A safe, family-friendly place for all ages to learn the Korean art of Self Defence."
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
